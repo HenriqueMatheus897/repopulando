@@ -933,7 +933,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(1030, 520, 140, 70);
+        jButton1.setBounds(1030, 530, 140, 70);
 
         cbo_quat.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -2156,11 +2156,42 @@ public class PerfilDoCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         RegistroDeCompra registroDeCompra = new RegistroDeCompra();
+        Date dataSistema = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+        
+        //valor dpo dia
+        ClasseDoDia classeDoDia = new ClasseDoDia();
+        
+        classeDoDia.setValorDia(jTextField30.getText());
+      //  classeDoDia.set(formato.format(dataSistema));
+        
+        
+        
+        
+        
+        try {
+            JOptionPane.showMessageDialog(null, classeDoDia.sauvado());  //Atençao
+            // jTextField1.setText("");
+            // texREs.setText("");
+            
+            
+            /*   t.start();
+            prgs.setValue(prgs.getValue()+10);
+            
+            t.stop(); */
+        } catch (IOException ex) {
+            Logger.getLogger(PerfilDoCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        //valor total
+        RegistroDeCompra registroDeCompra = new RegistroDeCompra();
 
     //    registroDeCompra.setPedido(pedidos);
        
         registroDeCompra.setResutado(jTextField30.getText());
+        registroDeCompra.setHora(formato.format(dataSistema));
       //  registroDeCompra.setResutado(jTextField85.getText());
         
        

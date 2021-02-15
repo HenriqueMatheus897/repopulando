@@ -196,16 +196,31 @@ public class RegistroDeCompra {
             Logger.getLogger(RegistroDeCompra.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        //Valor total 
         try {
         
             FileWriter fw = new FileWriter("C:\\Arquivos do programa/ValorTotal.txt", true);
             PrintWriter pw = new PrintWriter(fw);
-            pw.println(this.resutado+";0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;");
+            pw.println(this.resutado+";0;");
             //pw.println("0;0;0;0;4;1;0;0;56;0;0;0;0;0;4;0;0;0;0;0;");
             pw.close();
         } catch (Exception ex) {
             Logger.getLogger(RegistroDeCompra.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        //Valor do dia
+        try {
+        
+            FileWriter fw = new FileWriter("C:\\Arquivos do programa/faturamentoDia.txt", true);
+            PrintWriter pw = new PrintWriter(fw);
+            pw.print(this.resutado+" ");
+            pw.print(this.hora+";");
+            //pw.println("0;0;0;0;4;1;0;0;56;0;0;0;0;0;4;0;0;0;0;0;");
+            pw.close();
+        } catch (Exception ex) {
+            Logger.getLogger(RegistroDeCompra.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
      return null;
     }

@@ -10,8 +10,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.LineNumberReader;
+import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
@@ -48,6 +50,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
        jButton5.setBackground(new java.awt.Color(0,0,0,0));
        jButton8.setBackground(new java.awt.Color(0,0,0,0));
        jButton1.setBackground(new java.awt.Color(0,0,0,0));
+       jButton6.setBackground(new java.awt.Color(0,0,0,0));
 
     }
     
@@ -56,10 +59,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
      // fuçao para caucular o subtotal 
         float suma = 0;
-        for( int i = 0; i < jTable1.getRowCount(); i++)
+        for( int i = 0; i < jTable3.getRowCount(); i++)
         {
             float renglon;
-            renglon = Float.parseFloat(jTable1.getValueAt(i, 0).toString());
+            renglon = Float.parseFloat(jTable3.getValueAt(i, 0).toString());
             
             suma = suma + renglon;
             
@@ -70,6 +73,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
   
     }
     
+       private void calcularBotao()
+    {
+        
+     // fuçao para caucular o subtotal 
+        float suma = 0;
+        for( int i = 0; i < jTable3.getRowCount(); i++)
+        {
+            float renglon;
+            renglon = Float.parseFloat(jTable3.getValueAt(i, 0).toString());
+            
+            suma = suma + renglon;
+            
+        }
+         //jLabel17
+         jTextField1.setText(String.valueOf("R$"+suma));
+         //jLabel7.setText(String.valueOf(suma));
+         //jTextField2.setText(String.valueOf(suma));
+  
+    }
     
 
     /**
@@ -125,6 +147,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jLabel17 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -228,7 +260,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel12.setText("Total de Cliente");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(610, 60, 75, 14);
+        jLabel12.setBounds(610, 60, 100, 14);
 
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -262,7 +294,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel14.setText("Faturamento");
         getContentPane().add(jLabel14);
-        jLabel14.setBounds(780, 60, 62, 14);
+        jLabel14.setBounds(780, 60, 90, 14);
 
         txT_Faturamento.setText("0");
         getContentPane().add(txT_Faturamento);
@@ -336,7 +368,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel15.setText("Total de pedidos");
         getContentPane().add(jLabel15);
-        jLabel15.setBounds(450, 60, 90, 14);
+        jLabel15.setBounds(450, 60, 130, 14);
 
         jLabel16.setText("0");
         getContentPane().add(jLabel16);
@@ -363,6 +395,61 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2);
         jButton2.setBounds(940, 180, 1, 1);
+
+        jButton6.setBackground(java.awt.Color.white);
+        jButton6.setText("Mostrar");
+        jButton6.setBorder(null);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6);
+        jButton6.setBounds(800, 140, 90, 23);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane3.setViewportView(jTable2);
+
+        getContentPane().add(jScrollPane3);
+        jScrollPane3.setBounds(0, 700, 0, 0);
+        getContentPane().add(jLabel17);
+        jLabel17.setBounds(770, 34, 0, 0);
+
+        jTextField1.setBorder(null);
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(610, 210, 0, 0);
+
+        jTextField2.setBorder(null);
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(1060, 80, 150, 30);
+
+        jTextField4.setBorder(null);
+        getContentPane().add(jTextField4);
+        jTextField4.setBounds(1100, 140, 0, 0);
+
+        jTextField3.setBorder(null);
+        getContentPane().add(jTextField3);
+        jTextField3.setBounds(1100, 146, 0, 14);
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane4.setViewportView(jTable3);
+
+        getContentPane().add(jScrollPane4);
+        jScrollPane4.setBounds(280, 170, 0, 0);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Tela inicial - 1300x700.png"))); // NOI18N
@@ -416,7 +503,34 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
- try{
+      //Apga as o arquivo txt
+                                               
+                                               File filee = new File("C:\\Arquivos do programa/DadosObitidosDia.txt");
+
+                                                if ( filee.exists()) {
+                                                       filee.delete();
+                                                   try {
+                                                       FileWriter fw = new FileWriter( "C:\\Arquivos do programa/DadosObitidosDia.txt" );
+                                                   } catch (IOException ex) {
+                                                       Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                                                   }
+                                                   //Cria utro arquivo txt  
+                                                     try {
+                                                    filee.createNewFile();
+                                                    PrintWriter pw = new PrintWriter(filee);
+                                                     pw.println("valores,");
+                                                      pw.close();
+                                                    } catch (IOException e) {
+                                                	e.printStackTrace();
+                                                     } 
+                                                }
+
+        Date dataSistema = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+        
+        jTextField2.setText(formato.format(dataSistema));
+        
+        try{
              String filePath = ("C:\\Arquivos do programa/ValorTotal.txt");
         File file = new File(filePath);
             
@@ -1178,6 +1292,190 @@ JFCadrastro Tela = new JFCadrastro();
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+
+	
+
+        
+        // MELHOR HORA
+        try {
+                        //  String procurarPor = "15-02-2021"; //essa é a data de hoje 
+                          String procurarPor = jTextField2.getText();
+			//abre o arquivo
+			FileReader fr = new FileReader("C:\\Arquivos do programa/faturamentoDia.txt");
+			BufferedReader br = new BufferedReader(fr);
+			String temp;
+			//A cada interação, é uma linha do arquivo e atribui-a a temp
+			while ((temp = br.readLine()) != null)
+			{
+				//Aqui gera a sua "lista". No caso, imprimi cada linha na tela.
+				String[] a = temp.split(";");
+				int i=0;
+				for(String each : a)
+				{
+					if(i==0){
+						nome=each;							
+						System.out.println(nome);
+                                                if(nome.toLowerCase().contains(procurarPor.toLowerCase()) == true){
+                                                 System.out.println(nome+"Contem a data de hoje"); 
+                                                
+                 
+		                                 String resultado = "";
+
+		                                 Scanner sc = new Scanner(nome);
+                                                 //  Scanner 
+
+	                                   	while (sc.hasNext()) {
+
+	                               		resultado += sc.next();
+	                                		break;
+
+		                                   }
+                                              
+		                               System.out.println("R$"+resultado );
+                                               //Apga as o arquivo txt
+                                               
+                                                
+                                            
+                                                
+                                                
+                                           
+                                                        
+                                                  //Sauva os dados no arquivo txt
+                                                  
+                                               ClasseDoDia registroDeCompra = new ClasseDoDia();
+                                               registroDeCompra.setValorDia(resultado);
+                                               
+                                               try {
+            JOptionPane.showMessageDialog(null, registroDeCompra.sauvado());  //Atençao
+            // jTextField1.setText("");
+            // texREs.setText("");
+            
+            
+            /*   t.start();
+            prgs.setValue(prgs.getValue()+10);
+            
+            t.stop(); */
+        } catch (IOException ex) {
+            Logger.getLogger(PerfilDoCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                                               
+                                                }else{
+                                                System.out.println(nome+"Nã Contem a data de hoje");
+                                                }
+                                               
+					}
+						 
+						if(i==2){
+							hora=each;
+							i=-1;
+							//System.out.println(hora);
+                                                       // txtMelhorHora.setText(hora);
+                                                        
+						} 
+						i++;
+					}						
+				}
+		}
+		catch (FileNotFoundException el)
+		{
+			System.out.println("Arquivo não Encontrado!");
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+        
+        /*try{
+             String filePath = ("C:\\Arquivos do programa/faturamentoDia.txt");
+        File file = new File(filePath);
+            
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String firstLine = br.readLine().trim();
+            String[] columnsName = firstLine.split(",");
+            DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+            model.setColumnIdentifiers(columnsName);
+            
+              
+            Object[] tableLines = br.lines().toArray();
+            //model.addRow(tableLines);
+            
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataRow = line.split(";");
+            //    integer[] valoresint = new integer(dataRow.length);
+                model.addRow(dataRow);
+                
+             
+                 
+              String   um = (dataRow[0]);  //valor a jogar  numa variavel
+                String dois = (dataRow[1]);
+                
+                String desoito = (dataRow[18]);
+                String desenove = (dataRow[19]);
+              
+                
+                String dataHoje = jTextField2.getText();
+                
+                
+                
+                if(dois.equals(dataHoje)) { //perceba a diferença aqui
+            System.out.println("numero igual a data de Hoje");
+            jTextField4.setText(um);
+        }
+        else {
+            System.out.println("numero diferente de data de Hoje");
+        }
+                if(desenove.equals(dataHoje)) { //perceba a diferença aqui
+            System.out.println("numero19 igual a data de Hoje");
+            jTextField3.setText("hello");
+        }
+        else {
+            System.out.println("numero diferente de data de Hoje");
+        }
+
+                
+                
+                
+             
+            }
+        }catch (Exception ex) {
+            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }     
+       */
+        
+        
+        try{
+             String filePath = ("C:\\Arquivos do programa/DadosObitidosDia.txt");
+        File file = new File(filePath);
+            
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String firstLine = br.readLine().trim();
+            String[] columnsName = firstLine.split(",");
+            DefaultTableModel model = (DefaultTableModel)jTable3.getModel();
+            model.setColumnIdentifiers(columnsName);
+            
+              
+            Object[] tableLines = br.lines().toArray();
+            //model.addRow(tableLines);
+            
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataRow = line.split(";");
+            //    integer[] valoresint = new integer(dataRow.length);
+                model.addRow(dataRow);
+                   }
+            
+        }catch (Exception ex) {
+            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+            //metodo do co rendimento diario
+           calcularBotao();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1221,6 +1519,7 @@ JFCadrastro Tela = new JFCadrastro();
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
@@ -1233,6 +1532,7 @@ JFCadrastro Tela = new JFCadrastro();
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1254,7 +1554,15 @@ JFCadrastro Tela = new JFCadrastro();
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextpro;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel jldata;
