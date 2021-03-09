@@ -11,7 +11,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -44,6 +46,7 @@ public class ListaVIP extends javax.swing.JFrame {
         
         
     }
+    private PerfilDoCliente Chamar_Fornecedor = new PerfilDoCliente();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,6 +77,9 @@ public class ListaVIP extends javax.swing.JFrame {
         jTextField8 = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jTextField11 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -88,7 +94,7 @@ public class ListaVIP extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Título 1", "Título 2", "Título 3", "Título 4", "Título 5"
+
             }
         ));
         jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -99,11 +105,11 @@ public class ListaVIP extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable2);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(350, 180, 800, 450);
+        jScrollPane1.setBounds(10, 480, 0, 10);
 
         jTextField1.setBorder(null);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(350, 60, 700, 50);
+        jTextField1.setBounds(360, 60, 710, 30);
 
         jToggleButton1.setBorder(null);
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +118,7 @@ public class ListaVIP extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(1080, 40, 90, 80);
+        jToggleButton1.setBounds(1100, 40, 70, 60);
 
         jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -121,7 +127,7 @@ public class ListaVIP extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(140, 170, 90, 80);
+        jButton1.setBounds(180, 180, 90, 80);
 
         jButton2.setBorder(null);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +136,7 @@ public class ListaVIP extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(130, 260, 90, 80);
+        jButton2.setBounds(180, 280, 90, 80);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -147,11 +153,11 @@ public class ListaVIP extends javax.swing.JFrame {
 
         jButton3.setBorder(null);
         getContentPane().add(jButton3);
-        jButton3.setBounds(140, 360, 90, 80);
+        jButton3.setBounds(180, 460, 90, 80);
 
         jButton4.setBorder(null);
         getContentPane().add(jButton4);
-        jButton4.setBounds(140, 460, 90, 80);
+        jButton4.setBounds(180, 560, 90, 80);
 
         jTextField2.setBorder(null);
         getContentPane().add(jTextField2);
@@ -189,7 +195,68 @@ public class ListaVIP extends javax.swing.JFrame {
         getContentPane().add(jTextField10);
         jTextField10.setBounds(140, 70, 0, 14);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4.png"))); // NOI18N
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome", "Título 2", "Pedidos", "Valor", "Numero", "Data", "Bairro", ".", "WhatsApp", "celular", "obiservaçâoes", "Cidade", "."
+            }
+        ));
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jTable3);
+        if (jTable3.getColumnModel().getColumnCount() > 0) {
+            jTable3.getColumnModel().getColumn(0).setMinWidth(300);
+            jTable3.getColumnModel().getColumn(0).setPreferredWidth(300);
+            jTable3.getColumnModel().getColumn(0).setMaxWidth(300);
+            jTable3.getColumnModel().getColumn(1).setMinWidth(0);
+            jTable3.getColumnModel().getColumn(1).setPreferredWidth(0);
+            jTable3.getColumnModel().getColumn(1).setMaxWidth(0);
+            jTable3.getColumnModel().getColumn(2).setMinWidth(260);
+            jTable3.getColumnModel().getColumn(2).setPreferredWidth(260);
+            jTable3.getColumnModel().getColumn(2).setMaxWidth(260);
+            jTable3.getColumnModel().getColumn(3).setMinWidth(260);
+            jTable3.getColumnModel().getColumn(3).setPreferredWidth(260);
+            jTable3.getColumnModel().getColumn(3).setMaxWidth(260);
+            jTable3.getColumnModel().getColumn(4).setMinWidth(0);
+            jTable3.getColumnModel().getColumn(4).setPreferredWidth(0);
+            jTable3.getColumnModel().getColumn(4).setMaxWidth(0);
+            jTable3.getColumnModel().getColumn(5).setMinWidth(0);
+            jTable3.getColumnModel().getColumn(5).setPreferredWidth(0);
+            jTable3.getColumnModel().getColumn(5).setMaxWidth(0);
+            jTable3.getColumnModel().getColumn(6).setMinWidth(0);
+            jTable3.getColumnModel().getColumn(6).setPreferredWidth(0);
+            jTable3.getColumnModel().getColumn(6).setMaxWidth(0);
+            jTable3.getColumnModel().getColumn(7).setMinWidth(0);
+            jTable3.getColumnModel().getColumn(7).setPreferredWidth(0);
+            jTable3.getColumnModel().getColumn(7).setMaxWidth(0);
+            jTable3.getColumnModel().getColumn(8).setMinWidth(0);
+            jTable3.getColumnModel().getColumn(8).setPreferredWidth(0);
+            jTable3.getColumnModel().getColumn(8).setMaxWidth(0);
+            jTable3.getColumnModel().getColumn(9).setMinWidth(0);
+            jTable3.getColumnModel().getColumn(9).setPreferredWidth(0);
+            jTable3.getColumnModel().getColumn(9).setMaxWidth(0);
+            jTable3.getColumnModel().getColumn(10).setMinWidth(0);
+            jTable3.getColumnModel().getColumn(10).setPreferredWidth(0);
+            jTable3.getColumnModel().getColumn(10).setMaxWidth(0);
+            jTable3.getColumnModel().getColumn(11).setMinWidth(0);
+            jTable3.getColumnModel().getColumn(11).setPreferredWidth(0);
+            jTable3.getColumnModel().getColumn(11).setMaxWidth(0);
+            jTable3.getColumnModel().getColumn(12).setMinWidth(0);
+            jTable3.getColumnModel().getColumn(12).setPreferredWidth(0);
+            jTable3.getColumnModel().getColumn(12).setMaxWidth(0);
+        }
+
+        getContentPane().add(jScrollPane3);
+        jScrollPane3.setBounds(350, 130, 800, 520);
+        getContentPane().add(jTextField11);
+        jTextField11.setBounds(50, 80, 200, 20);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/7_1.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.setToolTipText("");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -205,49 +272,66 @@ public class ListaVIP extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-            
-      
-
-        
-      
-      
-      
-      
-      
-      
-      
-      
-        
-        String filePath = ("C://Arquivos do programa/vip.txt");
+           String filePath = ("C:\\Arquivos do programa/Texto.txt");
         File file = new File(filePath);
-        //tabela 1
         try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String firstLine = br.readLine();
-            String[] columnsName = firstLine.split(",");
-            DefaultTableModel model00 = (DefaultTableModel)jTable2.getModel();
-            //model00.setColumnIdentifiers(columnsName);
+             
             
-            Object[] tableLines = br.lines().toArray();
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String firstLine = br.readLine().trim();
+           String[] columnsName = firstLine.split(",");
+            DefaultTableModel model = (DefaultTableModel)jTable3.getModel();
+           // model.setColumnIdentifiers(columnsName);
 
+            Object[] tableLines = br.lines().toArray();
+            //model.addRow(tableLines);
             
             for(int i = 0; i < tableLines.length; i++)
             {
                 String line = tableLines[i].toString().trim();
-                String[] dataRow = line.split(";");
-                model00.addRow(dataRow);
-            }
-            
+                String[] dataMax = line.split("/");
+             //   model.addRow(dataMax);
+                
+                String DataHoje = ":VIP";
+                int posisao = 0;
+                for (int j = 0; j < dataMax.length; j++) {
+                    String  linha = dataMax[posisao];
+                    //metodo para aparecer so o valor
+                    if(linha.toLowerCase().contains(DataHoje.toLowerCase()) == true){
+                         System.out.println(linha+"é vip"); 
+                         
+                         String linha1 = dataMax[posisao -13];
+                         String linha2 = dataMax[posisao -12];
+                         String linha3 = dataMax[posisao -11];
+                         String linha4 = dataMax[posisao -10];
+                         String linha5 = dataMax[posisao -9];
+                         String linha6 = dataMax[posisao -8];
+                         String linha7 = dataMax[posisao -7];
+                         String linha8 = dataMax[posisao -6];
+                         String linha9 = dataMax[posisao -5];
+                         String linha10 = dataMax[posisao -4];
+                         String linha11 = dataMax[posisao -3];
+                         String linha12 = dataMax[posisao -2];
+                         
+                         DefaultTableModel val = (DefaultTableModel) jTable3.getModel();
+                         val.addRow(new String[]{linha1, linha2, linha3, linha4, linha5, linha6, linha7, linha8, linha9, linha10, linha11, linha12, linha});
+                         
+                    }else{
+                    System.out.println("Nao é vip");
+                    }
+                    posisao++;
+                    }
+                  }
         } catch (Exception ex) {
-           Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex); 
-        }
-        // tabela 2
-
-        try {
+            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }       
+        //table 2
+        
+         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
             String firstLine = br.readLine().trim();
             String[] columnsName = firstLine.split(",");
-            DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+            DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
             model.setColumnIdentifiers(columnsName);
             
             
@@ -259,7 +343,7 @@ public class ListaVIP extends javax.swing.JFrame {
             for(int i = 0; i < tableLines.length; i++)
             {
                 String line = tableLines[i].toString().trim();
-                String[] dataRow = line.split(";");
+                String[] dataRow = line.split("/");
                 model.addRow(dataRow);
 
 
@@ -268,8 +352,7 @@ public class ListaVIP extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
         } 
-       
-
+                    
     }//GEN-LAST:event_formWindowOpened
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
@@ -290,142 +373,7 @@ public class ListaVIP extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-  if (evt.getClickCount() == 2 ) {      
-        
-
-
-//Pelfil DO CLIENTE    
-        PerfilDoCliente frm2 = new PerfilDoCliente();
-        /*
- try {
-			//abre o arquivo
-			FileReader fr = new FileReader("Texto.txt");
-			BufferedReader br = new BufferedReader(fr);
-			String temp;
-			//A cada interação, é uma linha do arquivo e atribui-a a temp
-			while ((temp = br.readLine()) != null)
-			{
-				//Aqui gera a sua "lista". No caso, imprimi cada linha na tela.
-				String[] a = temp.split("/");
-				int i=0;
-				for(String each : a)
-				{
-					/*if(i==0){
-						nome=each;							
-						System.out.println(nome);
-					}*/
-						/*if(i==1){
-							Nome=each;
-                                                        
-							System.out.println(Nome);
-                                                       // frm2.txT_Nome.setText(Nome);
-						} /*
-						if(i==2){
-							valor=each;
-							i=-1;
-							System.out.println(valor);
-                                                        
-						}*/
-						/*i++;
-					}						
-				}
-		}
-		catch (FileNotFoundException el)
-		{
-			System.out.println("Arquivo não Encontrado!");
-		} 
-		catch (IOException e) 
-		{
-			e.printStackTrace();
-		}*/
-        
-        
-        
-        
-        
-         TableModel model1 = jTable1.getModel(); 
-     // TableModel model3 = jTextField8.getModel();
-      int indexs[] = jTable2.getSelectedRows();
-        
-      
-      
-      frm2.txT_NomeUSUARIO.setText(jTable2.getModel().getValueAt(jTable2.getSelectedRow(),0).toString()); //Nome
-      frm2.txT_EnderecoUSUARIO.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),1).toString()); //Endereço
-      frm2.txT_NumeroUSUARIO.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),2).toString()); //Numero
-      frm2.txT_BairroUSUARIO.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),3).toString()); //Bairro
-      frm2.txT_dataUSUARIO.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),4).toString()); //Data
-      frm2.txT_AniversarioUSUARIO.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),5).toString()); //Aniversario
-      frm2.txT_EmailUSUARIO.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),6).toString()); //Email
-      frm2.txT_whatsUSUARIO1.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),7).toString()); //WhatsApp
-      frm2.txT_CelularUSUARIO2.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),8).toString()); //Celular
-      
-        
-      jTextField2.setText(jTable2.getModel().getValueAt(jTable2.getSelectedRow(),0).toString()); //controle Nome
-      jTextField3.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),1).toString()); //controle Email
-      jTextField4.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),2).toString()); //controle Numero
-      jTextField5.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),3).toString()); //controle Bairro
-      jTextField6.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),4).toString()); // controle data de aniversario
-      jTextField7.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),5).toString()); // controle Wats
-      jTextField8.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),6).toString()); // CONTROLE Celular
-      jTextField9.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),7).toString()); //controle Obiservaçoes
-      jTextField10.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),8).toString()); // controle rua
-     
-      
-      
-      
-      
-      Object[] row = new Object[2];
-     
-     // PerfilDoCliente frm2 = new PerfilDoCliente();
-      //DefaultTableModel mode13 = (DefaultTableModel)frm2.jtTabelaNome.getModel();
-      //DefaultTableModel model4 = (DefaultTableModel)frm2.jtTabelaData.getModel();
-      //DefaultTableModel model5 = (DefaultTableModel)frm2.jtTabelaEndereço.getModel();
-     // DefaultTableModel model6 = (DefaultTableModel)frm2.jtTabelaNumero.getModel();
-     // DefaultTableModel model7 = (DefaultTableModel)frm2.jtTabelaBairro.getModel();
-     // DefaultTableModel model8 = (DefaultTableModel)frm2.jtTabelaAniversario.getModel();
-    //  DefaultTableModel model9 = (DefaultTableModel)frm2.jtTabelaEmail.getModel();
-      //DefaultTableModel model10 = (DefaultTableModel)frm2.jtTabelaWhatsApp.getModel();
-     // DefaultTableModel model11 = (DefaultTableModel)frm2.jtTabelaCelular.getModel();
-      //DefaultTableModel model12 = (DefaultTableModel)frm2.jtTabelaObiservaçoes.getModel();
-      
-     // for(int i = 0; i < indexs.length; i++)
-     // {
-       //row[0] = model1.getValueAt(indexs[i], 1); // Nome
-      // mode13.addRow(row);
-       
-       
-       
-      // row[0] = model1.getValueAt(indexs[i], 2); // Data 
-     //  model4.addRow(row);
-
-       //row[0] = model1.getValueAt(indexs[i], 5); // Endereço
-      // model5.addRow(row);
-       
-      // row[0] = model1.getValueAt(indexs[i], 6); //Numero
-       //model7.addRow(row);
-       
-       //ow[0] = model1.getValueAt(indexs[i], 7); //Bairro
-      // model6.addRow(row);
-       
-       //row[0] = model1.getValueAt(indexs[i], 8); //Aniversario 
-      // model8.addRow(row);
-       
-      // row[0] = model1.getValueAt(indexs[i], 9);//Emaill
-       //model9.addRow(row);
-       
-       //row[0] = model1.getValueAt(indexs[i], 10);//WhatsApp
-       //model10.addRow(row);
-       
-       //row[0] = model1.getValueAt(indexs[i], 11); //Celular
-       //model11.addRow(row);
-       
-       //row[0] = model1.getValueAt(indexs[i], 12); // Obiservaçoes
-      // model12.addRow(row);
-       
-     // }
-      
-      frm2.setVisible(true); 
-  }
+  
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -502,7 +450,7 @@ public class ListaVIP extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-          while (jTable2.getModel().getRowCount() > 0) {
+  /*        while (jTable2.getModel().getRowCount() > 0) {
     ((DefaultTableModel) jTable2.getModel()).removeRow(0);
     }
         
@@ -528,8 +476,64 @@ public class ListaVIP extends javax.swing.JFrame {
 
         } catch (Exception ex) {
             Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } /*/
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+      
+            PerfilDoCliente frm2 = new PerfilDoCliente();
+            
+            TableModel model1 = jTable3.getModel(); 
+     // TableModel model3 = jTextField8.getModel();
+      int indexs[] = jTable3.getSelectedRows();
+      
+      jTextField11.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),0).toString()); //Nome
+      Chamar_Fornecedor.txt_Endereco.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),0).toString()); //Nome
+      
+      Chamar_Fornecedor.txT_NomeUSUARIO.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),0).toString()); //Nome
+      Chamar_Fornecedor.txT_EnderecoUSUARIO.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),4).toString()); //Numero
+      Chamar_Fornecedor.txT_NumeroUSUARIO.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),6).toString()); //Data Aniversario
+      Chamar_Fornecedor.txT_BairroUSUARIO.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),5).toString()); //Bairro
+      Chamar_Fornecedor.txT_dataUSUARIO.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),2).toString()); //Data
+      Chamar_Fornecedor.txT_AniversarioUSUARIO.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),7).toString()); //Aniversario
+      Chamar_Fornecedor.txT_EmailUSUARIO.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),8).toString()); //Email
+      Chamar_Fornecedor.txT_whatsUSUARIO1.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),9).toString()); //WhatsApp
+      Chamar_Fornecedor.txT_CelularUSUARIO2.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),10).toString()); //Celular
+      //Chamar_Fornecedor.txT_ObiservacoesUSUARIO1.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),12).toString()); // Obiservaçoes
+      Chamar_Fornecedor.jTextField85.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),11).toString()); //verificaçõa
+      
+      
+      
+      
+      
+      Chamar_Fornecedor.txt_Nome.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),0).toString()); //Nome
+      Chamar_Fornecedor.txt_Endereco.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),4).toString()); //Endereço
+      Chamar_Fornecedor.txt_Numero.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),6).toString()); //Numero
+      Chamar_Fornecedor.txt_Bairro.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),5).toString()); //Bairro
+      Chamar_Fornecedor.txt_data.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),2).toString()); //Data
+     // Chamar_Fornecedor.txT_AniversarioUSUARIO.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),9).toString()); //Aniversario
+      Chamar_Fornecedor.txt_email.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),8).toString()); //Email
+      Chamar_Fornecedor.txt_whats.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),10).toString()); //WhatsApp
+      Chamar_Fornecedor.txt_celular.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),11).toString()); //Celular
+      //Chamar_Fornecedor.txT_ObiservacoesUSUARIO1.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),12).toString()); // Obiservaçoes
+      Chamar_Fornecedor.txt_cidade.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),12).toString()); //verificaçõa
+      
+      
+    /*  frm2.txT_EnderecoUSUARIO.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),5).toString()); //Endereço
+      frm2.txT_NumeroUSUARIO.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),7).toString()); //Numero
+      frm2.txT_BairroUSUARIO.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),6).toString()); //Bairro
+      frm2.txT_dataUSUARIO.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),2).toString()); //Data
+      frm2.txT_AniversarioUSUARIO.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),8).toString()); //Aniversario
+      frm2.txT_EmailUSUARIO.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),9).toString()); //Email
+      frm2.txT_whatsUSUARIO1.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),10).toString()); //WhatsApp
+      frm2.txT_CelularUSUARIO2.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),11).toString()); //Celular
+      frm2.txT_ObiservacoesUSUARIO1.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),12).toString()); // Obiservaçoes  */
+            
+            
+            
+         if (!Chamar_Fornecedor.isVisible()) { Chamar_Fornecedor.setVisible(true); }
+        
+    }//GEN-LAST:event_jTable3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -575,10 +579,13 @@ public class ListaVIP extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     public javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;

@@ -15,6 +15,10 @@ import javax.swing.JOptionPane;
 
 
 public class RegistroDeCompra {
+    private String Horario;
+    private String DATA;
+    private String Nomef;
+    private String TTotal;
     private String nome;
     private String endereço;
     private String numero;
@@ -30,6 +34,48 @@ public class RegistroDeCompra {
     private String hora ;
     private String data;
     private String valores;
+    private String analise;
+
+    public String getHorario() {
+        return Horario;
+    }
+
+    public void setHorario(String Horario) {
+        this.Horario = Horario;
+    }
+
+    public String getDATA() {
+        return DATA;
+    }
+
+    public void setDATA(String DATA) {
+        this.DATA = DATA;
+    }
+
+    public void setNomef(String Nomef) {
+        this.Nomef = Nomef;
+    }
+
+    public String getNomef() {
+        return Nomef;
+    }
+
+    public String getTTotal() {
+        return TTotal;
+    }
+
+    public void setTTotal(String TTotal) {
+        this.TTotal = TTotal;
+    }
+
+    public String getAnalise() {
+        return analise;
+    }
+
+    public void setAnalise(String analise) {
+        this.analise = analise;
+    }
+    
 
     
     public String getValores(){
@@ -160,20 +206,25 @@ public class RegistroDeCompra {
         try {
           FileWriter fw = new FileWriter("C:\\Arquivos do programa/textando.txt", true);
             PrintWriter pw = new PrintWriter(fw);
-            pw.print(this.nome);
-            pw.print(";"+this.endereço);
-            pw.print(";"+this.numero);
-            pw.print(";"+this.bairro);
-            pw.print(";"+this.dataNacimento);
-            pw.print(";"+this.email);
-            pw.print(";"+this.whatsApp);
-            pw.print(";"+this.celular);
-            pw.print(";"+this.obiservaçoes);
-            pw.print(";"+this.resutado);
-            pw.print(";"+this.data);
-            pw.print(";"+this.hora);
-            pw.print(";"+this.valores);
-           pw.println(";"+this.pedido);
+            
+            pw.print(this.TTotal+" ");//Valor
+            pw.print(this.Horario+" ");//hora
+            
+            pw.print(this.Nomef+" ");//Nome
+            pw.println(this.DATA+";");//Hora
+           // pw.print(";"+this.endereço);
+           // pw.print(";"+this.numero);
+         //   pw.print(";"+this.bairro);
+         //   pw.print(";"+this.dataNacimento);
+         //   pw.print(";"+this.email);
+        //    pw.print(";"+this.whatsApp);
+         //   pw.print(";"+this.celular);
+        //    pw.print(";"+this.obiservaçoes);
+            
+            
+            
+        //    pw.print(";"+this.valores);
+        //   pw.println(";"+this.pedido);
            
            // pw.print(this.valores);
             pw.flush();
@@ -201,7 +252,8 @@ public class RegistroDeCompra {
         
             FileWriter fw = new FileWriter("C:\\Arquivos do programa/ValorTotal.txt", true);
             PrintWriter pw = new PrintWriter(fw);
-            pw.println(this.resutado+";0;");
+            pw.print(this.resutado+";");
+            pw.println(this.data+";");
             //pw.println("0;0;0;0;4;1;0;0;56;0;0;0;0;0;4;0;0;0;0;0;");
             pw.close();
         } catch (Exception ex) {
@@ -215,6 +267,40 @@ public class RegistroDeCompra {
             PrintWriter pw = new PrintWriter(fw);
             pw.print(this.resutado+" ");
             pw.print(this.hora+";");
+            //pw.println("0;0;0;0;4;1;0;0;56;0;0;0;0;0;4;0;0;0;0;0;");
+            pw.close();
+        } catch (Exception ex) {
+            Logger.getLogger(RegistroDeCompra.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+        
+            FileWriter fw = new FileWriter("C:\\Arquivos do programa/analise.txt", true);
+            PrintWriter pw = new PrintWriter(fw);
+            pw.println(this.analise+" ");
+            
+            //pw.println("0;0;0;0;4;1;0;0;56;0;0;0;0;0;4;0;0;0;0;0;");
+            pw.close();
+        } catch (Exception ex) {
+            Logger.getLogger(RegistroDeCompra.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+        
+            FileWriter fw = new FileWriter("C:\\Arquivos do programa/Texto.txt", true);
+            PrintWriter pw = new PrintWriter(fw);
+            pw.print(this.nome+"/");
+            pw.print(this.hora+"/0/0/");//Data
+            pw.print(this.endereço+"/");
+            pw.print(this.numero+"/");
+            pw.print(this.bairro+"/");
+            pw.print(this.dataNacimento+"/");
+            pw.print(this.email+"/");
+            pw.print(this.whatsApp+"/");
+            pw.print(this.whatsApp+"/");
+            pw.print(this.celular+"/");
+            pw.print(this.obiservaçoes+"/");
+            pw.println(this.hora);
             //pw.println("0;0;0;0;4;1;0;0;56;0;0;0;0;0;4;0;0;0;0;0;");
             pw.close();
         } catch (Exception ex) {

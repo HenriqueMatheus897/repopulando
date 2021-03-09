@@ -6,6 +6,9 @@
 package visão;
 
 import java.awt.Desktop;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.beans.EventHandler;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -21,6 +24,7 @@ import java.util.Date;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.Background;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
@@ -38,7 +42,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 
 
-    private  static String nome,data,hora,valor;
+    private  static String nome,data,hora,valor,um,dois,tres,quatro,cinco,seis,sete,oito,nove,dez,onze,dose,treze,quatoze,quise,deseis,desete,desoito,desenove,vinte;
     
     public TelaPrincipal() {
         initComponents();
@@ -50,7 +54,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
        jButton5.setBackground(new java.awt.Color(0,0,0,0));
        jButton8.setBackground(new java.awt.Color(0,0,0,0));
        jButton1.setBackground(new java.awt.Color(0,0,0,0));
-       jButton6.setBackground(new java.awt.Color(0,0,0,0));
+       //jButton6.setBackground(new java.awt.Color(0,0,0,0));
 
     }
     
@@ -59,10 +63,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
      // fuçao para caucular o subtotal 
         float suma = 0;
-        for( int i = 0; i < jTable3.getRowCount(); i++)
+        for( int i = 0; i < jTable4.getRowCount(); i++)
         {
             float renglon;
-            renglon = Float.parseFloat(jTable3.getValueAt(i, 0).toString());
+            renglon = Float.parseFloat(jTable4.getValueAt(i, 0).toString());
             
             suma = suma + renglon;
             
@@ -92,6 +96,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
          //jTextField2.setText(String.valueOf(suma));
   
     }
+    private JFCadrastro Chamar_Fornecedor = new JFCadrastro();
+    private PaginaUsuario Chamar_Fornecedor2 = new PaginaUsuario();
+    private TelaRelatorioCistema Chamar_Fornecedor3 = new TelaRelatorioCistema();
+    private frm_GuardarDados Chamar_Fornecedor4 = new frm_GuardarDados();
+    private ListaVIP Chamar_Fornecedor5 = new ListaVIP();
+    private PerfilDoCliente Chamar_Fornecedor6 = new PerfilDoCliente();
+    //private jFrame1 Chamar_Fornecedor6 = new jFrame1();
     
 
     /**
@@ -127,6 +138,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TxT_Pedididos = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
+        jFrame1 = new javax.swing.JFrame();
+        jPanel4 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -143,11 +156,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jLabel17 = new javax.swing.JLabel();
@@ -155,8 +169,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
+        jLabel18 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        jButton12 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -248,6 +267,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jFrame1.getContentPane().add(jPanel4, java.awt.BorderLayout.CENTER);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(84, 93, 106));
         setExtendedState(MAXIMIZED_BOTH);
@@ -260,7 +281,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel12.setText("Total de Cliente");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(610, 60, 100, 14);
+        jLabel12.setBounds(630, 100, 100, 14);
 
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,14 +289,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton8);
-        jButton8.setBounds(120, 490, 80, 80);
+        jButton8.setBounds(130, 380, 80, 80);
 
         jtTabelaP.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Codigo", "Nome"
+                "Nome", "2", "3", "4", "5", "6", "7"
             }
         ));
         jtTabelaP.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -284,21 +305,41 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jtTabelaP);
+        if (jtTabelaP.getColumnModel().getColumnCount() > 0) {
+            jtTabelaP.getColumnModel().getColumn(1).setMinWidth(0);
+            jtTabelaP.getColumnModel().getColumn(1).setPreferredWidth(0);
+            jtTabelaP.getColumnModel().getColumn(1).setMaxWidth(0);
+            jtTabelaP.getColumnModel().getColumn(2).setMinWidth(0);
+            jtTabelaP.getColumnModel().getColumn(2).setPreferredWidth(0);
+            jtTabelaP.getColumnModel().getColumn(2).setMaxWidth(0);
+            jtTabelaP.getColumnModel().getColumn(3).setMinWidth(0);
+            jtTabelaP.getColumnModel().getColumn(3).setPreferredWidth(0);
+            jtTabelaP.getColumnModel().getColumn(3).setMaxWidth(0);
+            jtTabelaP.getColumnModel().getColumn(4).setMinWidth(0);
+            jtTabelaP.getColumnModel().getColumn(4).setPreferredWidth(0);
+            jtTabelaP.getColumnModel().getColumn(4).setMaxWidth(0);
+            jtTabelaP.getColumnModel().getColumn(5).setMinWidth(0);
+            jtTabelaP.getColumnModel().getColumn(5).setPreferredWidth(0);
+            jtTabelaP.getColumnModel().getColumn(5).setMaxWidth(0);
+            jtTabelaP.getColumnModel().getColumn(6).setMinWidth(0);
+            jtTabelaP.getColumnModel().getColumn(6).setPreferredWidth(0);
+            jtTabelaP.getColumnModel().getColumn(6).setMaxWidth(0);
+        }
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(410, 380, 670, 280);
+        jScrollPane1.setBounds(470, 350, 570, 280);
 
         txT_Total.setText("0");
         getContentPane().add(txT_Total);
-        txT_Total.setBounds(610, 110, 80, 40);
+        txT_Total.setBounds(650, 110, 80, 40);
 
         jLabel14.setText("Faturamento");
         getContentPane().add(jLabel14);
-        jLabel14.setBounds(780, 60, 90, 14);
+        jLabel14.setBounds(770, 90, 90, 14);
 
         txT_Faturamento.setText("0");
         getContentPane().add(txT_Faturamento);
-        txT_Faturamento.setBounds(770, 120, 90, 14);
+        txT_Faturamento.setBounds(790, 120, 90, 14);
 
         jButton5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -307,10 +348,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(1010, 270, 70, 70);
+        jButton5.setBounds(960, 260, 70, 70);
 
         jTextpro.setBackground(new java.awt.Color(83, 93, 106));
         jTextpro.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextpro.setForeground(java.awt.Color.white);
         jTextpro.setBorder(null);
         jTextpro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -318,7 +360,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextpro);
-        jTextpro.setBounds(440, 290, 530, 40);
+        jTextpro.setBounds(480, 280, 460, 40);
 
         jButtonNegocio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -326,15 +368,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonNegocio);
-        jButtonNegocio.setBounds(1170, 620, 80, 70);
+        jButtonNegocio.setBounds(1240, 600, 80, 70);
 
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(120, 290, 80, 80);
+        jButton4.setBounds(130, 280, 80, 80);
 
         jButton3.setForeground(new java.awt.Color(153, 255, 255));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -343,7 +390,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(120, 190, 80, 80);
+        jButton3.setBounds(130, 170, 80, 80);
 
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -351,7 +398,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(120, 590, 80, 80);
+        jToggleButton1.setBounds(130, 480, 80, 80);
 
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -359,7 +406,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(120, 390, 80, 80);
+        jButton1.setBounds(130, 580, 80, 80);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/fundinho.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -368,11 +415,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel15.setText("Total de pedidos");
         getContentPane().add(jLabel15);
-        jLabel15.setBounds(450, 60, 130, 14);
+        jLabel15.setBounds(500, 100, 130, 14);
 
-        jLabel16.setText("0");
-        getContentPane().add(jLabel16);
-        jLabel16.setBounds(460, 120, 60, 14);
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane6.setViewportView(jTable5);
+
+        getContentPane().add(jScrollPane6);
+        jScrollPane6.setBounds(20, 690, 0, 0);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -396,16 +452,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(940, 180, 1, 1);
 
-        jButton6.setBackground(java.awt.Color.white);
-        jButton6.setText("Mostrar");
-        jButton6.setBorder(null);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton6);
-        jButton6.setBounds(800, 140, 90, 23);
+        jLabel20.setText("0");
+        getContentPane().add(jLabel20);
+        jLabel20.setBounds(500, 120, 100, 30);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -428,7 +477,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jTextField2.setBorder(null);
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(1060, 80, 150, 30);
+        jTextField2.setBounds(1060, 110, 0, 0);
 
         jTextField4.setBorder(null);
         getContentPane().add(jTextField4);
@@ -437,6 +486,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTextField3.setBorder(null);
         getContentPane().add(jTextField3);
         jTextField3.setBounds(1100, 146, 0, 14);
+        getContentPane().add(jLabel19);
+        jLabel19.setBounds(310, 140, 60, 30);
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -449,10 +500,35 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jScrollPane4.setViewportView(jTable3);
 
         getContentPane().add(jScrollPane4);
-        jScrollPane4.setBounds(280, 170, 0, 0);
+        jScrollPane4.setBounds(280, 370, 10, 0);
+        getContentPane().add(jLabel18);
+        jLabel18.setBounds(350, 140, 0, 0);
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1"
+            }
+        ));
+        jScrollPane5.setViewportView(jTable4);
+
+        getContentPane().add(jScrollPane5);
+        jScrollPane5.setBounds(210, 562, 10, 0);
+
+        jButton12.setText("mostrar");
+        jButton12.setBorder(null);
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton12);
+        jButton12.setBounds(780, 160, 37, 15);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Tela inicial - 1300x700.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/2_1.png"))); // NOI18N
         jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jLabel1MouseMoved(evt);
@@ -493,17 +569,124 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemCadUsuarioActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-      JFCadrastro Tela = new JFCadrastro();
-        Tela.setVisible(rootPaneCheckingEnabled);  
+
+        if (!Chamar_Fornecedor.isVisible()) { Chamar_Fornecedor.setVisible(true); }
+        dispose();
+      //  JFCadrastro Tela = new JFCadrastro();
+      //  Tela.setVisible(rootPaneCheckingEnabled);  
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-           PaginaUsuario Tela = new PaginaUsuario();
-        Tela.setVisible(rootPaneCheckingEnabled);   
+        if (!Chamar_Fornecedor2.isVisible()) { Chamar_Fornecedor2.setVisible(true); } 
+      //  PaginaUsuario Tela = new PaginaUsuario();
+      //  Tela.setVisible(rootPaneCheckingEnabled);   
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-      //Apga as o arquivo txt
+//total de pedidos 
+
+        
+
+
+
+
+//Notificaçao de aniversario
+          try {
+             String filePath = ("C:\\Arquivos do programa/texto.txt");
+        File file = new File(filePath);
+            
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String firstLine = br.readLine().trim();
+           String[] columnsName = firstLine.split(",");
+         //   DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+          //  model.setColumnIdentifiers(columnsName);
+
+            Object[] tableLines = br.lines().toArray();
+            //model.addRow(tableLines);
+            
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataMax = line.split("/");
+                //String[] dataRow = line.split(";");
+           //     model.addRow(dataRow);
+                
+   
+               
+        //metodo para percorrer o array
+        Date dataSistema = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM");
+        
+        jLabel9.setText(formato.format(dataSistema));
+        String DataHoje = jLabel9.getText();
+        //String quebrador ="";
+        int posisao = 0;
+                for (int j = 0; j < dataMax.length; j++) {
+                    String  linha = dataMax[posisao];
+                    //metodo para aparecer so o valor
+                    if(linha.toLowerCase().contains(DataHoje.toLowerCase()) == true){
+                        System.out.println(linha+"Contem a data de hoje"); 
+                        
+                       // String linha1 = dataMax[posisao -13];
+                  //  JOptionPane.showMessageDialog(null, "tem um clinte que faz aniversario hoje");
+                                               
+                    linha.trim();
+                    
+                   // DefaultTableModel val = (DefaultTableModel) jTable2.getModel();
+                    //val.addRow(new String[]{linha});
+                    
+                    
+                                               
+                                               
+                                            //    RegistroDeCompra registroDeCompra = new RegistroDeCompra();
+                                             //   registroDeCompra.setAnalise(linha);
+                                                
+                                              //   try {
+        //    JOptionPane.showMessageDialog(null, registroDeCompra.sauvado());  //Atençao
+            // jTextField1.setText("");
+            // texREs.setText("");
+            
+            
+            /*   t.start();
+            prgs.setValue(prgs.getValue()+10);
+            
+            t.stop(); */
+       // } catch (IOException ex) {
+       //     Logger.getLogger(PerfilDoCliente.class.getName()).log(Level.SEVERE, null, ex);
+      //  }
+                        
+                                                 
+                                                 
+         
+                    
+                   // DefaultTableModel val = (DefaultTableModel) jTable2.getModel();
+                  //  val.addRow(new String[]{resutado});
+                    
+                                               
+                    }else{
+                     System.out.println(linha+"Nã Contem a data de hoje");
+                    }
+                    
+                    
+                    
+                    posisao ++;
+                    System.out.println(""+posisao);
+                    System.out.println(linha);
+                }
+        
+                
+               
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+       
+        
+        
+        
+        
+        
+//Apga as o arquivo txt
                                                
                                                File filee = new File("C:\\Arquivos do programa/DadosObitidosDia.txt");
 
@@ -707,7 +890,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                for (int j = 0; j < MeuArray.length; j ++){
                 if (dataRow[j] != null)
                 Contador ++;
-                jLabel16.setText(""+Contador);
+              //  jLabel16.setText(""+Contador);
                 //jTextField1.setText(""+contador);
                 
                 System.out.print(""+Contador);
@@ -968,13 +1151,185 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jButtonNegocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNegocioActionPerformed
+//if (!Chamar_Fornecedor6.isVisible()) { Chamar_Fornecedor6.setVisible(true); }
         MeuNegocio Tela = new MeuNegocio();
         Tela.setVisible(rootPaneCheckingEnabled); 
+  //   jFrame1.setVisible(rootPaneCheckingEnabled); 
+     
+     
     }//GEN-LAST:event_jButtonNegocioActionPerformed
 
     private void jtTabelaPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtTabelaPMouseClicked
-        PerfilDoCliente Tela = new PerfilDoCliente();
-        Tela.setVisible(rootPaneCheckingEnabled);
+              
+        
+        
+        
+      // Captura o ID
+      //JOptionPane.showMessageDialog(null, "foi clicado 2 veses!");
+    
+         
+
+
+
+        //Pelfil DO CLIENTE    
+        PerfilDoCliente frm2 = new PerfilDoCliente();
+        /*
+ try {
+			//abre o arquivo
+			FileReader fr = new FileReader("Texto.txt");
+			BufferedReader br = new BufferedReader(fr);
+			String temp;
+			//A cada interação, é uma linha do arquivo e atribui-a a temp
+			while ((temp = br.readLine()) != null)
+			{
+				//Aqui gera a sua "lista". No caso, imprimi cada linha na tela.
+				String[] a = temp.split("/");
+				int i=0;
+				for(String each : a)
+				{
+					/*if(i==0){
+						nome=each;							
+						System.out.println(nome);
+					}*/
+						/*if(i==1){
+							Nome=each;
+                                                        
+							System.out.println(Nome);
+                                                       // frm2.txT_Nome.setText(Nome);
+						} /*
+						if(i==2){
+							valor=each;
+							i=-1;
+							System.out.println(valor);
+                                                        
+						}*/
+						/*i++;
+					}						
+				}
+		}
+		catch (FileNotFoundException el)
+		{
+			System.out.println("Arquivo não Encontrado!");
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}*/
+        
+        
+        
+        
+        
+             TableModel model1 = jTable1.getModel(); 
+     // TableModel model3 = jTextField8.getModel();
+      int indexs[] = jTable2.getSelectedRows();
+      
+      
+     // frm2.txT_Nome.setText();
+                                                           
+      frm2.txT_NomeUSUARIO.setText(jtTabelaP.getModel().getValueAt(jtTabelaP.getSelectedRow(),0).toString()); //Nome
+      frm2.txT_EnderecoUSUARIO.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),4).toString()); //Endereço
+      frm2.txT_NumeroUSUARIO.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),6).toString()); //Numero
+      frm2.txT_BairroUSUARIO.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),5).toString()); //Bairro
+      frm2.txT_dataUSUARIO.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),2).toString()); //Data
+      frm2.txT_AniversarioUSUARIO.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),7).toString()); //Aniversario
+      frm2.txT_EmailUSUARIO.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),8).toString()); //Email
+      frm2.txT_whatsUSUARIO1.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),9).toString()); //WhatsApp
+      frm2.txT_CelularUSUARIO2.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),10).toString()); //Celular
+      frm2.txT_ObiservacoesUSUARIO1.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),11).toString()); // Obiservaçoes
+      
+     //string que vai ser apgada ao aperta o botão de sauvar alteraçoes
+      frm2.txt_Nome.setText(jtTabelaP.getModel().getValueAt(jtTabelaP.getSelectedRow(),0).toString()); //Nome
+      frm2.txt_pedidos.setText(jtTabelaP.getModel().getValueAt(jtTabelaP.getSelectedRow(),2).toString()); //pedido
+      frm2.txt_valorTotal.setText(jtTabelaP.getModel().getValueAt(jtTabelaP.getSelectedRow(),3).toString()); //valor total
+      frm2.txt_Rua.setText(jtTabelaP.getModel().getValueAt(jtTabelaP.getSelectedRow(),4).toString()); //Rua
+      frm2.txt_Endereco.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),5).toString()); //Endereço
+      frm2.txt_Numero.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),7).toString()); //Numero
+      frm2.txt_Bairro.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),6).toString()); //Bairro
+      frm2.txt_data.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),7).toString()); //Data
+      frm2.Txt_Aniversario.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),8).toString()); //Aniversario
+      frm2.txt_email.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),9).toString()); //Email
+      frm2.txt_whats.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),10).toString()); //WhatsApp
+      frm2.txt_celular.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),11).toString()); //Celular
+      frm2.txt_obiservasoes.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),12).toString()); // Obiservaçoes
+      frm2.txt_cidade.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),13).toString()); //controle cidade
+     
+      
+      
+    /*  
+      txt_controle.setText(jTable2.getModel().getValueAt(jTable2.getSelectedRow(),1).toString()); //controle Nome
+      tex_controle_2.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),5).toString()); //controle Endereço
+      jTextField1.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),7).toString()); //controle Numero
+      jTextField2.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),6).toString()); //controle Bairro
+      jTextField3.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),2).toString()); // controle Data
+      jTextField4.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),8).toString()); // controle Aniversario
+      jTextField5.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),9).toString()); // CONTROLE EMAIL
+      jTextField6.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),10).toString()); //controle whats
+      jTextField7.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),11).toString()); // controle celular
+      jTextField8.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),12).toString()); // controle Obiservaçoes
+      jTextField9.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),13).toString()); //controle cidade
+      */
+      
+      
+      
+      // frm2.txT_whatsUSUARIO1.setText.(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),13).toString());
+//      frm2.txT_Numero.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),13).toString());
+      
+      
+      
+      
+      
+      Object[] row = new Object[2];
+     
+     // PerfilDoCliente frm2 = new PerfilDoCliente();
+      //DefaultTableModel mode13 = (DefaultTableModel)frm2.jtTabelaNome.getModel();
+      //DefaultTableModel model4 = (DefaultTableModel)frm2.jtTabelaData.getModel();
+      //DefaultTableModel model5 = (DefaultTableModel)frm2.jtTabelaEndereço.getModel();
+     // DefaultTableModel model6 = (DefaultTableModel)frm2.jtTabelaNumero.getModel();
+     // DefaultTableModel model7 = (DefaultTableModel)frm2.jtTabelaBairro.getModel();
+     // DefaultTableModel model8 = (DefaultTableModel)frm2.jtTabelaAniversario.getModel();
+    //  DefaultTableModel model9 = (DefaultTableModel)frm2.jtTabelaEmail.getModel();
+      //DefaultTableModel model10 = (DefaultTableModel)frm2.jtTabelaWhatsApp.getModel();
+     // DefaultTableModel model11 = (DefaultTableModel)frm2.jtTabelaCelular.getModel();
+      //DefaultTableModel model12 = (DefaultTableModel)frm2.jtTabelaObiservaçoes.getModel();
+      
+     // for(int i = 0; i < indexs.length; i++)
+     // {
+       //row[0] = model1.getValueAt(indexs[i], 1); // Nome
+      // mode13.addRow(row);
+       
+       
+       
+      // row[0] = model1.getValueAt(indexs[i], 2); // Data 
+     //  model4.addRow(row);
+
+       //row[0] = model1.getValueAt(indexs[i], 5); // Endereço
+      // model5.addRow(row);
+       
+      // row[0] = model1.getValueAt(indexs[i], 6); //Numero
+       //model7.addRow(row);
+       
+       //ow[0] = model1.getValueAt(indexs[i], 7); //Bairro
+      // model6.addRow(row);
+       
+       //row[0] = model1.getValueAt(indexs[i], 8); //Aniversario 
+      // model8.addRow(row);
+       
+      // row[0] = model1.getValueAt(indexs[i], 9);//Emaill
+       //model9.addRow(row);
+       
+       //row[0] = model1.getValueAt(indexs[i], 10);//WhatsApp
+       //model10.addRow(row);
+       
+       //row[0] = model1.getValueAt(indexs[i], 11); //Celular
+       //model11.addRow(row);
+       
+       //row[0] = model1.getValueAt(indexs[i], 12); // Obiservaçoes
+      // model12.addRow(row);
+       
+     // }
+      
+      frm2.setVisible(true); 
 
         
     }//GEN-LAST:event_jtTabelaPMouseClicked
@@ -994,9 +1349,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-  
-               TelaRelatorioCistema Tela = new TelaRelatorioCistema();
-        Tela.setVisible(rootPaneCheckingEnabled); 
+if (!Chamar_Fornecedor3.isVisible()) { Chamar_Fornecedor3.setVisible(true); }  
+        //       TelaRelatorioCistema Tela = new TelaRelatorioCistema();
+      //  Tela.setVisible(rootPaneCheckingEnabled); 
         
         
     }//GEN-LAST:event_jButton8ActionPerformed
@@ -1010,14 +1365,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        frm_GuardarDados Tela = new frm_GuardarDados();
-        Tela.setVisible(rootPaneCheckingEnabled);
+if (!Chamar_Fornecedor4.isVisible()) { Chamar_Fornecedor4.setVisible(true); }
+
+       // frm_GuardarDados Tela = new frm_GuardarDados();
+    //    Tela.setVisible(rootPaneCheckingEnabled);
         
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       ListaVIP Tela = new ListaVIP();
-       Tela.setVisible(rootPaneCheckingEnabled);
+//      if (!Chamar_Fornecedor5.isVisible()) { Chamar_Fornecedor5.setVisible(true); }
+        
+       // ListaVIP Tela = new ListaVIP();
+     //  Tela.setVisible(rootPaneCheckingEnabled);
      
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -1052,163 +1411,29 @@ try {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jLabel1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseMoved
-   try {
-             String filePath = ("C:\\Arquivos do programa/ValorTotal.txt");
-        File file = new File(filePath);
+  String filePathr = ("C:\\Arquivos do programa/faturamentoDia.txt");
+        File fillle = new File(filePathr);
+        
+        LineNumberReader lnr = null;
+        try {
             
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String firstLine = br.readLine().trim();
-            String[] columnsName = firstLine.split(",");
-        //    DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
-          //  model.setColumnIdentifiers(columnsName);
-            
-              
-            Object[] tableLines = br.lines().toArray();
-            //model.addRow(tableLines);
-            
-            for(int i = 0; i < tableLines.length; i++)
-            {
-                String line = tableLines[i].toString().trim();
-                String[] dataRow = line.split(";");
-              //  model.addRow(dataRow);
-              
-                int um = Integer.parseInt(dataRow[0]);
-                int dois = Integer.parseInt(dataRow[1]);
-                int tres = Integer.parseInt(dataRow[2]);
-                int quatro = Integer.parseInt(dataRow[3]);
-                int cinco = Integer.parseInt(dataRow[4]);
-                int seis= Integer.parseInt(dataRow[5]);
-                int sete = Integer.parseInt(dataRow[6]);
-               int oito = Integer.parseInt(dataRow[7]);
-                int nove = Integer.parseInt(dataRow[8]);
-                int dez = Integer.parseInt(dataRow[9]);
-                int onze = Integer.parseInt(dataRow[10]);
-                int doze = Integer.parseInt(dataRow[11]);
-                int treze = Integer.parseInt(dataRow[12]);
-                int quatoze = Integer.parseInt(dataRow[13]);
-                int quise= Integer.parseInt(dataRow[14]);
-                int deseseis = Integer.parseInt(dataRow[15]);
-               int desesete = Integer.parseInt(dataRow[16]);
-                int desoto = Integer.parseInt(dataRow[17]);
-                int desenove = Integer.parseInt(dataRow[18]);
-                 int vinte = Integer.parseInt(dataRow[19]); 
-                 
-                 int[] MeuArray = new int[10];
-                
-                if(um != 0){
-                //NAO TEM ZERO
-                MeuArray[0] = um;                   
-                }else{} 
-                
-                if(dois != 0){
-                //NAO TEM ZERO
-                MeuArray[1] = dois;                   
-                }else{}
-                
-                if(tres != 0){
-                //NAO TEM ZERO
-                MeuArray[2] = tres;                   
-                }else{} 
-                
-                if(quatro != 0){
-                //NAO TEM ZERO
-                MeuArray[1] = quatro;                   
-                }else{}
-                
-                if(cinco != 0){
-                //NAO TEM ZERO
-                MeuArray[1] = cinco;                   
-                }else{}
-                
-                if(seis != 0){
-                //NAO TEM ZERO
-                MeuArray[0] = seis;                   
-                }else{} 
-                
-                if(sete != 0){
-                //NAO TEM ZERO
-                MeuArray[1] = sete;                   
-                }else{}
-                
-                if(oito != 0){
-                //NAO TEM ZERO
-                MeuArray[2] = oito;                   
-                }else{} 
-                
-                if(nove != 0){
-                //NAO TEM ZERO
-                MeuArray[1] = nove;                   
-                }else{}
-                
-                if(dez != 0){
-                //NAO TEM ZERO
-                MeuArray[1] = dez;                   
-                }else{}
-                
-                
-                 if(onze != 0){
-                //NAO TEM ZERO
-                MeuArray[0] = onze;                   
-                }else{} 
-                
-                if(doze != 0){
-                //NAO TEM ZERO
-                MeuArray[1] = doze;                   
-                }else{}
-                
-                if(treze != 0){
-                //NAO TEM ZERO
-                MeuArray[2] = treze;                   
-                }else{} 
-                
-                if(quatoze != 0){
-                //NAO TEM ZERO
-                MeuArray[1] = quatoze;                   
-                }else{}
-                
-                if(quise != 0){
-                //NAO TEM ZERO
-                MeuArray[1] = quise;                   
-                }else{}
-                
-                if(deseseis != 0){
-                //NAO TEM ZERO
-                MeuArray[0] = deseseis;                   
-                }else{} 
-                
-                if(desesete != 0){
-                //NAO TEM ZERO
-                MeuArray[1] = desesete;                   
-                }else{}
-                
-                if(desoto != 0){
-                //NAO TEM ZERO
-                MeuArray[2] = desoto;                   
-                }else{} 
-                
-                if(desenove != 0){
-                //NAO TEM ZERO
-                MeuArray[1] = desenove;                   
-                }else{}
-                
-                if(vinte != 0){
-                //NAO TEM ZERO
-                MeuArray[1] = vinte;                   
-                }else{}
-                
-                 int Contador = 0;
-               for (int j = 0; j < MeuArray.length; j ++){
-                if (dataRow[j] != null)
-                Contador ++;
-                jLabel16.setText(""+Contador);
-                //jTextField1.setText(""+contador);
-                
-                System.out.print(""+Contador);
-               }
+            File file = new File(filePathr);
+            lnr = new LineNumberReader(new FileReader(file));
+            try {
+                lnr.skip(Long.MAX_VALUE);
+            } catch (IOException ex) {
+                Logger.getLogger(TelaRelatorioCistema.class.getName()).log(Level.SEVERE, null, ex);
             }
+            int retorno = lnr.getLineNumber();
+            int REs = retorno - 0;
+            String rere = Integer.toString(REs);
+            jLabel20.setText(rere);
             
-        } catch (Exception ex) {
-            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            
+            
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(TelaRelatorioCistema.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 
@@ -1221,31 +1446,56 @@ try {
     ((DefaultTableModel) jtTabelaP.getModel()).removeRow(0);
     }
         
-        
-         String filePath = ("C:\\Arquivos do programa/Texto.txt");
-    File fie = new File(filePath);
+      String filePath = ("C:\\Arquivos do programa/Texto.txt");
+        File fille = new File(filePath);
+        //tabela 1
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(fille));
+            String firstLine = br.readLine();
+            String[] columnsName = firstLine.split(",");
+            DefaultTableModel model00 = (DefaultTableModel)jtTabelaP.getModel();
+            //model00.setColumnIdentifiers(columnsName);
+            
+            Object[] tableLines = br.lines().toArray();
 
-    try {
-        BufferedReader br = new BufferedReader(new FileReader(fie));
-        String firstLine = br.readLine().trim();
-        String[] columnsName = firstLine.split(",");
-        DefaultTableModel model = (DefaultTableModel)jtTabelaP.getModel();
-        //model.setColumnIdentifiers(columnsName);
-        
-        Object[] tableLines = br.lines().toArray();
-        
-        for(int i = 0; 1 < tableLines.length; i++)
+            
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataRow = line.split("/");
+                model00.addRow(dataRow);
+            }
+            
+        } catch (Exception ex) {
+           Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex); 
+        }
+        // tabela 2
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(fille));
+            String firstLine = br.readLine().trim();
+            String[] columnsName = firstLine.split(",");
+            DefaultTableModel model = (DefaultTableModel)jTable5.getModel();
+            model.setColumnIdentifiers(columnsName);
+            
+            
+
+            
+            Object[] tableLines = br.lines().toArray();
+            //model.addRow(tableLines);
+            
+            for(int i = 0; i < tableLines.length; i++)
             {
                 String line = tableLines[i].toString().trim();
                 String[] dataRow = line.split("/");
                 model.addRow(dataRow);
-            }
 
+
+            }
+            
         } catch (Exception ex) {
             Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
+        } 
         
     
     
@@ -1292,37 +1542,73 @@ JFCadrastro Tela = new JFCadrastro();
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        //Apga as o arquivo txt
 
-	
+        File filee = new File("C:\\Arquivos do programa/DadosObitidosDia.txt");
 
+        if ( filee.exists()) {
+            filee.delete();
+            try {
+                FileWriter fw = new FileWriter( "C:\\Arquivos do programa/DadosObitidosDia.txt" );
+            } catch (IOException ex) {
+                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            //Cria utro arquivo txt
+            try {
+                filee.createNewFile();
+                PrintWriter pw = new PrintWriter(filee);
+                pw.println("valores,");
+                pw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        while (jTable3.getModel().getRowCount() > 0) {
+            ((DefaultTableModel) jTable3.getModel()).removeRow(0);
+        }
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
         
-        // MELHOR HORA
-        try {
-                        //  String procurarPor = "15-02-2021"; //essa é a data de hoje 
-                          String procurarPor = jTextField2.getText();
-			//abre o arquivo
-			FileReader fr = new FileReader("C:\\Arquivos do programa/faturamentoDia.txt");
-			BufferedReader br = new BufferedReader(fr);
-			String temp;
-			//A cada interação, é uma linha do arquivo e atribui-a a temp
-			while ((temp = br.readLine()) != null)
-			{
-				//Aqui gera a sua "lista". No caso, imprimi cada linha na tela.
-				String[] a = temp.split(";");
-				int i=0;
-				for(String each : a)
-				{
-					if(i==0){
-						nome=each;							
-						System.out.println(nome);
-                                                if(nome.toLowerCase().contains(procurarPor.toLowerCase()) == true){
-                                                 System.out.println(nome+"Contem a data de hoje"); 
-                                                
-                 
-		                                 String resultado = "";
+	try {
+             String filePath = ("C:\\Arquivos do programa/faturamentoDia.txt");
+        File file = new File(filePath);
+            
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String firstLine = br.readLine().trim();
+            String[] columnsName = firstLine.split(",");
+         //   DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+          //  model.setColumnIdentifiers(columnsName);
 
-		                                 Scanner sc = new Scanner(nome);
+            Object[] tableLines = br.lines().toArray();
+            //model.addRow(tableLines);
+            
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataMax = line.split(";");
+                //String[] dataRow = line.split(";");
+           //     model.addRow(dataRow);
+                
+   
+               
+        //metodo para percorrer o array
+        Date dataSistema = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+        jLabel18.setText(formato.format(dataSistema));
+        String DataHoje = jLabel18.getText();
+        int posisao = 0;
+                for (int j = 0; j < dataMax.length; j++) {
+                    String  linha = dataMax[posisao];
+                    //metodo para aparecer so o valor
+                    if(linha.toLowerCase().contains(DataHoje.toLowerCase()) == true){
+                        System.out.println(linha+"Contem a data de hoje");
+                        String resultado = "";
+
+		                                 Scanner sc = new Scanner(linha);
                                                  //  Scanner 
 
 	                                   	while (sc.hasNext()) {
@@ -1332,149 +1618,39 @@ JFCadrastro Tela = new JFCadrastro();
 
 		                                   }
                                               
-		                               System.out.println("R$"+resultado );
-                                               //Apga as o arquivo txt
-                                               
-                                                
-                                            
-                                                
-                                                
-                                           
-                                                        
-                                                  //Sauva os dados no arquivo txt
-                                                  
-                                               ClasseDoDia registroDeCompra = new ClasseDoDia();
-                                               registroDeCompra.setValorDia(resultado);
-                                               
-                                               try {
-            JOptionPane.showMessageDialog(null, registroDeCompra.sauvado());  //Atençao
-            // jTextField1.setText("");
-            // texREs.setText("");
-            
-            
-            /*   t.start();
-            prgs.setValue(prgs.getValue()+10);
-            
-            t.stop(); */
-        } catch (IOException ex) {
-            Logger.getLogger(PerfilDoCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-                                               
-                                                }else{
-                                                System.out.println(nome+"Nã Contem a data de hoje");
-                                                }
-                                               
-					}
-						 
-						if(i==2){
-							hora=each;
-							i=-1;
-							//System.out.println(hora);
-                                                       // txtMelhorHora.setText(hora);
-                                                        
-						} 
-						i++;
-					}						
-				}
-		}
-		catch (FileNotFoundException el)
-		{
-			System.out.println("Arquivo não Encontrado!");
-		} 
-		catch (IOException e) 
-		{
-			e.printStackTrace();
-		}
+		                               System.out.println(""+resultado );
+                                               resultado.trim();
+                    
+                        
+                        
+                        
+               
+                    
+                    
+                    DefaultTableModel val = (DefaultTableModel) jTable4.getModel();
+                    val.addRow(new String[]{resultado});
+                    //calcula os valores na tabela
+                     calcular();
+                    }else{
+                     System.out.println(linha+"Nã Contem a data de hoje");
+                    }
+                    
+                    
+                    
+                    posisao ++;
+                    System.out.println(""+posisao);
+                    System.out.println(linha);
+                }
         
-        /*try{
-             String filePath = ("C:\\Arquivos do programa/faturamentoDia.txt");
-        File file = new File(filePath);
-            
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String firstLine = br.readLine().trim();
-            String[] columnsName = firstLine.split(",");
-            DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
-            model.setColumnIdentifiers(columnsName);
-            
-              
-            Object[] tableLines = br.lines().toArray();
-            //model.addRow(tableLines);
-            
-            for(int i = 0; i < tableLines.length; i++)
-            {
-                String line = tableLines[i].toString().trim();
-                String[] dataRow = line.split(";");
-            //    integer[] valoresint = new integer(dataRow.length);
-                model.addRow(dataRow);
                 
-             
-                 
-              String   um = (dataRow[0]);  //valor a jogar  numa variavel
-                String dois = (dataRow[1]);
-                
-                String desoito = (dataRow[18]);
-                String desenove = (dataRow[19]);
-              
-                
-                String dataHoje = jTextField2.getText();
-                
-                
-                
-                if(dois.equals(dataHoje)) { //perceba a diferença aqui
-            System.out.println("numero igual a data de Hoje");
-            jTextField4.setText(um);
-        }
-        else {
-            System.out.println("numero diferente de data de Hoje");
-        }
-                if(desenove.equals(dataHoje)) { //perceba a diferença aqui
-            System.out.println("numero19 igual a data de Hoje");
-            jTextField3.setText("hello");
-        }
-        else {
-            System.out.println("numero diferente de data de Hoje");
-        }
-
-                
-                
-                
-             
+               
             }
-        }catch (Exception ex) {
+        } catch (Exception ex) {
             Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }     
-       */
-        
-        
-        try{
-             String filePath = ("C:\\Arquivos do programa/DadosObitidosDia.txt");
-        File file = new File(filePath);
-            
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String firstLine = br.readLine().trim();
-            String[] columnsName = firstLine.split(",");
-            DefaultTableModel model = (DefaultTableModel)jTable3.getModel();
-            model.setColumnIdentifiers(columnsName);
-            
-              
-            Object[] tableLines = br.lines().toArray();
-            //model.addRow(tableLines);
-            
-            for(int i = 0; i < tableLines.length; i++)
-            {
-                String line = tableLines[i].toString().trim();
-                String[] dataRow = line.split(";");
-            //    integer[] valoresint = new integer(dataRow.length);
-                model.addRow(dataRow);
-                   }
-            
-        }catch (Exception ex) {
-            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-            //metodo do co rendimento diario
-           calcularBotao();
-    }//GEN-LAST:event_jButton6ActionPerformed
+        }         
+
+ 
+    }//GEN-LAST:event_jButton12ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1515,15 +1691,16 @@ JFCadrastro Tela = new JFCadrastro();
     private javax.swing.JLabel TxT_Pedididos;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JButton jButtonNegocio;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1531,9 +1708,11 @@ JFCadrastro Tela = new JFCadrastro();
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1552,13 +1731,18 @@ JFCadrastro Tela = new JFCadrastro();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

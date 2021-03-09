@@ -17,6 +17,11 @@ public class Principal {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        //SUBISTITUI UMA PALARA POR OUTRA EM UMA STRING 
+        
+        String s = "Este comentário foi péssimo!";
+s = s.replace("péssimo","ruim");
+System.out.println(s);
     }
     
 }

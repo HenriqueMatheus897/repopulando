@@ -166,7 +166,7 @@ public class Clientes {
         try{
             FileWriter fw = new FileWriter("C:\\Arquivos do programa/Texto.txt", true);
             PrintWriter pw = new PrintWriter(fw);
-            pw.print("1/"+this.Nome);
+            pw.print(this.Nome);
             pw.print("/"+this.Hora +"/0/0");
             pw.print("/"+this.Endereço);
             pw.print("/"+this.Cpf);
@@ -176,7 +176,7 @@ public class Clientes {
             pw.print("/"+this.Telefone);
             pw.print("/"+this.Celular);
             pw.print("/"+this.Obiservaçoes);
-            pw.println("/"+this.cidade);
+            pw.println("/"+this.cidade+"/1");
            // pw.println("/"+this.foto);
             //pw.print("/"+this.inportacao);
             

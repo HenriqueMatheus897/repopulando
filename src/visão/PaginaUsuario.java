@@ -47,13 +47,14 @@ public class PaginaUsuario extends javax.swing.JFrame {
        
     }
 
+    private PerfilDoCliente Chamar_Fornecedor = new PerfilDoCliente();
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         txT_Nome = new javax.swing.JTextField();
         jButtonImport = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jTxtPesquisa = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButtonImport1 = new javax.swing.JButton();
@@ -77,9 +78,13 @@ public class PaginaUsuario extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField12 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jTextField9 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
@@ -98,12 +103,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonImport);
-        jButtonImport.setBounds(120, 170, 97, 70);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Lista de Cliente");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(454, 11, 120, 22);
+        jButtonImport.setBounds(180, 170, 90, 70);
 
         jTxtPesquisa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTxtPesquisa.setBorder(null);
@@ -113,7 +113,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTxtPesquisa);
-        jTxtPesquisa.setBounds(350, 60, 690, 40);
+        jTxtPesquisa.setBounds(360, 50, 690, 40);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setBorder(null);
@@ -123,7 +123,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(1080, 40, 80, 70);
+        jButton1.setBounds(1100, 40, 60, 60);
 
         jButtonImport1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonImport1.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +132,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonImport1);
-        jButtonImport1.setBounds(110, 470, 97, 70);
+        jButtonImport1.setBounds(180, 530, 97, 70);
 
         jButtonImport2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonImport2.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +150,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonImport3);
-        jButtonImport3.setBounds(110, 370, 97, 80);
+        jButtonImport3.setBounds(180, 600, 97, 80);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         getContentPane().add(jLabel2);
@@ -173,18 +173,39 @@ public class PaginaUsuario extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Codigo", "Nome", "Data de Cadrastro", "Qunatidade de pedidos", "valor pago"
+                "Nome", "Aniversario", "Pedidos", "valor", "Rua", "Numero", "bairro"
             }
         ));
+        jTable2.getTableHeader().setReorderingAllowed(false);
         jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable2MouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(jTable2);
+        if (jTable2.getColumnModel().getColumnCount() > 0) {
+            jTable2.getColumnModel().getColumn(1).setMinWidth(0);
+            jTable2.getColumnModel().getColumn(1).setPreferredWidth(0);
+            jTable2.getColumnModel().getColumn(1).setMaxWidth(0);
+            jTable2.getColumnModel().getColumn(2).setMinWidth(260);
+            jTable2.getColumnModel().getColumn(2).setPreferredWidth(260);
+            jTable2.getColumnModel().getColumn(2).setMaxWidth(260);
+            jTable2.getColumnModel().getColumn(3).setMinWidth(260);
+            jTable2.getColumnModel().getColumn(3).setPreferredWidth(260);
+            jTable2.getColumnModel().getColumn(3).setMaxWidth(260);
+            jTable2.getColumnModel().getColumn(4).setMinWidth(0);
+            jTable2.getColumnModel().getColumn(4).setPreferredWidth(0);
+            jTable2.getColumnModel().getColumn(4).setMaxWidth(0);
+            jTable2.getColumnModel().getColumn(5).setMinWidth(0);
+            jTable2.getColumnModel().getColumn(5).setPreferredWidth(0);
+            jTable2.getColumnModel().getColumn(5).setMaxWidth(0);
+            jTable2.getColumnModel().getColumn(6).setMinWidth(0);
+            jTable2.getColumnModel().getColumn(6).setPreferredWidth(0);
+            jTable2.getColumnModel().getColumn(6).setMaxWidth(0);
+        }
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(330, 170, 820, 470);
+        jScrollPane2.setBounds(350, 120, 810, 530);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -202,7 +223,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(0, 670, 30, 20);
+        jScrollPane1.setBounds(410, 630, 0, 10);
 
         txt_controle.setBorder(null);
         txt_controle.addActionListener(new java.awt.event.ActionListener() {
@@ -249,13 +270,25 @@ public class PaginaUsuario extends javax.swing.JFrame {
         getContentPane().add(jTextField8);
         jTextField8.setBounds(110, 80, 0, 10);
 
+        jTextField10.setText("jTextField10");
+        getContentPane().add(jTextField10);
+        jTextField10.setBounds(20, 90, 80, 20);
+
+        jTextField12.setText("jTextField12");
+        getContentPane().add(jTextField12);
+        jTextField12.setBounds(20, 160, 80, 20);
+
+        jTextField11.setText("jTextField11");
+        getContentPane().add(jTextField11);
+        jTextField11.setBounds(20, 120, 80, 20);
+
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(120, 270, 90, 70);
+        jButton2.setBounds(180, 270, 90, 70);
 
         jTextField9.setBorder(null);
         getContentPane().add(jTextField9);
@@ -265,7 +298,16 @@ public class PaginaUsuario extends javax.swing.JFrame {
         getContentPane().add(jLabel7);
         jLabel7.setBounds(1260, 0, 40, 350);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3 supla.png"))); // NOI18N
+        jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(180, 360, 80, 80);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/6.png"))); // NOI18N
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
@@ -293,7 +335,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonImportActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-/*
+ if (!Chamar_Fornecedor.isVisible()) { Chamar_Fornecedor.setVisible(true); }/*
         PerfilDoCliente Tela = new PerfilDoCliente();
         Tela.setVisible(rootPaneCheckingEnabled); */
     }//GEN-LAST:event_jTable1MouseClicked
@@ -351,6 +393,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
         } 
+
     }//GEN-LAST:event_formWindowOpened
 
     private void jButtonImport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImport1ActionPerformed
@@ -487,7 +530,11 @@ public class PaginaUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTxtPesquisaActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-if (evt.getClickCount() == 2 ) {
+
+        
+        
+        
+       
       // Captura o ID
       //JOptionPane.showMessageDialog(null, "foi clicado 2 veses!");
     
@@ -551,29 +598,51 @@ if (evt.getClickCount() == 2 ) {
       
      // frm2.txT_Nome.setText();
                                                            
-      frm2.txT_NomeUSUARIO.setText(jTable2.getModel().getValueAt(jTable2.getSelectedRow(),1).toString()); //Nome
-      frm2.txT_EnderecoUSUARIO.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),5).toString()); //Endereço
-      frm2.txT_NumeroUSUARIO.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),7).toString()); //Numero
-      frm2.txT_BairroUSUARIO.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),6).toString()); //Bairro
+      frm2.txT_NomeUSUARIO.setText(jTable2.getModel().getValueAt(jTable2.getSelectedRow(),0).toString()); //Nome
+      frm2.txT_EnderecoUSUARIO.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),4).toString()); //Rua
+      frm2.txT_NumeroUSUARIO.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),6).toString()); //Bairro
+      frm2.txT_BairroUSUARIO.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),5).toString()); //Numero
       frm2.txT_dataUSUARIO.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),2).toString()); //Data
-      frm2.txT_AniversarioUSUARIO.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),8).toString()); //Aniversario
-      frm2.txT_EmailUSUARIO.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),9).toString()); //Email
-      frm2.txT_whatsUSUARIO1.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),10).toString()); //WhatsApp
-      frm2.txT_CelularUSUARIO2.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),11).toString()); //Celular
-      frm2.txT_ObiservacoesUSUARIO1.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),12).toString()); // Obiservaçoes
+      frm2.txT_AniversarioUSUARIO.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),7).toString()); //Aniversario
+      frm2.txT_EmailUSUARIO.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),8).toString()); //Email
+      frm2.txT_whatsUSUARIO1.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),9).toString()); //WhatsApp
+      frm2.txT_CelularUSUARIO2.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),10).toString()); //Celular
+      frm2.txT_ObiservacoesUSUARIO1.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),11).toString()); // Obiservaçoes
+      
+     //string que vai ser apgada ao aperta o botão de sauvar alteraçoes
+      frm2.txt_Nome.setText(jTable2.getModel().getValueAt(jTable2.getSelectedRow(),0).toString()); //Nome
+      frm2.txt_pedidos.setText(jTable2.getModel().getValueAt(jTable2.getSelectedRow(),2).toString()); //pedido
+      frm2.txt_valorTotal.setText(jTable2.getModel().getValueAt(jTable2.getSelectedRow(),3).toString()); //valor total
+      frm2.txt_Rua.setText(jTable2.getModel().getValueAt(jTable2.getSelectedRow(),4).toString()); //Rua
+      frm2.txt_Endereco.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),5).toString()); //Endereço
+      frm2.txt_Numero.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),7).toString()); //Numero
+      frm2.txt_Bairro.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),6).toString()); //Bairro
+      frm2.txt_data.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),7).toString()); //Data
+      frm2.Txt_Aniversario.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),8).toString()); //Aniversario
+      frm2.txt_email.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),9).toString()); //Email
+      frm2.txt_whats.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),10).toString()); //WhatsApp
+      frm2.txt_celular.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),11).toString()); //Celular
+      frm2.txt_obiservasoes.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),12).toString()); // Obiservaçoes
+      frm2.txt_cidade.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),13).toString()); //controle cidade
      
       
-      txt_controle.setText(jTable2.getModel().getValueAt(jTable2.getSelectedRow(),1).toString()); //controle Nome
-      tex_controle_2.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),5).toString()); //controle Endereço
-      jTextField1.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),7).toString()); //controle Numero
-      jTextField2.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),6).toString()); //controle Bairro
-      jTextField3.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),2).toString()); // controle Data
-      jTextField4.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),8).toString()); // controle Aniversario
-      jTextField5.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),9).toString()); // CONTROLE EMAIL
-      jTextField6.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),10).toString()); //controle whats
-      jTextField7.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),11).toString()); // controle celular
-      jTextField8.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),12).toString()); // controle Obiservaçoes
-      jTextField9.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),13).toString()); //controle cidade
+      
+      
+      txt_controle.setText(jTable2.getModel().getValueAt(jTable2.getSelectedRow(),0).toString()); // Nome
+      tex_controle_2.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),2).toString()); //Pedido
+      jTextField1.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),3).toString()); //valor total
+      jTextField2.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),4).toString()); //rua
+      jTextField3.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),5).toString()); // Endereço
+      jTextField4.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),7).toString()); // numero
+      jTextField5.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),6).toString()); // Bairo
+      jTextField6.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),7).toString()); //data
+      jTextField7.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),8).toString()); // aniversario
+      jTextField8.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),9).toString()); // email
+      jTextField9.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),10).toString()); //whats
+      jTextField10.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),11).toString());//celular
+      jTextField11.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),12).toString());//obiservaçoes
+      jTextField12.setText(jTable1.getModel().getValueAt(jTable2.getSelectedRow(),13).toString());//cidade
+      
       
       
       
@@ -636,7 +705,7 @@ if (evt.getClickCount() == 2 ) {
      // }
       
       frm2.setVisible(true); 
-}
+
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void txt_controleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_controleActionPerformed
@@ -667,22 +736,26 @@ if (evt.getClickCount() == 2 ) {
             
 
                     
-            String nome = txt_controle.getText();
-            String hora = jTextField3.getText();
-            String endereco = tex_controle_2.getText();
-            String cpf = jTextField1.getText();
-            String bairo = jTextField2.getText();
-            String rg = jTextField4.getText();
-            String emaill = jTextField5.getText();
-            String telefone =jTextField6.getText();
-            String celular = jTextField7.getText();
-            String obiserva = jTextField8.getText();
-            String cidade = jTextField9.getText();
+            String nome = txt_controle.getText()+"/";
+            String data =jTextField6.getText()+"/";
+            String total = jTextField3.getText()+"/";
+            String valor = jTextField1.getText()+"/";
+            String rua = jTextField2.getText()+"/";
+            String numero = jTextField4.getText()+"/";
+            String bairro = jTextField5.getText()+"/";
+            String aniversario = jTextField7.getText()+"/";
+            String email = jTextField8.getText()+"/";
+            String zap = jTextField9.getText()+"/";
+            String celular = jTextField10.getText()+"/";
+            String obiservacoes = jTextField11.getText()+"/";           
+            String controle = jTextField12.getText()+"/1";
+           
             
-                  
-            if(linha.equals("1/"+nome+"/"+hora+"/0/0"+"/"+endereco+"/"+bairo+"/"+cpf+"/"+rg+"/"+emaill+"/"+telefone+"/"+celular+"/"+obiserva+"/"+cidade) == false){
+            
+ 
+            if(linha.equals(nome+data+total+valor+rua+numero+bairro+aniversario+email+zap+celular+obiservacoes+controle) == false){
                 salvar.add(linha);
-                JOptionPane.showMessageDialog(null, "1/"+nome+"/"+hora+"/0/0"+"/"+endereco+"/"+bairo+"/"+cpf+"/"+rg+"/"+emaill+"/"+telefone+"/"+celular+"/"+obiserva+"/"+cidade);
+                
             }
             linha = br.readLine();
         }
@@ -728,6 +801,11 @@ if (evt.getClickCount() == 2 ) {
         
     }//GEN-LAST:event_jLabel6MouseClicked
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        ListaVIP Tela = new ListaVIP();
+        Tela.setVisible(rootPaneCheckingEnabled); 
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -766,11 +844,11 @@ if (evt.getClickCount() == 2 ) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonImport;
     private javax.swing.JButton jButtonImport1;
     private javax.swing.JButton jButtonImport2;
     private javax.swing.JButton jButtonImport3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -783,6 +861,9 @@ if (evt.getClickCount() == 2 ) {
     private javax.swing.JTable jTable1;
     public javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;

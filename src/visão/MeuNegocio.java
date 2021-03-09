@@ -5,6 +5,21 @@
  */
 package visão;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import static java.lang.System.out;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import java.io.FileWriter;
+import java.io.Writer;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author henrique matheus
@@ -34,78 +49,196 @@ public class MeuNegocio extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         jLabel4.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+        getContentPane().setLayout(null);
 
-        jButtonPedidos.setText("jButton1");
+        jButtonPedidos.setText("RESET");
         jButtonPedidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonPedidosActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonPedidos);
+        jButtonPedidos.setBounds(10, 50, 100, 50);
 
-        jButton2.setText("jButton1");
+        jButton2.setText("Sauvar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(320, 240, 67, 46);
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("resetarbanco de dados");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(10, 20, 130, 14);
 
-        jLabel2.setText("Nome da empresa");
+        jLabel2.setText("Usuario");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(180, 70, 36, 14);
 
         jLabel3.setText("senha");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(180, 120, 29, 10);
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(180, 90, 180, 20);
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(180, 140, 180, 20);
+        getContentPane().add(jTextField3);
+        jTextField3.setBounds(180, 190, 180, 20);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(185, 185, 185)
-                .addComponent(jButtonPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 80, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(192, 192, 192)
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(24, 24, 24))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(102, 102, 102)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addContainerGap(43, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2)
-                        .addGap(58, 58, 58))))
-        );
+        jLabel5.setText("palavra chave");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(180, 170, 80, 14);
+
+        jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(30, 160, 73, 23);
+
+        jLabel6.setText("jLabel6");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(60, 230, 100, 14);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/CONFIGURAÇÕES.png"))); // NOI18N
+        jLabel7.setText("jLabel7");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(0, 0, 1300, 700);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        //Apaga o txt"
+        File file = new File("DadosLoguin.txt"); file.delete();
+     //Cria u novo txt
+     File f = new File("DadosLoguin.txt");
+	try {
+		f.createNewFile();
+            PrintWriter pw = new PrintWriter(f);
+            pw.println("loguin,jLabel2");
+            pw.close();
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+        String palavra = jTextField3.getText();
+        String Usuario = jTextField1.getText();
+       String Senha = jTextField2.getText();
+       
+       RegistroDaTabela registroDaTabela = new RegistroDaTabela();
+       
+        registroDaTabela.setUser(jTextField1.getText());
+        registroDaTabela.setSenha(jTextField2.getText());
+        registroDaTabela.setPalavra(jTextField2.getText());
+        try {
+            JOptionPane.showMessageDialog(null, registroDaTabela.sauvado());  //Atençao
+           
+        } catch (Exception ex) {
+            Logger.getLogger(PerfilDoCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     private void jButtonPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPedidosActionPerformed
-           frm_GuardarDados Tela = new frm_GuardarDados();
-        Tela.setVisible(rootPaneCheckingEnabled);    }//GEN-LAST:event_jButtonPedidosActionPerformed
+       
+
+    }//GEN-LAST:event_jButtonPedidosActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+try{
+        Writer out = new FileWriter("C:\\Arquivos do programa/apagando.txt");
+
+    //limpa
+    out.write("");
+    out.flush();
+    
+    //escreve
+    out.write("ABCdf");
+    out.flush();
+    out.close();
+        
+}catch(IOException e) {
+
+}
+
+String senha = jLabel6.getText();
+ String sexo = JOptionPane.showInputDialog(null, "Digite sua senha para proseguir..." , "digite aqui", JOptionPane.PLAIN_MESSAGE);
+         if (sexo.equalsIgnoreCase(senha)){
+          JOptionPane.showMessageDialog(null, "Tabea foi apagada com sucesso"); 
+          try{
+        Writer out = new FileWriter("C:\\Arquivos do programa/apagando.txt");
+
+    //limpa
+    out.write("");
+    out.flush();
+    
+    //escreve
+    out.write("Codigo , Nome       , Data de Cadrastro    , Quantidade de Pedidos  , valor Pago , Endereço , Numero , Bairro , Aniversrio , Email, WhatsApp , celuar , Obiservações, Foto,oi,oi");
+    out.flush();
+    out.close();
+        
+}catch(IOException e) {
+
+}
+          
+         }else{
+         JOptionPane.showMessageDialog(null, "Senha invalida");
+         }
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+ String filePath = ("C:\\Arquivos do programa/DadosLoguin.txt");
+        File file = new File(filePath);
+        //tabela 1
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String firstLine = br.readLine();
+            String[] columnsName = firstLine.split(",");
+            //DefaultTableModel model00 = (DefaultTableModel)jTable1.getModel();
+            //model00.setColumnIdentifiers(columnsName);
+            
+            Object[] tableLines = br.lines().toArray();
+
+            
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataRow = line.split(";");
+            //    model00.addRow(dataRow);
+                System.out.println(dataRow[0]);
+                System.out.println(dataRow[1]);
+                //jLabel2.setText(dataRow[0]);
+                jLabel6.setText(dataRow[1]);
+                
+            }
+            
+        } catch (Exception ex) {
+           Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex); 
+        }
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -144,11 +277,17 @@ public class MeuNegocio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonPedidos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
