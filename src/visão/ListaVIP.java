@@ -5,6 +5,7 @@
  */
 package visão;
 
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -110,8 +111,18 @@ public class ListaVIP extends javax.swing.JFrame {
         jScrollPane1.setBounds(10, 480, 0, 10);
 
         jTextField1.setBorder(null);
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(360, 60, 710, 30);
+        jTextField1.setBounds(360, 50, 710, 40);
 
         jToggleButton1.setBorder(null);
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -550,6 +561,19 @@ dispose();
 PaginaUsuario tela = new PaginaUsuario();
                        tela.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+       
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+      TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
+      jTable2.setRowSorter(tr);
+      tr.setRowFilter(RowFilter.regexFilter(jTextField1.getText().trim()));
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
 
     /**
      * @param args the command line arguments

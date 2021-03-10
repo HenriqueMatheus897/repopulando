@@ -21,6 +21,7 @@ import java.awt.Image;
 import java.awt.List;
 import java.awt.PopupMenu;
 import java.awt.event.ItemEvent;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -110,6 +111,100 @@ public class PerfilDoCliente extends javax.swing.JFrame {
          jTextField30.setText(String.valueOf(suma - a));
 
     }
+    
+    private void sauvarModificaçao()
+    {
+File file = new File("C:\\Arquivos do programa/Texto.txt");
+       
+        try {
+        FileReader fr = new FileReader(file); 
+        BufferedReader br = new BufferedReader(fr);
+       
+        
+        String linha = br.readLine();
+        ArrayList<String> salvar = new ArrayList();
+        while(linha != null){
+            
+           String nome =txt_Nome.getText()+"/";//Valor
+            String data = txt_Numero.getText()+"/";//Data
+            String total = txt_pedidos.getText()+"/";//total de pedidos
+            String valor = txt_valorTotal.getText()+"/";//valor total
+            String rua =txt_Rua.getText()+"/";//Rua
+            
+            String numero = txt_Endereco.getText()+"/";//numero
+            String bairro = txt_Bairro.getText()+"/";//bairro
+            String aniversario = txt_data.getText()+"/";//aniversario
+            String email = Txt_Aniversario.getText()+"/";//email
+            String zap = txt_email.getText()+"/";//zap
+            String celular = txt_whats.getText()+"/";//celular
+            String obiservacoes = txt_celular.getText()+"/";//obiservaçaoes
+
+            String controle = txt_obiservasoes.getText()+"/1";//controle da tabela
+
+            
+
+            
+            
+            if(linha.equals(nome+data+total+valor+rua+numero+bairro+aniversario+email+zap+celular+obiservacoes+controle) == false){
+                salvar.add(linha);
+           // JOptionPane.showMessageDialog(null, "1/"+nome+"/"+data+"/0/0/"+endereco+"/"+bairro+"/"+numero+"/"+aniversario+"/"+email+"/"+whats+"/"+celular+"/"+obiserva+"/"+cidade);
+            }
+            linha = br.readLine();
+        }
+
+        br.close();
+        fr.close();
+        FileWriter fw2 = new FileWriter(file, true);
+        fw2.close();
+        
+        FileWriter fw = new FileWriter(file);
+        BufferedWriter bw = new BufferedWriter(fw);
+        
+            for (int i = 0; i < salvar.size(); i++) {
+            bw.write( salvar.get(i) );
+            bw.newLine();
+            
+            }
+            bw.close();
+            fw.close();
+        } catch (IOException e) {
+        }
+        
+        
+         RegistroDeCompra registroDeCompra = new RegistroDeCompra();
+
+    
+        registroDeCompra.setNome(txT_NomeUSUARIO.getText()); 
+        registroDeCompra.setEndereço(txT_EnderecoUSUARIO.getText());
+        registroDeCompra.setNumero(txT_NumeroUSUARIO.getText());
+        registroDeCompra.setBairro(txT_BairroUSUARIO.getText());
+        registroDeCompra.setDataNacimento(txT_AniversarioUSUARIO1.getText());
+        registroDeCompra.setEmail(txT_EmailUSUARIO.getText());
+        registroDeCompra.setWhatsApp(txT_whatsUSUARIO1.getText());
+        registroDeCompra.setCelular(txT_CelularUSUARIO2.getText());
+        registroDeCompra.setObiservaçoes(txT_ObiservacoesUSUARIO1.getText());
+     //   registroDeCompra.setValores(jTextField30.getText()); */
+       // registroDeCompra.setData(dataString);
+      //  registroDeCompra.setHora(horarioString);
+
+     
+        
+        
+        try {
+            JOptionPane.showMessageDialog(null, registroDeCompra.sauvado());  //Atençao
+            // jTextField1.setText("");
+            // texREs.setText("");
+            
+            
+            /*   t.start();
+            prgs.setValue(prgs.getValue()+10);
+            
+            t.stop(); */
+        } catch (IOException ex) {
+            Logger.getLogger(PerfilDoCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+}
     
     private void prencher()
     {
@@ -950,9 +1045,19 @@ public class PerfilDoCliente extends javax.swing.JFrame {
 
         txT_BairroUSUARIO.setForeground(java.awt.Color.white);
         txT_BairroUSUARIO.setBorder(null);
+        txT_BairroUSUARIO.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txT_BairroUSUARIOMouseClicked(evt);
+            }
+        });
         txT_BairroUSUARIO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txT_BairroUSUARIOActionPerformed(evt);
+            }
+        });
+        txT_BairroUSUARIO.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txT_BairroUSUARIOKeyPressed(evt);
             }
         });
         getContentPane().add(txT_BairroUSUARIO);
@@ -969,9 +1074,19 @@ public class PerfilDoCliente extends javax.swing.JFrame {
 
         txT_CelularUSUARIO2.setForeground(java.awt.Color.white);
         txT_CelularUSUARIO2.setBorder(null);
+        txT_CelularUSUARIO2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txT_CelularUSUARIO2MouseClicked(evt);
+            }
+        });
         txT_CelularUSUARIO2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txT_CelularUSUARIO2ActionPerformed(evt);
+            }
+        });
+        txT_CelularUSUARIO2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txT_CelularUSUARIO2KeyPressed(evt);
             }
         });
         getContentPane().add(txT_CelularUSUARIO2);
@@ -1014,6 +1129,11 @@ public class PerfilDoCliente extends javax.swing.JFrame {
                 txT_AniversarioUSUARIOActionPerformed(evt);
             }
         });
+        txT_AniversarioUSUARIO.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txT_AniversarioUSUARIOKeyPressed(evt);
+            }
+        });
         getContentPane().add(txT_AniversarioUSUARIO);
         txT_AniversarioUSUARIO.setBounds(460, 360, 160, 20);
 
@@ -1035,6 +1155,11 @@ public class PerfilDoCliente extends javax.swing.JFrame {
                 txT_ObiservacoesUSUARIO1ActionPerformed(evt);
             }
         });
+        txT_ObiservacoesUSUARIO1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txT_ObiservacoesUSUARIO1KeyPressed(evt);
+            }
+        });
         getContentPane().add(txT_ObiservacoesUSUARIO1);
         txT_ObiservacoesUSUARIO1.setBounds(100, 560, 520, 90);
 
@@ -1043,6 +1168,11 @@ public class PerfilDoCliente extends javax.swing.JFrame {
         txT_NumeroUSUARIO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txT_NumeroUSUARIOActionPerformed(evt);
+            }
+        });
+        txT_NumeroUSUARIO.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txT_NumeroUSUARIOKeyPressed(evt);
             }
         });
         getContentPane().add(txT_NumeroUSUARIO);
@@ -1056,14 +1186,24 @@ public class PerfilDoCliente extends javax.swing.JFrame {
                 txT_NomeUSUARIOActionPerformed(evt);
             }
         });
+        txT_NomeUSUARIO.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txT_NomeUSUARIOKeyPressed(evt);
+            }
+        });
         getContentPane().add(txT_NomeUSUARIO);
-        txT_NomeUSUARIO.setBounds(100, 220, 520, 20);
+        txT_NomeUSUARIO.setBounds(90, 210, 520, 40);
 
         txT_EnderecoUSUARIO.setForeground(java.awt.Color.white);
         txT_EnderecoUSUARIO.setBorder(null);
         txT_EnderecoUSUARIO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txT_EnderecoUSUARIOActionPerformed(evt);
+            }
+        });
+        txT_EnderecoUSUARIO.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txT_EnderecoUSUARIOKeyPressed(evt);
             }
         });
         getContentPane().add(txT_EnderecoUSUARIO);
@@ -1076,6 +1216,11 @@ public class PerfilDoCliente extends javax.swing.JFrame {
                 txT_whatsUSUARIO1ActionPerformed(evt);
             }
         });
+        txT_whatsUSUARIO1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txT_whatsUSUARIO1KeyPressed(evt);
+            }
+        });
         getContentPane().add(txT_whatsUSUARIO1);
         txT_whatsUSUARIO1.setBounds(100, 490, 240, 30);
 
@@ -1085,6 +1230,11 @@ public class PerfilDoCliente extends javax.swing.JFrame {
         txT_EmailUSUARIO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txT_EmailUSUARIOActionPerformed(evt);
+            }
+        });
+        txT_EmailUSUARIO.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txT_EmailUSUARIOKeyPressed(evt);
             }
         });
         getContentPane().add(txT_EmailUSUARIO);
@@ -1781,7 +1931,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton12);
-        jButton12.setBounds(540, 50, 50, 40);
+        jButton12.setBounds(540, 80, 50, 40);
 
         txt_Nome.setBorder(null);
         getContentPane().add(txt_Nome);
@@ -1929,7 +2079,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txT_NomeUSUARIO1);
-        txT_NomeUSUARIO1.setBounds(90, 200, 520, 30);
+        txT_NomeUSUARIO1.setBounds(90, 200, 0, 30);
 
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2404,7 +2554,7 @@ String verifica = ":VIP";
     }//GEN-LAST:event_cbo_quatItemStateChanged
 
     private void txT_NomeUSUARIOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txT_NomeUSUARIOActionPerformed
-        // TODO add your handling code here:
+       // TODO add your handling code here:
     }//GEN-LAST:event_txT_NomeUSUARIOActionPerformed
 
     private void jLabel1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLabel1FocusLost
@@ -4222,98 +4372,6 @@ TableModel model = jTable4.getModel();
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
 
-        
-        File file = new File("C:\\Arquivos do programa/Texto.txt");
-       
-        try {
-        FileReader fr = new FileReader(file); 
-        BufferedReader br = new BufferedReader(fr);
-       
-        
-        String linha = br.readLine();
-        ArrayList<String> salvar = new ArrayList();
-        while(linha != null){
-            
-           String nome =txt_Nome.getText()+"/";//Valor
-            String data = txt_Numero.getText()+"/";//Data
-            String total = txt_pedidos.getText()+"/";//total de pedidos
-            String valor = txt_valorTotal.getText()+"/";//valor total
-            String rua =txt_Rua.getText()+"/";//Rua
-            
-            String numero = txt_Endereco.getText()+"/";//numero
-            String bairro = txt_Bairro.getText()+"/";//bairro
-            String aniversario = txt_data.getText()+"/";//aniversario
-            String email = Txt_Aniversario.getText()+"/";//email
-            String zap = txt_email.getText()+"/";//zap
-            String celular = txt_whats.getText()+"/";//celular
-            String obiservacoes = txt_celular.getText()+"/";//obiservaçaoes
-
-            String controle = txt_obiservasoes.getText()+"/1";//controle da tabela
-
-            
-
-            
-            
-            if(linha.equals(nome+data+total+valor+rua+numero+bairro+aniversario+email+zap+celular+obiservacoes+controle) == false){
-                salvar.add(linha);
-           // JOptionPane.showMessageDialog(null, "1/"+nome+"/"+data+"/0/0/"+endereco+"/"+bairro+"/"+numero+"/"+aniversario+"/"+email+"/"+whats+"/"+celular+"/"+obiserva+"/"+cidade);
-            }
-            linha = br.readLine();
-        }
-
-        br.close();
-        fr.close();
-        FileWriter fw2 = new FileWriter(file, true);
-        fw2.close();
-        
-        FileWriter fw = new FileWriter(file);
-        BufferedWriter bw = new BufferedWriter(fw);
-        
-            for (int i = 0; i < salvar.size(); i++) {
-            bw.write( salvar.get(i) );
-            bw.newLine();
-            
-            }
-            bw.close();
-            fw.close();
-        } catch (IOException e) {
-        }
-        
-        
-         RegistroDeCompra registroDeCompra = new RegistroDeCompra();
-
-    
-        registroDeCompra.setNome(txT_NomeUSUARIO.getText()); 
-        registroDeCompra.setEndereço(txT_EnderecoUSUARIO.getText());
-        registroDeCompra.setNumero(txT_NumeroUSUARIO.getText());
-        registroDeCompra.setBairro(txT_BairroUSUARIO.getText());
-        registroDeCompra.setDataNacimento(txT_AniversarioUSUARIO1.getText());
-        registroDeCompra.setEmail(txT_EmailUSUARIO.getText());
-        registroDeCompra.setWhatsApp(txT_whatsUSUARIO1.getText());
-        registroDeCompra.setCelular(txT_CelularUSUARIO2.getText());
-        registroDeCompra.setObiservaçoes(txT_ObiservacoesUSUARIO1.getText());
-     //   registroDeCompra.setValores(jTextField30.getText()); */
-       // registroDeCompra.setData(dataString);
-      //  registroDeCompra.setHora(horarioString);
-
-     
-        
-        
-        try {
-            JOptionPane.showMessageDialog(null, registroDeCompra.sauvado());  //Atençao
-            // jTextField1.setText("");
-            // texREs.setText("");
-            
-            
-            /*   t.start();
-            prgs.setValue(prgs.getValue()+10);
-            
-            t.stop(); */
-        } catch (IOException ex) {
-            Logger.getLogger(PerfilDoCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-     
        
         
     }//GEN-LAST:event_jButton12ActionPerformed
@@ -4708,6 +4766,85 @@ dispose();
 TelaPrincipal tela = new TelaPrincipal();
                        tela.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void txT_NomeUSUARIOKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txT_NomeUSUARIOKeyPressed
+       if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+       sauvarModificaçao();
+        
+       
+     
+       }
+    }//GEN-LAST:event_txT_NomeUSUARIOKeyPressed
+
+    private void txT_EnderecoUSUARIOKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txT_EnderecoUSUARIOKeyPressed
+ if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+       sauvarModificaçao();
+        
+       
+     
+       }
+    }//GEN-LAST:event_txT_EnderecoUSUARIOKeyPressed
+
+    private void txT_BairroUSUARIOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txT_BairroUSUARIOMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txT_BairroUSUARIOMouseClicked
+
+    private void txT_BairroUSUARIOKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txT_BairroUSUARIOKeyPressed
+       if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+       sauvarModificaçao();
+        
+       
+     
+       }
+    }//GEN-LAST:event_txT_BairroUSUARIOKeyPressed
+
+    private void txT_NumeroUSUARIOKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txT_NumeroUSUARIOKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+       sauvarModificaçao();
+        
+       
+     
+       }
+    }//GEN-LAST:event_txT_NumeroUSUARIOKeyPressed
+
+    private void txT_AniversarioUSUARIOKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txT_AniversarioUSUARIOKeyPressed
+         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+       sauvarModificaçao();
+   
+       }
+    }//GEN-LAST:event_txT_AniversarioUSUARIOKeyPressed
+
+    private void txT_EmailUSUARIOKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txT_EmailUSUARIOKeyPressed
+          if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+       sauvarModificaçao();
+   
+       }
+    }//GEN-LAST:event_txT_EmailUSUARIOKeyPressed
+
+    private void txT_whatsUSUARIO1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txT_whatsUSUARIO1KeyPressed
+          if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+       sauvarModificaçao();
+   
+       }
+    }//GEN-LAST:event_txT_whatsUSUARIO1KeyPressed
+
+    private void txT_CelularUSUARIO2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txT_CelularUSUARIO2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txT_CelularUSUARIO2MouseClicked
+
+    private void txT_CelularUSUARIO2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txT_CelularUSUARIO2KeyPressed
+           if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+       sauvarModificaçao();
+   
+       }
+    }//GEN-LAST:event_txT_CelularUSUARIO2KeyPressed
+
+    private void txT_ObiservacoesUSUARIO1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txT_ObiservacoesUSUARIO1KeyPressed
+           if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+       sauvarModificaçao();
+   
+       }
+    }//GEN-LAST:event_txT_ObiservacoesUSUARIO1KeyPressed
     private static final Logger LOG = Logger.getLogger(PerfilDoCliente.class.getName());
 
     public PerfilDoCliente(JTable jTable1, JTextField jTextField1, String string) throws HeadlessException {

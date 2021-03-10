@@ -349,7 +349,6 @@ public class JFCadrastro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro");
         setBackground(new java.awt.Color(4, 197, 130));
-        setExtendedState(MAXIMIZED_BOTH);
         setUndecorated(true);
         getContentPane().setLayout(null);
 

@@ -1,5 +1,6 @@
 
 package visão;
+import java.awt.event.KeyEvent;
 import java.io.IOException;   
 
 import java.io.BufferedReader;
@@ -112,6 +113,11 @@ public class PaginaUsuario extends javax.swing.JFrame {
         jTxtPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTxtPesquisaActionPerformed(evt);
+            }
+        });
+        jTxtPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTxtPesquisaKeyPressed(evt);
             }
         });
         getContentPane().add(jTxtPesquisa);
@@ -821,6 +827,15 @@ dispose();
 TelaPrincipal tela = new TelaPrincipal();
                        tela.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTxtPesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtPesquisaKeyPressed
+         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+      TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
+      jTable2.setRowSorter(tr);
+      tr.setRowFilter(RowFilter.regexFilter(jTxtPesquisa.getText().trim()));
+       }
+    }//GEN-LAST:event_jTxtPesquisaKeyPressed
 
     /**
      * @param args the command line arguments

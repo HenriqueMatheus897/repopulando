@@ -6,6 +6,7 @@
 package visão;
 
 import java.awt.Desktop;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.beans.EventHandler;
@@ -140,12 +141,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jFrame1 = new javax.swing.JFrame();
         jPanel4 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtTabelaP = new javax.swing.JTable();
         txT_Total = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         txT_Faturamento = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jTextpro = new javax.swing.JTextField();
@@ -155,7 +154,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable5 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -273,15 +271,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setBackground(new java.awt.Color(84, 93, 106));
         setExtendedState(MAXIMIZED_BOTH);
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
         getContentPane().setLayout(null);
-
-        jLabel12.setText("Total de Cliente");
-        getContentPane().add(jLabel12);
-        jLabel12.setBounds(630, 100, 100, 14);
 
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -333,10 +330,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().add(txT_Total);
         txT_Total.setBounds(650, 110, 80, 40);
 
-        jLabel14.setText("Faturamento");
-        getContentPane().add(jLabel14);
-        jLabel14.setBounds(770, 90, 90, 14);
-
         txT_Faturamento.setText("0");
         getContentPane().add(txT_Faturamento);
         txT_Faturamento.setBounds(790, 120, 90, 14);
@@ -357,6 +350,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTextpro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextproActionPerformed(evt);
+            }
+        });
+        jTextpro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextproKeyPressed(evt);
             }
         });
         getContentPane().add(jTextpro);
@@ -412,10 +410,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(1320, -100, 120, 1400);
-
-        jLabel15.setText("Total de pedidos");
-        getContentPane().add(jLabel15);
-        jLabel15.setBounds(500, 100, 130, 14);
 
         jTable5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1655,6 +1649,25 @@ JFCadrastro Tela = new JFCadrastro();
  
     }//GEN-LAST:event_jButton12ActionPerformed
 
+    private void jTextproKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextproKeyPressed
+      if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        DefaultTableModel model = (DefaultTableModel)jtTabelaP.getModel();
+      TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
+      jtTabelaP.setRowSorter(tr);
+      tr.setRowFilter(RowFilter.regexFilter(jTextpro.getText().trim()));
+       }
+    }//GEN-LAST:event_jTextproKeyPressed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        int  opisao = JOptionPane.showConfirmDialog(null, "Você realmente quer sair do programa?", "Atenção", JOptionPane.YES_OPTION);
+      
+        if(opisao == JOptionPane.YES_OPTION){
+    System.exit(0);
+    }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowClosing
+
     /**
      * @param args the command line arguments
      */
@@ -1707,10 +1720,7 @@ JFCadrastro Tela = new JFCadrastro();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
