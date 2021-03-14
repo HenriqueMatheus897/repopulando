@@ -54,11 +54,13 @@ public class MeuNegocio extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
         jLabel4.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -73,38 +75,47 @@ public class MeuNegocio extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonPedidos);
-        jButtonPedidos.setBounds(10, 50, 100, 50);
+        jButtonPedidos.setBounds(820, 220, 60, 50);
 
-        jButton2.setText("Sauvar");
+        jButton2.setText("Salvar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(320, 240, 67, 46);
+        jButton2.setBounds(440, 336, 63, 30);
 
         jLabel1.setText("resetarbanco de dados");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(10, 20, 130, 14);
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Usuario");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(180, 70, 36, 14);
+        jLabel2.setBounds(370, 150, 36, 20);
 
-        jLabel3.setText("senha");
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Senha");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(180, 120, 29, 10);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(180, 90, 180, 20);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(180, 140, 180, 20);
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(180, 190, 180, 20);
+        jLabel3.setBounds(370, 200, 40, 20);
 
-        jLabel5.setText("palavra chave");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(370, 170, 210, 20);
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(370, 220, 210, 20);
+        getContentPane().add(jTextField3);
+        jTextField3.setBounds(370, 290, 210, 20);
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Palavra Chave");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(180, 170, 80, 14);
+        jLabel5.setBounds(370, 270, 80, 20);
 
         jButton3.setText("jButton3");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -119,10 +130,18 @@ public class MeuNegocio extends javax.swing.JFrame {
         getContentPane().add(jLabel6);
         jLabel6.setBounds(60, 230, 100, 14);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/CONFIGURAÇÕES.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(1263, 3, 50, 50);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/--- configurações.png"))); // NOI18N
         jLabel7.setText("jLabel7");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(0, 0, 1300, 700);
+        jLabel7.setBounds(0, 0, 1320, 700);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -240,6 +259,16 @@ String senha = jLabel6.getText();
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+dispose();
+TelaPrincipal tela = new TelaPrincipal();
+                       tela.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -276,6 +305,7 @@ String senha = jLabel6.getText();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonPedidos;

@@ -578,6 +578,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if (!Chamar_Fornecedor2.isVisible()) { Chamar_Fornecedor2.setVisible(true); } 
+        dispose();
       //  PaginaUsuario Tela = new PaginaUsuario();
       //  Tela.setVisible(rootPaneCheckingEnabled);   
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -1154,6 +1155,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 //if (!Chamar_Fornecedor6.isVisible()) { Chamar_Fornecedor6.setVisible(true); }
         MeuNegocio Tela = new MeuNegocio();
         Tela.setVisible(rootPaneCheckingEnabled); 
+        dispose();
   //   jFrame1.setVisible(rootPaneCheckingEnabled); 
      
      
@@ -1366,6 +1368,7 @@ if (!Chamar_Fornecedor3.isVisible()) { Chamar_Fornecedor3.setVisible(true); }
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
 if (!Chamar_Fornecedor4.isVisible()) { Chamar_Fornecedor4.setVisible(true); }
+dispose();
 
        // frm_GuardarDados Tela = new frm_GuardarDados();
     //    Tela.setVisible(rootPaneCheckingEnabled);

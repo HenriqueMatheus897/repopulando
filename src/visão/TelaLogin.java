@@ -70,6 +70,7 @@ public class TelaLogin extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -170,7 +171,7 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().add(jLabelSenha);
         jLabelSenha.setBounds(90, 250, 60, 22);
 
-        setSize(new java.awt.Dimension(807, 599));
+        setSize(new java.awt.Dimension(791, 560));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

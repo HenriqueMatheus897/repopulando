@@ -154,8 +154,10 @@ public class frm_GuardarDados extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
-        jLabel12 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
 
         jLabel3.setText("jLabel3");
 
@@ -195,6 +197,7 @@ public class frm_GuardarDados extends javax.swing.JFrame {
 
         jLabel10.setText("jLabel10");
 
+        setUndecorated(true);
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -312,15 +315,27 @@ public class frm_GuardarDados extends javax.swing.JFrame {
         getContentPane().add(jDesktopPane1);
         jDesktopPane1.setBounds(459, 169, 570, 460);
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/AMeus Produtos.png"))); // NOI18N
-        getContentPane().add(jLabel12);
-        jLabel12.setBounds(0, 0, 1310, 700);
-
         jButton4.setText("jButton4");
         getContentPane().add(jButton4);
         jButton4.setBounds(250, 320, 73, 23);
 
-        setSize(new java.awt.Dimension(1316, 739));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5);
+        jButton5.setBounds(1260, 0, 50, 50);
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/---Cadrasto de produtos.png"))); // NOI18N
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(0, 0, 1313, 700);
+
+        jButton6.setText("jButton6");
+        getContentPane().add(jButton6);
+        jButton6.setBounds(1243, 60, 40, 23);
+
+        setSize(new java.awt.Dimension(1313, 700));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1277,6 +1292,12 @@ tela.show();
     
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+dispose();
+TelaPrincipal tela = new TelaPrincipal();
+                       tela.setVisible(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1321,6 +1342,8 @@ tela.show();
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

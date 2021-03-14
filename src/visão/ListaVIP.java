@@ -80,8 +80,10 @@ public class ListaVIP extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jTextField11 = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -254,9 +256,17 @@ public class ListaVIP extends javax.swing.JFrame {
         getContentPane().add(jScrollPane3);
         jScrollPane3.setBounds(350, 130, 800, 520);
         getContentPane().add(jTextField11);
-        jTextField11.setBounds(50, 80, 200, 20);
+        jTextField11.setBounds(50, 80, 110, 20);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/7_1.png"))); // NOI18N
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5);
+        jButton5.setBounds(1263, 3, 50, 50);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/---Vip.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.setToolTipText("");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -265,9 +275,9 @@ public class ListaVIP extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 4, 1300, 700);
+        jLabel1.setBounds(0, 0, 1320, 703);
 
-        setSize(new java.awt.Dimension(1316, 739));
+        setSize(new java.awt.Dimension(1314, 704));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -535,6 +545,12 @@ public class ListaVIP extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jTable3MouseClicked
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+dispose();
+PaginaUsuario tela = new PaginaUsuario();
+                       tela.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -575,6 +591,7 @@ public class ListaVIP extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

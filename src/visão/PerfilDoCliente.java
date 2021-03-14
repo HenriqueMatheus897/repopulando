@@ -503,7 +503,6 @@ public class PerfilDoCliente extends javax.swing.JFrame {
         jLabel53 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jTextField89 = new javax.swing.JTextField();
-        jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
@@ -513,6 +512,8 @@ public class PerfilDoCliente extends javax.swing.JFrame {
         jLabel42 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         txT_NomeUSUARIO1 = new javax.swing.JTextField();
+        jButton13 = new javax.swing.JButton();
+        jLabel30 = new javax.swing.JLabel();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -939,6 +940,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -954,7 +956,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txT_BairroUSUARIO);
-        txT_BairroUSUARIO.setBounds(80, 330, 150, 40);
+        txT_BairroUSUARIO.setBounds(90, 360, 150, 20);
 
         jTextField1.setBorder(null);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -973,7 +975,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txT_CelularUSUARIO2);
-        txT_CelularUSUARIO2.setBounds(340, 470, 260, 30);
+        txT_CelularUSUARIO2.setBounds(360, 490, 260, 30);
 
         cbo_select.setToolTipText("xtudo");
         cbo_select.addItemListener(new java.awt.event.ItemListener() {
@@ -1003,7 +1005,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonlink);
-        jButtonlink.setBounds(630, 140, 50, 40);
+        jButtonlink.setBounds(630, 110, 50, 40);
 
         txT_AniversarioUSUARIO.setForeground(java.awt.Color.white);
         txT_AniversarioUSUARIO.setBorder(null);
@@ -1013,7 +1015,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txT_AniversarioUSUARIO);
-        txT_AniversarioUSUARIO.setBounds(450, 330, 160, 40);
+        txT_AniversarioUSUARIO.setBounds(460, 360, 160, 20);
 
         jLabel55.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Design sem nome.png"))); // NOI18N
         jLabel55.setText("jLabel55");
@@ -1023,7 +1025,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel55);
-        jLabel55.setBounds(630, 80, 50, 50);
+        jLabel55.setBounds(630, 50, 50, 50);
 
         txT_ObiservacoesUSUARIO1.setBackground(new java.awt.Color(82, 94, 108));
         txT_ObiservacoesUSUARIO1.setForeground(java.awt.Color.white);
@@ -1034,7 +1036,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txT_ObiservacoesUSUARIO1);
-        txT_ObiservacoesUSUARIO1.setBounds(80, 540, 520, 90);
+        txT_ObiservacoesUSUARIO1.setBounds(100, 560, 520, 90);
 
         txT_NumeroUSUARIO.setForeground(java.awt.Color.white);
         txT_NumeroUSUARIO.setBorder(null);
@@ -1044,7 +1046,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txT_NumeroUSUARIO);
-        txT_NumeroUSUARIO.setBounds(260, 330, 160, 40);
+        txT_NumeroUSUARIO.setBounds(280, 360, 150, 20);
 
         txT_NomeUSUARIO.setBackground(new java.awt.Color(82, 94, 108));
         txT_NomeUSUARIO.setForeground(java.awt.Color.white);
@@ -1055,7 +1057,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txT_NomeUSUARIO);
-        txT_NomeUSUARIO.setBounds(80, 190, 520, 40);
+        txT_NomeUSUARIO.setBounds(100, 220, 520, 20);
 
         txT_EnderecoUSUARIO.setForeground(java.awt.Color.white);
         txT_EnderecoUSUARIO.setBorder(null);
@@ -1065,7 +1067,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txT_EnderecoUSUARIO);
-        txT_EnderecoUSUARIO.setBounds(80, 260, 510, 30);
+        txT_EnderecoUSUARIO.setBounds(100, 280, 510, 30);
 
         txT_whatsUSUARIO1.setForeground(java.awt.Color.white);
         txT_whatsUSUARIO1.setBorder(null);
@@ -1075,7 +1077,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txT_whatsUSUARIO1);
-        txT_whatsUSUARIO1.setBounds(80, 470, 240, 30);
+        txT_whatsUSUARIO1.setBounds(100, 490, 240, 30);
 
         txT_EmailUSUARIO.setBackground(new java.awt.Color(82, 94, 108));
         txT_EmailUSUARIO.setForeground(java.awt.Color.white);
@@ -1086,7 +1088,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txT_EmailUSUARIO);
-        txT_EmailUSUARIO.setBounds(100, 400, 520, 40);
+        txT_EmailUSUARIO.setBounds(90, 430, 520, 20);
         getContentPane().add(jTextField2);
         jTextField2.setBounds(760, 30, 0, 20);
 
@@ -1097,7 +1099,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(1050, 520, 140, 70);
+        jButton1.setBounds(1030, 550, 140, 70);
 
         cbo_quat.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1115,7 +1117,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbo_quat);
-        cbo_quat.setBounds(1140, 40, 60, 40);
+        cbo_quat.setBounds(1130, 70, 50, 50);
 
         jButton777.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Design sem nome.png"))); // NOI18N
         jButton777.setRequestFocusEnabled(false);
@@ -1125,7 +1127,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton777);
-        jButton777.setBounds(630, 80, 50, 50);
+        jButton777.setBounds(630, 50, 50, 50);
 
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1133,7 +1135,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(1210, 250, 50, 50);
+        jButton4.setBounds(1190, 280, 40, 40);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1155,7 +1157,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
         }
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(740, 150, 460, 350);
+        jScrollPane1.setBounds(730, 180, 440, 350);
 
         jTextField3.setBorder(null);
         getContentPane().add(jTextField3);
@@ -1316,7 +1318,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField30);
-        jTextField30.setBounds(770, 600, 150, 30);
+        jTextField30.setBounds(760, 630, 150, 30);
 
         jButton5.setText("jButton5");
         jButton5.setBorder(null);
@@ -1654,7 +1656,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
         jLabel40.setForeground(java.awt.Color.white);
         jLabel40.setText("Rua");
         getContentPane().add(jLabel40);
-        jLabel40.setBounds(100, 234, 60, 20);
+        jLabel40.setBounds(100, 250, 60, 30);
 
         jLabel35.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel35.setForeground(java.awt.Color.white);
@@ -1665,49 +1667,49 @@ public class PerfilDoCliente extends javax.swing.JFrame {
         jLabel39.setForeground(java.awt.Color.white);
         jLabel39.setText("Nome ");
         getContentPane().add(jLabel39);
-        jLabel39.setBounds(100, 160, 50, 30);
+        jLabel39.setBounds(90, 180, 50, 40);
 
         jLabel43.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel43.setForeground(java.awt.Color.white);
-        jLabel43.setText("Numero");
+        jLabel43.setText("Número");
         getContentPane().add(jLabel43);
-        jLabel43.setBounds(100, 304, 70, 20);
+        jLabel43.setBounds(90, 330, 70, 20);
 
         jLabel44.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel44.setForeground(java.awt.Color.white);
         jLabel44.setText("Bairro ");
         getContentPane().add(jLabel44);
-        jLabel44.setBounds(280, 304, 50, 20);
+        jLabel44.setBounds(280, 330, 50, 20);
 
         jLabel45.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel45.setForeground(java.awt.Color.white);
-        jLabel45.setText("Data de aniversario");
+        jLabel45.setText("Data de aniversário");
         getContentPane().add(jLabel45);
-        jLabel45.setBounds(470, 304, 140, 20);
+        jLabel45.setBounds(460, 330, 140, 20);
 
         jLabel46.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel46.setForeground(java.awt.Color.white);
         jLabel46.setText("Email");
         getContentPane().add(jLabel46);
-        jLabel46.setBounds(100, 374, 60, 20);
+        jLabel46.setBounds(90, 400, 60, 20);
 
         jLabel47.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel47.setForeground(java.awt.Color.white);
         jLabel47.setText("whatsApp");
         getContentPane().add(jLabel47);
-        jLabel47.setBounds(100, 444, 80, 20);
+        jLabel47.setBounds(100, 470, 80, 20);
 
         jLabel48.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel48.setForeground(java.awt.Color.white);
         jLabel48.setText("Telefone");
         getContentPane().add(jLabel48);
-        jLabel48.setBounds(360, 440, 70, 30);
+        jLabel48.setBounds(360, 460, 70, 30);
 
         jLabel49.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel49.setForeground(java.awt.Color.white);
-        jLabel49.setText("Obiservações");
+        jLabel49.setText("Observações");
         getContentPane().add(jLabel49);
-        jLabel49.setBounds(100, 504, 100, 30);
+        jLabel49.setBounds(90, 530, 100, 30);
 
         cbo_Clases.setEditable(true);
         cbo_Clases.addActionListener(new java.awt.event.ActionListener() {
@@ -1716,7 +1718,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbo_Clases);
-        cbo_Clases.setBounds(740, 40, 380, 40);
+        cbo_Clases.setBounds(730, 70, 380, 50);
 
         cbo_ItemDaClasse.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         cbo_ItemDaClasse.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -1734,7 +1736,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cbo_ItemDaClasse);
-        cbo_ItemDaClasse.setBounds(740, 90, 380, 30);
+        cbo_ItemDaClasse.setBounds(730, 130, 380, 30);
 
         jButton8.setText("jButton8");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -1779,7 +1781,7 @@ public class PerfilDoCliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton12);
-        jButton12.setBounds(629, 30, 50, 40);
+        jButton12.setBounds(540, 50, 50, 40);
 
         txt_Nome.setBorder(null);
         getContentPane().add(txt_Nome);
@@ -1874,26 +1876,10 @@ public class PerfilDoCliente extends javax.swing.JFrame {
         getContentPane().add(jTextField89);
         jTextField89.setBounds(480, 10, 0, 14);
 
-        jLabel30.setForeground(java.awt.Color.white);
-        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Aqui Perfil do cliente.png"))); // NOI18N
-        jLabel30.setText("jLabel30");
-        jLabel30.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel30MouseMoved(evt);
-            }
-        });
-        jLabel30.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel30MouseClicked(evt);
-            }
-        });
-        getContentPane().add(jLabel30);
-        jLabel30.setBounds(0, 0, 1300, 660);
-
         jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/azul.jpg"))); // NOI18N
         jLabel31.setText("jLabel31");
         getContentPane().add(jLabel31);
-        jLabel31.setBounds(1300, -10, 40, 520);
+        jLabel31.setBounds(1280, 50, 20, 520);
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/azul.jpg"))); // NOI18N
         jLabel32.setText("jLabel32");
@@ -1945,7 +1931,31 @@ public class PerfilDoCliente extends javax.swing.JFrame {
         getContentPane().add(txT_NomeUSUARIO1);
         txT_NomeUSUARIO1.setBounds(90, 200, 520, 30);
 
-        setSize(new java.awt.Dimension(1356, 697));
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton13);
+        jButton13.setBounds(1259, 0, 50, 50);
+
+        jLabel30.setForeground(java.awt.Color.white);
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/---Perfil.png"))); // NOI18N
+        jLabel30.setText("jLabel30");
+        jLabel30.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel30MouseMoved(evt);
+            }
+        });
+        jLabel30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel30MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel30);
+        jLabel30.setBounds(0, 0, 1360, 700);
+
+        setSize(new java.awt.Dimension(1312, 701));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -4692,6 +4702,12 @@ String verifica = ":VIP";
         }
         /*/        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel55MouseClicked
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+dispose();
+TelaPrincipal tela = new TelaPrincipal();
+                       tela.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13ActionPerformed
     private static final Logger LOG = Logger.getLogger(PerfilDoCliente.class.getName());
 
     public PerfilDoCliente(JTable jTable1, JTextField jTextField1, String string) throws HeadlessException {
@@ -4744,6 +4760,7 @@ String verifica = ":VIP";
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;

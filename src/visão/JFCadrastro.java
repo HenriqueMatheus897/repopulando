@@ -372,7 +372,7 @@ public class JFCadrastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTxtEndereço2);
-        jTxtEndereço2.setBounds(380, 300, 430, 30);
+        jTxtEndereço2.setBounds(380, 330, 430, 20);
 
         jButton1.setBackground(new java.awt.Color(4, 197, 130));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -385,14 +385,19 @@ public class JFCadrastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(550, 610, 200, 40);
+        jButton1.setBounds(550, 620, 210, 50);
 
         jTxtRG.setBackground(new java.awt.Color(84, 94, 106));
         jTxtRG.setBorder(null);
         jTxtRG.setForeground(new java.awt.Color(255, 255, 255));
         jTxtRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd-MM-yyyy"))));
+        jTxtRG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtRGActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTxtRG);
-        jTxtRG.setBounds(350, 160, 200, 30);
+        jTxtRG.setBounds(360, 180, 200, 20);
 
         jTxtCPF.setBackground(new java.awt.Color(84, 94, 106));
         jTxtCPF.setBorder(null);
@@ -409,33 +414,38 @@ public class JFCadrastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTxtCPF);
-        jTxtCPF.setBounds(850, 300, 90, 30);
+        jTxtCPF.setBounds(860, 320, 90, 30);
 
         jTxtTelefone.setBackground(new java.awt.Color(84, 94, 106));
         jTxtTelefone.setBorder(null);
         jTxtTelefone.setForeground(new java.awt.Color(255, 255, 255));
         jTxtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############"))));
         getContentPane().add(jTxtTelefone);
-        jTxtTelefone.setBounds(360, 390, 260, 30);
+        jTxtTelefone.setBounds(370, 410, 260, 30);
 
         jTxtCelular.setBackground(new java.awt.Color(84, 94, 106));
         jTxtCelular.setBorder(null);
         jTxtCelular.setForeground(new java.awt.Color(255, 255, 255));
         jTxtCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#########"))));
         getContentPane().add(jTxtCelular);
-        jTxtCelular.setBounds(680, 390, 260, 30);
+        jTxtCelular.setBounds(670, 410, 260, 30);
 
         jTxtBairro.setBackground(new java.awt.Color(84, 94, 106));
         jTxtBairro.setForeground(new java.awt.Color(255, 255, 255));
         jTxtBairro.setBorder(null);
         getContentPane().add(jTxtBairro);
-        jTxtBairro.setBounds(670, 240, 260, 30);
+        jTxtBairro.setBounds(680, 260, 260, 30);
 
         jTxtEmail.setBackground(new java.awt.Color(82, 94, 108));
         jTxtEmail.setForeground(new java.awt.Color(255, 255, 255));
         jTxtEmail.setBorder(null);
+        jTxtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtEmailActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTxtEmail);
-        jTxtEmail.setBounds(350, 100, 420, 20);
+        jTxtEmail.setBounds(350, 120, 420, 20);
 
         jTxtObiservaçoes.setBackground(new java.awt.Color(84, 94, 106));
         jTxtObiservaçoes.setForeground(new java.awt.Color(255, 255, 255));
@@ -446,7 +456,7 @@ public class JFCadrastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTxtObiservaçoes);
-        jTxtObiservaçoes.setBounds(370, 470, 560, 101);
+        jTxtObiservaçoes.setBounds(380, 480, 560, 101);
 
         jTxtNome.setBackground(new java.awt.Color(82, 94, 108));
         jTxtNome.setForeground(new java.awt.Color(255, 255, 255));
@@ -457,16 +467,15 @@ public class JFCadrastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTxtNome);
-        jTxtNome.setBounds(360, 30, 430, 30);
+        jTxtNome.setBounds(350, 50, 430, 20);
 
-        jButton3.setText("jButton3");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(1160, 20, 90, 30);
+        jButton3.setBounds(1260, 0, 60, 50);
 
         jTxtEndereço.setBackground(new java.awt.Color(84, 94, 106));
         jTxtEndereço.setForeground(new java.awt.Color(255, 255, 255));
@@ -477,70 +486,70 @@ public class JFCadrastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTxtEndereço);
-        jTxtEndereço.setBounds(370, 240, 260, 30);
+        jTxtEndereço.setBounds(370, 260, 260, 30);
 
         jLabel18.setBackground(java.awt.Color.white);
         jLabel18.setForeground(java.awt.Color.white);
         jLabel18.setText("Nome:");
         getContentPane().add(jLabel18);
-        jLabel18.setBounds(340, 10, 140, 14);
+        jLabel18.setBounds(340, 30, 140, 14);
 
         jLabel19.setForeground(java.awt.Color.white);
-        jLabel19.setText("Obiservações:");
+        jLabel19.setText("Observações:");
         getContentPane().add(jLabel19);
-        jLabel19.setBounds(340, 430, 140, 20);
+        jLabel19.setBounds(340, 450, 140, 20);
 
         jLabel20.setForeground(java.awt.Color.white);
         jLabel20.setText("Email:");
         getContentPane().add(jLabel20);
-        jLabel20.setBounds(330, 80, 170, 20);
+        jLabel20.setBounds(340, 90, 170, 20);
 
         jLabel21.setForeground(java.awt.Color.white);
         jLabel21.setText("Data de Aniversário:");
         getContentPane().add(jLabel21);
-        jLabel21.setBounds(330, 140, 150, 20);
+        jLabel21.setBounds(340, 160, 150, 20);
 
         jLabel22.setForeground(java.awt.Color.white);
         jLabel22.setText("WhatsApp:");
         getContentPane().add(jLabel22);
-        jLabel22.setBounds(360, 370, 120, 20);
+        jLabel22.setBounds(360, 390, 120, 20);
 
         jLabel23.setForeground(java.awt.Color.white);
         jLabel23.setText("Celular:");
         getContentPane().add(jLabel23);
-        jLabel23.setBounds(670, 370, 140, 20);
+        jLabel23.setBounds(670, 390, 140, 20);
 
         jLabel24.setForeground(java.awt.Color.white);
         jLabel24.setText("Cidade:");
         getContentPane().add(jLabel24);
-        jLabel24.setBounds(360, 220, 140, 14);
+        jLabel24.setBounds(360, 240, 140, 14);
 
         jLabel25.setForeground(java.awt.Color.white);
         jLabel25.setText("Bairro:");
         getContentPane().add(jLabel25);
-        jLabel25.setBounds(660, 220, 170, 14);
+        jLabel25.setBounds(670, 240, 170, 14);
 
         jLabel26.setForeground(java.awt.Color.white);
         jLabel26.setText("Rua:");
         getContentPane().add(jLabel26);
-        jLabel26.setBounds(360, 280, 170, 20);
+        jLabel26.setBounds(360, 300, 170, 20);
 
         jLabel27.setForeground(java.awt.Color.white);
         jLabel27.setText("Numero:");
         getContentPane().add(jLabel27);
-        jLabel27.setBounds(860, 280, 80, 20);
+        jLabel27.setBounds(850, 300, 80, 20);
 
         jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/azul.jpg"))); // NOI18N
         getContentPane().add(jLabel30);
-        jLabel30.setBounds(990, 0, 390, 20);
+        jLabel30.setBounds(850, 0, 390, 10);
 
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Aqui cadrasto de cliente.png"))); // NOI18N
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/---Cadrasto.png"))); // NOI18N
         getContentPane().add(jLabel17);
-        jLabel17.setBounds(0, -8, 1200, 680);
+        jLabel17.setBounds(20, 0, 1320, 700);
 
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/azul.jpg"))); // NOI18N
         getContentPane().add(jLabel28);
-        jLabel28.setBounds(1200, -6, 80, 510);
+        jLabel28.setBounds(1200, 70, 80, 510);
 
         jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/azul.jpg"))); // NOI18N
         jLabel29.setText("jLabel29");
@@ -575,7 +584,7 @@ public class JFCadrastro extends javax.swing.JFrame {
         getContentPane().add(jLabel37);
         jLabel37.setBounds(0, 640, 390, 20);
 
-        setSize(new java.awt.Dimension(1274, 662));
+        setSize(new java.awt.Dimension(1314, 698));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -693,6 +702,14 @@ TelaPrincipal tela = new TelaPrincipal();
                        tela.setVisible(true);
 
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTxtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtEmailActionPerformed
+
+    private void jTxtRGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtRGActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtRGActionPerformed
 
     /**
      * @param args the command line arguments

@@ -85,10 +85,12 @@ public class PaginaUsuario extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setAutoRequestFocus(false);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -296,7 +298,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/azul.jpg"))); // NOI18N
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(1260, 0, 40, 350);
+        jLabel7.setBounds(1250, 90, 40, 350);
 
         jButton3.setText("jButton3");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -307,7 +309,19 @@ public class PaginaUsuario extends javax.swing.JFrame {
         getContentPane().add(jButton3);
         jButton3.setBounds(180, 360, 80, 80);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/6.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/azul.jpg"))); // NOI18N
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(1260, 350, 40, 350);
+
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4);
+        jButton4.setBounds(1263, 3, 50, 50);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/--- Clientes.png"))); // NOI18N
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
@@ -319,13 +333,9 @@ public class PaginaUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(0, 0, 1260, 700);
+        jLabel6.setBounds(0, 0, 1360, 700);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/azul.jpg"))); // NOI18N
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(1260, 350, 40, 350);
-
-        setSize(new java.awt.Dimension(1315, 739));
+        setSize(new java.awt.Dimension(1314, 700));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -806,6 +816,12 @@ public class PaginaUsuario extends javax.swing.JFrame {
         Tela.setVisible(rootPaneCheckingEnabled); 
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+dispose();
+TelaPrincipal tela = new TelaPrincipal();
+                       tela.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -845,6 +861,7 @@ public class PaginaUsuario extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonImport;
     private javax.swing.JButton jButtonImport1;
     private javax.swing.JButton jButtonImport2;
