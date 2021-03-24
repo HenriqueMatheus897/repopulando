@@ -34,7 +34,7 @@ class TableDemo {
     }
     public String sauvado() throws IOException{
         try {
-          java.io.FileWriter fw = new java.io.FileWriter("C:\\Arquivos do programa/textando.txt", true);
+          java.io.FileWriter fw = new java.io.FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt", true);
             PrintWriter pw = new PrintWriter(fw);
             
             pw.print(this.analise+" ");//Valor

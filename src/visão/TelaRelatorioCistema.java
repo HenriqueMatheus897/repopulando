@@ -6,10 +6,12 @@
 package visão;
 
 import java.awt.List;
+import java.awt.event.KeyEvent;
 import java.util.Scanner;
 
 import java.io.FileWriter;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -17,6 +19,7 @@ import java.io.IOException;
 import java.io.LineNumberReader;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.StringTokenizer;
@@ -24,7 +27,9 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import metodos.MetodoRegistroDeCompra;
 //import javax.swing.table.DefaultTableModel;
 
@@ -47,6 +52,13 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
        // jButton4.setBackground(new java.awt.Color(0,0,0,0));
    //     jButton5.setBackground(new java.awt.Color(0,0,0,0));
        // jPanel6.setBackground(new java.awt.Color(0,0,0,0));
+       jButton2.setBackground(new java.awt.Color(0,0,0,0));
+       jButton4.setBackground(new java.awt.Color(0,0,0,0));
+       jButton1.setBackground(new java.awt.Color(0,0,0,0));
+       jButton3.setBackground(new java.awt.Color(0,0,0,0));
+       jButton5.setBackground(new java.awt.Color(0,0,0,0));
+       jButton7.setBackground(new java.awt.Color(0,0,0,0));
+       //jButton2.setBackground(new java.awt.Color(0,0,0,0));
  
     }
     
@@ -76,16 +88,17 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
         for( int i = 0; i < jTable3.getRowCount(); i++)
         {
             float renglon;
-            renglon = Float.parseFloat(jTable3.getValueAt(i, 0).toString());
+            renglon = Float.parseFloat(jTable3.getValueAt(i, 3).toString());
             
             suma = suma + renglon;
             
         }
 
-         jLabel24.setText(String.valueOf(suma));
+         jLabel68.setText(String.valueOf(suma));
         
   
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -105,39 +118,28 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jLabel68 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel6676 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        txtPiorHora2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtPiorHora2 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
 
@@ -150,14 +152,14 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jButton5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton5.setText("faturamento mensal");
+        jButton5.setBorder(null);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(110, 350, 200, 40);
+        jButton5.setBounds(120, 360, 180, 30);
 
         jPanel3.setBackground(java.awt.Color.white);
 
@@ -192,14 +194,14 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
         jPanel4.setBounds(1080, 230, 0, 0);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton1.setText("faturamento dia");
+        jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(112, 190, 200, 40);
+        jButton1.setBounds(120, 270, 180, 30);
 
         jPanel5.setBackground(java.awt.Color.white);
 
@@ -218,7 +220,6 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
         jPanel5.setBounds(1080, 200, 0, 10);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton3.setText("faturamento semanal");
         jButton3.setBorder(null);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,7 +227,7 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(110, 260, 200, 50);
+        jButton3.setBounds(120, 320, 190, 30);
 
         jTextField1.setBorder(null);
         getContentPane().add(jTextField1);
@@ -245,24 +246,16 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(0, 700, 10, 0);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Total de Clientes");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(520, 160, 132, 39);
-
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel4.setText("0");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(780, 110, 20, 44);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setText("Pedidos Feitos");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(730, 170, 113, 22);
+        jLabel4.setBounds(780, 180, 80, 44);
 
         jTextField2.setBorder(null);
         getContentPane().add(jTextField2);
         jTextField2.setBounds(340, 510, 0, 40);
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(480, 240, 0, 10);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -282,28 +275,48 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Título 1"
+                "Data", "Hora", "Nome Do Cliente", "Valor Gasto Pelo Cliente"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable3.getTableHeader().setReorderingAllowed(false);
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
+        jTable3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTable3KeyPressed(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTable3);
+        if (jTable3.getColumnModel().getColumnCount() > 0) {
+            jTable3.getColumnModel().getColumn(0).setMinWidth(120);
+            jTable3.getColumnModel().getColumn(0).setPreferredWidth(120);
+            jTable3.getColumnModel().getColumn(0).setMaxWidth(120);
+            jTable3.getColumnModel().getColumn(1).setMinWidth(120);
+            jTable3.getColumnModel().getColumn(1).setPreferredWidth(120);
+            jTable3.getColumnModel().getColumn(1).setMaxWidth(120);
+            jTable3.getColumnModel().getColumn(3).setMinWidth(200);
+            jTable3.getColumnModel().getColumn(3).setPreferredWidth(200);
+            jTable3.getColumnModel().getColumn(3).setMaxWidth(200);
+        }
 
         getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(350, 280, 880, 300);
+        jScrollPane3.setBounds(380, 320, 860, 340);
 
         jLabel68.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel68.setText("0");
         getContentPane().add(jLabel68);
-        jLabel68.setBounds(990, 110, 20, 44);
-
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel17.setText("No período de tempo selecionado, foram cadrastados ");
-        getContentPane().add(jLabel17);
-        jLabel17.setBounds(0, 0, 296, 15);
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setText("Faturamento");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(950, 180, 110, 22);
+        jLabel68.setBounds(990, 180, 80, 44);
 
         jButton6.setBorder(null);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -317,131 +330,75 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel2.setText("0");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(560, 110, 20, 44);
+        jLabel2.setBounds(570, 180, 70, 44);
         getContentPane().add(jLabel1);
         jLabel1.setBounds(350, 180, 0, 0);
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(350, 140, 0, 0);
 
-        jLabel6676.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6676.setForeground(java.awt.Color.white);
-        jLabel6676.setText("Escolher data");
-        getContentPane().add(jLabel6676);
-        jLabel6676.setBounds(80, 420, 200, 40);
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel10.setForeground(java.awt.Color.white);
+        jLabel10.setText("Digite uma data especifica");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(120, 414, 170, 20);
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(350, 160, 0, 0);
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(344, 174, 0, 20);
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(350, 200, 0, 0);
 
-        jButton7.setText("jButton7");
+        jButton4.setBorder(null);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4);
+        jButton4.setBounds(110, 200, 200, 30);
+
+        jButton7.setBackground(new java.awt.Color(0, 15, 34));
+        jButton7.setBorder(null);
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton7);
-        jButton7.setBounds(260, 470, 60, 30);
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(480, 240, 0, 0);
+        jButton7.setBounds(310, 440, 40, 30);
+
+        try {
+            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        getContentPane().add(jFormattedTextField1);
+        jFormattedTextField1.setBounds(120, 440, 180, 30);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel9.setForeground(java.awt.Color.white);
         jLabel9.setText("titulo");
         jLabel9.setToolTipText("");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(600, 240, 440, 20);
-
-        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel15.setText("Nesse período de tempo, foram cadrastados ");
-
-        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel20.setText("x");
-
-        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel21.setText("novos clientes, e foram vendidos ");
-
-        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel22.setText("x");
-
-        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel23.setText("produtos, totalilizando um faturamento de: R$");
-
-        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel24.setText("x");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel21)
-                .addGap(14, 14, 14)
-                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel22)
-                    .addComponent(jLabel23)
-                    .addComponent(jLabel24))
-                .addGap(24, 24, 24))
-        );
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(350, 600, 880, 50);
+        jLabel9.setBounds(700, 50, 440, 30);
 
         txtPiorHora2.setText("jLabel9");
         getContentPane().add(txtPiorHora2);
         txtPiorHora2.setBounds(1080, 440, 34, 14);
-
-        jLabel10.setText("novos clientes e ");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(0, 0, 80, 14);
-
-        jLabel12.setText("vendas totalilizando R$");
-        getContentPane().add(jLabel12);
-        jLabel12.setBounds(0, 0, 111, 14);
-
-        jLabel13.setText("x");
-        getContentPane().add(jLabel13);
-        jLabel13.setBounds(0, 0, 6, 14);
-
-        jLabel14.setText("x");
-        getContentPane().add(jLabel14);
-        jLabel14.setBounds(0, 0, 6, 14);
-
-        jLabel16.setText("x");
-        getContentPane().add(jLabel16);
-        jLabel16.setBounds(0, 0, 6, 14);
-
-        jLabel18.setText("x");
         getContentPane().add(jLabel18);
-        jLabel18.setBounds(0, 0, 6, 14);
+        jLabel18.setBounds(0, 0, 0, 0);
 
-        jLabel19.setText("x");
-        getContentPane().add(jLabel19);
-        jLabel19.setBounds(0, 0, 6, 14);
-
+        jButton2.setToolTipText("Sair Dessa Aba");
+        jButton2.setBorder(null);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(1263, 3, 50, 50);
+        jButton2.setBounds(1270, 0, 40, 40);
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/--- Relatorio.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/__RELATORIO_1.png"))); // NOI18N
         jLabel11.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jLabel11MouseMoved(evt);
@@ -455,11 +412,78 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-         
+ jLabel9.setText("Faturamento total");
+        try {
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt");
+        File file = new File(filePath);
+            
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String firstLine = br.readLine().trim();
+           String[] columnsName = firstLine.split(",");
+         //   DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+          //  model.setColumnIdentifiers(columnsName);
+
+            Object[] tableLines = br.lines().toArray();
+            //model.addRow(tableLines);
+            
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataMax = line.split(";");
+                //String[] dataRow = line.split(";");
+           //     model.addRow(dataRow);
+                
+   
+               
+        //metodo para percorrer o array
+        Date dataSistema = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy");
+        
+        jLabel8.setText(formato.format(dataSistema));
+        String DataHoje = jLabel8.getText();
+        String quebrador ="";
+        int posisao = 0;
+                for (int j = 0; j < dataMax.length; j++) {
+                    String  linha = dataMax[posisao];
+                    //Metodo para aparecer so o valor
+                    if(linha.toLowerCase().contains(DataHoje.toLowerCase()) == true){
+                        System.out.println(linha+"Contem a data de hoje"); 
+                    
+                                               
+                    linha.trim();
+                    System.out.println(linha);
+                    //Metodo de formataçao de String
+                    String space = " ";
+                    if(linha.toLowerCase().contains(space.toLowerCase()) == true){
+                        //Metodo quebra Strig
+                    String a = linha;
+	            String[] array = a.split(" ");
+	            for (int ij = 0; ij < array.length; ij++){
+		    System.out.println(array[0]);//Valor
+                     System.out.println(array[1]);//Hora
+                      System.out.println(array[2]);//Nome
+                       System.out.println(array[3]);//Data
+                       
+                        
+                       
+	}
+                    DefaultTableModel val = (DefaultTableModel) jTable3.getModel();
+                        val.addRow(new String[]{array[3], array[1], array[2], array[0]} );
+                    
+                    }
+                    
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }         
+        calcular2();
+                 
         
         
         //outro metodo
-        String filePathr = ("C:\\Arquivos do programa/faturamentoDia.txt");
+        String filePathr = ("C:\\Arquivos de Programas/Gestão de Clientes/faturamentoDia.txt");
         File fillle = new File(filePathr);
         
         LineNumberReader lnrt = null;
@@ -488,7 +512,7 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
         
         try {
 			//abre o arquivo
-			FileReader fr = new FileReader("C:\\Arquivos do programa/textando.txt");
+			FileReader fr = new FileReader("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt");
 			BufferedReader br = new BufferedReader(fr);
 			String temp;
 			//A cada interação, é uma linha do arquivo e atribui-a a temp
@@ -540,7 +564,7 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
         // VALOR 
         try {
 			//abre o arquivo
-			FileReader fr = new FileReader("C:\\Arquivos do programa/textando.txt");
+			FileReader fr = new FileReader("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt");
 			BufferedReader br = new BufferedReader(fr);
 			String temp;
 			//A cada interação, é uma linha do arquivo e atribui-a a temp
@@ -592,7 +616,7 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
         // MELHOR HORA
         try {
 			//abre o arquivo
-			FileReader fr = new FileReader("C:\\Arquivos do programa/textando.txt");
+			FileReader fr = new FileReader("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt");
 			BufferedReader br = new BufferedReader(fr);
 			String temp;
 			//A cada interação, é uma linha do arquivo e atribui-a a temp
@@ -682,7 +706,7 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
             
              LineNumberReader lnrR = null;
         try {
-            String filePath = ("C:\\Arquivos do programa/Texto.txt");
+            String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/Texto.txt");
             File file = new File(filePath);
             lnrR = new LineNumberReader(new FileReader(file));
             try {
@@ -716,7 +740,7 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
         
         
         //PEDIDOS FEITOS
-        File arquivo = new File ("C:\\Arquivos do programa/textando.txt");
+        File arquivo = new File ("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt");
     
         try {
             FileReader fr = new FileReader(arquivo);
@@ -787,25 +811,25 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jLabel11MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseMoved
+ 
         // TODO add your handling code here:
          //metodo de caucular o total
-          calcular();
+          
      
           
           
     }//GEN-LAST:event_jLabel11MouseMoved
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+//Apaga  todas as linhas da tabela
+while (jTable3.getModel().getRowCount() > 0) {
+    ((DefaultTableModel) jTable3.getModel()).removeRow(0);
+    }
 
-       
-      
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 //Faturamento dia 
- jLabel9.setText("Faturamento total");
+ jLabel9.setText("Faturamento mansal");
         try {
-             String filePath = ("C:\\Arquivos do programa/textando.txt");
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt");
         File file = new File(filePath);
             
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -836,81 +860,45 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
         int posisao = 0;
                 for (int j = 0; j < dataMax.length; j++) {
                     String  linha = dataMax[posisao];
-                    //metodo para aparecer so o valor
+                    //Metodo para aparecer so o valor
                     if(linha.toLowerCase().contains(DataHoje.toLowerCase()) == true){
                         System.out.println(linha+"Contem a data de hoje"); 
                     
                                                
                     linha.trim();
-                    try {
-          FileWriter fw = new FileWriter("C:\\Arquivos do programa/apagando.txt", true);
-            PrintWriter pw = new PrintWriter(fw);
-            
-            pw.println(linha+";");//Valor
-    
-            pw.flush();
-            pw.close();
-            fw.close();
-        } catch (Exception ex) {
-            Logger.getLogger(MetodoRegistroDeCompra.class.getName()).log(Level.SEVERE, null, ex);
-        }
-                    
-                try {
-             String ffilePath = ("C:\\Arquivos do programa/apagando.txt");
-            File ffile = new File(ffilePath);
-            
-            BufferedReader fbr = new BufferedReader(new FileReader(ffile));
-            String ffirstLine = fbr.readLine().trim();
-          //  String[] fcolumnsName = ffirstLine.split(",");
-          //  DefaultTableModel model = (DefaultTableModel)jTable3.getModel();
-            //model.setColumnIdentifiers(columnsName);
-
-            Object[] ftableLines = fbr.lines().toArray();
-            //model.addRow(tableLines);
-            
-            for(int iv = 0; iv < ftableLines.length; iv++)
-            {
-                String fline = ftableLines[i].toString().trim();
-                String[] fdataMax = fline.split(";");
-                //String[] dataRow = line.split(";");
-               /// model.addRow(fdataMax);  
-           int Posisao = 0;
-                for (int js = 0; js < fdataMax.length; js++) {
-                    String  llinha = fdataMax[Posisao];
-                    
-                      
-    DefaultTableModel model = (DefaultTableModel) jTable3. getModel(); model. addRow(new Object[]{llinha});
-                      
-                    //metodo para aparecer so o valor
-                    Posisao++;
-                }
-            
-                }
-                   
-        } catch (Exception ex) {
-            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }  
-                    
-     
-                    
+                    System.out.println(linha);
+                    //Metodo de formataçao de String
+                    String space = " ";
+                    if(linha.toLowerCase().contains(space.toLowerCase()) == true){
+                        //Metodo quebra Strig
+                    String a = linha;
+	            String[] array = a.split(" ");
+	            for (int ij = 0; ij < array.length; ij++){
+		    System.out.println(array[0]);//Valor
+                     System.out.println(array[1]);//Hora
+                      System.out.println(array[2]);//Nome
+                       System.out.println(array[3]);//Data
+                       
+                        
+                       
+	}
+                    DefaultTableModel val = (DefaultTableModel) jTable3.getModel();
+                        val.addRow(new String[]{array[3], array[1], array[2], array[0]} );
                     
                     }
+                    
                     }
-                     }
+                }
+            }
         } catch (Exception ex) {
             Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
-        
-        
-        jLabel9.setText("Faturamento total");
-        try {
-             String filePath = ("C:\\Arquivos do programa/textando.txt");
+       calcular2();
+       jLabel2.setText(""+jTable3.getRowCount());
+       
+       //---------------------------------CLIENTES CADDASTRADOS NO DIA------------------------
+      try {
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/texto.txt");
         File file = new File(filePath);
             
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -933,98 +921,46 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
                
         //metodo para percorrer o array
         Date dataSistema = new Date();
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy");
+        SimpleDateFormat formato = new SimpleDateFormat("MM-yyyy");
         
         jLabel8.setText(formato.format(dataSistema));
         String DataHoje = jLabel8.getText();
         String quebrador ="";
+        int contador = 0;
         int posisao = 0;
                 for (int j = 0; j < dataMax.length; j++) {
                     String  linha = dataMax[posisao];
-                    //metodo para aparecer so o valor
+                    //Metodo para aparecer so o valor
                     if(linha.toLowerCase().contains(DataHoje.toLowerCase()) == true){
-                        System.out.println(linha+"Contem a data de hoje"); 
-                    
-                                               
-                    linha.trim();
-                    
-                   // DefaultTableModel val = (DefaultTableModel) jTable2.getModel();
-                    //val.addRow(new String[]{linha});
-                    
-                    
-                                               
-                                               
-            try {
-          FileWriter fw = new FileWriter("C:\\Arquivos do programa/analise.txt", true);
-            PrintWriter pw = new PrintWriter(fw);
-            
-            pw.println(linha+";");//Valor
-    
-            pw.flush();
-            pw.close();
-            fw.close();
-        } catch (Exception ex) {
-            Logger.getLogger(MetodoRegistroDeCompra.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                        System.out.println(linha+"Contem a data de hoje");
                         
-                                                 
-                                                 
-                                                 try {
-             String ffilePath = ("C:\\Arquivos do programa/analise.txt");
-        File ffile = new File(ffilePath);
-            
-            BufferedReader fbr = new BufferedReader(new FileReader(ffile));
-            String ffirstLine = fbr.readLine().trim();
-            String[] fcolumnsName = ffirstLine.split(",");
-            DefaultTableModel fmodel = (DefaultTableModel)jTable3.getModel();
-            fmodel.setColumnIdentifiers(columnsName);
+                       contador++; 
+                    } 
+                    jLabel4.setText(""+contador);
+                    }
+                          }
+        } catch (Exception ex) {
+            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+    }//GEN-LAST:event_jButton5ActionPerformed
 
-            Object[] ftableLines = br.lines().toArray();
-            //model.addRow(tableLines);
-            
-            for(int f = 0; f < ftableLines.length; f++)
-            {
-                String fline = ftableLines[i].toString().trim();
-                String[] fdataMax = line.split(" ");
-                fmodel.addRow(fdataMax);
-                
-                    }
-        } catch (Exception ex) {
-            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-                    
-                   // DefaultTableModel val = (DefaultTableModel) jTable2.getModel();
-                  //  val.addRow(new String[]{resutado});
-                    
-                                               
-                    }else{
-                     System.out.println(linha+"Nã Contem a data de hoje");
-                    }
-                    
-                    
-                    
-                    posisao ++;
-                    System.out.println(""+posisao);
-                    System.out.println(linha);
-                }
-        
-                
-               
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }         
-//das as informaçoes sobre os clientes cadastrados hoje
-  // TODO add your handling code here:
-        
-	try {
-             String filePath = ("C:\\Arquivos do programa/Texto.txt");
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+//Apaga  todas as linhas da tabela
+while (jTable3.getModel().getRowCount() > 0) {
+    ((DefaultTableModel) jTable3.getModel()).removeRow(0);
+    }
+
+//Faturamento dia 
+jLabel9.setText("Faturamento de hoje");
+        try {
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt");
         File file = new File(filePath);
             
             BufferedReader br = new BufferedReader(new FileReader(file));
             String firstLine = br.readLine().trim();
-            String[] columnsName = firstLine.split(",");
-         //   DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+           String[] columnsName = firstLine.split(",");
+         //   DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
           //  model.setColumnIdentifiers(columnsName);
 
             Object[] tableLines = br.lines().toArray();
@@ -1041,47 +977,232 @@ public class TelaRelatorioCistema extends javax.swing.JFrame {
                
         //metodo para percorrer o array
         Date dataSistema = new Date();
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy");
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+        
         jLabel8.setText(formato.format(dataSistema));
         String DataHoje = jLabel8.getText();
-        int contador = 0;
+        String quebrador ="";
         int posisao = 0;
                 for (int j = 0; j < dataMax.length; j++) {
                     String  linha = dataMax[posisao];
-                    //metodo para aparecer so o valor
+                    //Metodo para aparecer so o valor
                     if(linha.toLowerCase().contains(DataHoje.toLowerCase()) == true){
-                        System.out.println(linha+"Contem a data de hoje");
-                        String resultado = "";
-                        contador++;
-                        jLabel6676.setText(""+contador);
-calcular2();
+                        System.out.println(linha+"Contem a data de hoje"); 
+                    
+                       
+                                               
+                    linha.trim();
+                    System.out.println(linha);
+                    //Metodo de formataçao de String
+                    String space = " ";
+                    if(linha.toLowerCase().contains(space.toLowerCase()) == true){
+                        //Metodo quebra Strig
+                    String a = linha;
+	            String[] array = a.split(" ");
+	            for (int ij = 0; ij < array.length; ij++){
+		    System.out.println(array[0]);//Valor
+                     System.out.println(array[1]);//Hora
+                      System.out.println(array[2]);//Nome
+                       System.out.println(array[3]);//Data
+                       
+                        
+                       
+	}
+                     
+        
+                        
                     
                     
-                   }else{
-                     System.out.println(linha+"Nã Contem a data de hoje");
+                    DefaultTableModel val = (DefaultTableModel) jTable3.getModel();
+                        val.addRow(new String[]{array[3], array[1], array[2], array[0]} );
+                    
                     }
                     
-                    
-                    
-                    posisao ++;
-                    System.out.println(""+posisao);
-                    System.out.println(linha);
-                
-        
+                    }
                 }
-        
-                
-               
             }
         } catch (Exception ex) {
             Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
+calcular2();
+jLabel2.setText(""+jTable3.getRowCount());
+
+
+//---------------------------------CLIENTES CADDASTRADOS NO DIA------------------------
+      try {
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/texto.txt");
+        File file = new File(filePath);
+            
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String firstLine = br.readLine().trim();
+           String[] columnsName = firstLine.split(",");
+         //   DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+          //  model.setColumnIdentifiers(columnsName);
+
+            Object[] tableLines = br.lines().toArray();
+            //model.addRow(tableLines);
+            
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataMax = line.split(";");
+                //String[] dataRow = line.split(";");
+           //     model.addRow(dataRow);
+                
+   
+               
+        //metodo para percorrer o array
+        Date dataSistema = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+        
+        jLabel8.setText(formato.format(dataSistema));
+        String DataHoje = jLabel8.getText();
+        String quebrador ="";
+        int contador = 0;
+        int posisao = 0;
+                for (int j = 0; j < dataMax.length; j++) {
+                    String  linha = dataMax[posisao];
+                    //Metodo para aparecer so o valor
+                    if(linha.toLowerCase().contains(DataHoje.toLowerCase()) == true){
+                        System.out.println(linha+"Contem a data de hoje");
+                        
+                       contador++; 
+                    } 
+                    jLabel4.setText(""+contador);
+                    }
+                          }
+        } catch (Exception ex) {
+            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+//Apaga  todas as linhas da tabela
+while (jTable3.getModel().getRowCount() > 0) {
+    ((DefaultTableModel) jTable3.getModel()).removeRow(0);
+    }        
+        
+     jLabel9.setText("Faturamento semanal");
+        try {
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt");
+        File file = new File(filePath);
+            
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String firstLine = br.readLine().trim();
+           String[] columnsName = firstLine.split(",");
+         //   DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+          //  model.setColumnIdentifiers(columnsName);
+
+            Object[] tableLines = br.lines().toArray();
+            //model.addRow(tableLines);
+            
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataMax = line.split(";");
+                //String[] dataRow = line.split(";");
+           //     model.addRow(dataRow);
+                
+   
+               
+        //metodo para percorrer o array
+        Date dataSistema = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("MM-yyyy");
+        
+        jLabel8.setText(formato.format(dataSistema));
+        String DataHoje = jLabel8.getText();
+        String quebrador ="";
+        int posisao = 0;
+                for (int j = 0; j < dataMax.length; j++) {
+                    String  linha = dataMax[posisao];
+                    //Metodo para aparecer so o valor
+                    if(linha.toLowerCase().contains(DataHoje.toLowerCase()) == true){
+                        System.out.println(linha+"Contem a data de hoje"); 
+                    
+                                               
+                    linha.trim();
+                    System.out.println(linha);
+                    //Metodo de formataçao de String
+                    String space = " ";
+                    if(linha.toLowerCase().contains(space.toLowerCase()) == true){
+                        //Metodo quebra Strig
+                    String a = linha;
+	            String[] array = a.split(" ");
+	            for (int ij = 0; ij < array.length; ij++){
+		    System.out.println(array[0]);//Valor
+                     System.out.println(array[1]);//Hora
+                      System.out.println(array[2]);//Nome
+                       System.out.println(array[3]);//Data
+                       
+                        
+                       
+	}
+                    DefaultTableModel val = (DefaultTableModel) jTable3.getModel();
+                        val.addRow(new String[]{array[3], array[1], array[2], array[0]} );
+                    
+                    }
+                    
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       calcular2();
+       jLabel2.setText(""+jTable3.getRowCount());
        
+       //---------------------------------CLIENTES CADDASTRADOS NO DIA------------------------
+      try {
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/texto.txt");
+        File file = new File(filePath);
+            
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String firstLine = br.readLine().trim();
+           String[] columnsName = firstLine.split(",");
+         //   DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+          //  model.setColumnIdentifiers(columnsName);
+
+            Object[] tableLines = br.lines().toArray();
+            //model.addRow(tableLines);
+            
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataMax = line.split(";");
+                //String[] dataRow = line.split(";");
+           //     model.addRow(dataRow);
+                
+   
+               
+        //metodo para percorrer o array
+        Date dataSistema = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("MM-yyyy");
+        
+        jLabel8.setText(formato.format(dataSistema));
+        String DataHoje = jLabel8.getText();
+        String quebrador ="";
+        int contador = 0;
+        int posisao = 0;
+                for (int j = 0; j < dataMax.length; j++) {
+                    String  linha = dataMax[posisao];
+                    //Metodo para aparecer so o valor
+                    if(linha.toLowerCase().contains(DataHoje.toLowerCase()) == true){
+                        System.out.println(linha+"Contem a data de hoje");
+                        
+                       contador++; 
+                    } 
+                    jLabel4.setText(""+contador);
+                    }
+                          }
+        } catch (Exception ex) {
+            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 try {
-             String filePath = ("C:\\Arquivos do programa/textando.txt");
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt");
         File file = new File(filePath);
             
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -1162,7 +1283,7 @@ try {
                 }
         
                 try {
-             String ffilePath = ("C:\\Arquivos do programa/textando.txt");
+             String ffilePath = ("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt");
         File ffile = new File(ffilePath);
             
             BufferedReader brr = new BufferedReader(new FileReader(ffile));
@@ -1206,15 +1327,468 @@ try {
      
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+//Apaga  todas as linhas da tabela
+while (jTable3.getModel().getRowCount() > 0) {
+    ((DefaultTableModel) jTable3.getModel()).removeRow(0);
+    }
+
+        jLabel9.setText("Faturamento total");
+        try {
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt");
+        File file = new File(filePath);
+            
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String firstLine = br.readLine().trim();
+           String[] columnsName = firstLine.split(",");
+         //   DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+          //  model.setColumnIdentifiers(columnsName);
+
+            Object[] tableLines = br.lines().toArray();
+            //model.addRow(tableLines);
+            
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataMax = line.split(";");
+                //String[] dataRow = line.split(";");
+           //     model.addRow(dataRow);
+                
+   
+               
+        //metodo para percorrer o array
+        Date dataSistema = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy");
+        
+        jLabel8.setText(formato.format(dataSistema));
+        String DataHoje = jLabel8.getText();
+        String quebrador ="";
+        int posisao = 0;
+                for (int j = 0; j < dataMax.length; j++) {
+                    String  linha = dataMax[posisao];
+                    //Metodo para aparecer so o valor
+                    if(linha.toLowerCase().contains(DataHoje.toLowerCase()) == true){
+                        System.out.println(linha+"Contem a data de hoje"); 
+                    
+                                               
+                    linha.trim();
+                    System.out.println(linha);
+                    //Metodo de formataçao de String
+                    String space = " ";
+                    if(linha.toLowerCase().contains(space.toLowerCase()) == true){
+                        //Metodo quebra Strig
+                    String a = linha;
+	            String[] array = a.split(" ");
+	            for (int ij = 0; ij < array.length; ij++){
+		    System.out.println(array[0]);//Valor
+                     System.out.println(array[1]);//Hora
+                      System.out.println(array[2]);//Nome
+                       System.out.println(array[3]);//Data
+                       
+                        
+                       
+	}
+                    DefaultTableModel val = (DefaultTableModel) jTable3.getModel();
+                        val.addRow(new String[]{array[3], array[1], array[2], array[0]} );
+                    
+                    }
+                    
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }         
+        
+        
+        //---------------------------------CLIENTES CADDASTRADOS NO DIA------------------------
+      try {
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/texto.txt");
+        File file = new File(filePath);
+            
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String firstLine = br.readLine().trim();
+           String[] columnsName = firstLine.split(",");
+         //   DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+          //  model.setColumnIdentifiers(columnsName);
+
+            Object[] tableLines = br.lines().toArray();
+            //model.addRow(tableLines);
+            
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataMax = line.split(";");
+                //String[] dataRow = line.split(";");
+           //     model.addRow(dataRow);
+                
+   
+               
+        //metodo para percorrer o array
+        Date dataSistema = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy");
+        
+        jLabel8.setText(formato.format(dataSistema));
+        String DataHoje = jLabel8.getText();
+        String quebrador ="";
+        int contador = 0;
+        int posisao = 0;
+                for (int j = 0; j < dataMax.length; j++) {
+                    String  linha = dataMax[posisao];
+                    //Metodo para aparecer so o valor
+                    if(linha.toLowerCase().contains(DataHoje.toLowerCase()) == true){
+                        System.out.println(linha+"Contem a data de hoje");
+                        
+                       contador++; 
+                    } 
+                    jLabel4.setText(""+contador);
+                    }
+                          }
+        } catch (Exception ex) {
+            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jDateChooser2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDateChooser2KeyPressed
+    /*    if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+      
+              while (jTable3.getModel().getRowCount() > 0) {
+    ((DefaultTableModel) jTable3.getModel()).removeRow(0);
+    }
+      
+jLabel9.setText("Faturamento total");
+        try {
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt");
+        File file = new File(filePath);
+            
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String firstLine = br.readLine().trim();
+           String[] columnsName = firstLine.split(",");
+         //   DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+          //  model.setColumnIdentifiers(columnsName);
+
+            Object[] tableLines = br.lines().toArray();
+            //model.addRow(tableLines);
+            
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataMax = line.split(";");
+                //String[] dataRow = line.split(";");
+           //     model.addRow(dataRow);
+                
+   
+               
+        //metodo para percorrer o array
+        Date dataSistema = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+        String DataHoje =formato.format(jDateChooser1.getDate());
+        //jLabel8.setText(formato.format(dataSistema));
+       // String DataHoje = jLabel8.getText();
+        String quebrador ="";
+        int posisao = 0;
+                for (int j = 0; j < dataMax.length; j++) {
+                    String  linha = dataMax[posisao];
+                    //Metodo para aparecer so o valor
+                    if(linha.toLowerCase().contains(DataHoje.toLowerCase()) == true){
+                        System.out.println(linha+"Contem a data de hoje"); 
+                    
+                       
+                                               
+                    linha.trim();
+                    System.out.println(linha);
+                    //Metodo de formataçao de String
+                    String space = " ";
+                    if(linha.toLowerCase().contains(space.toLowerCase()) == true){
+                        //Metodo quebra Strig
+                    String a = linha;
+	            String[] array = a.split(" ");
+	            for (int ij = 0; ij < array.length; ij++){
+		    System.out.println(array[0]);//Valor
+                     System.out.println(array[1]);//Hora
+                      System.out.println(array[2]);//Nome
+                       System.out.println(array[3]);//Data
+                       
+                        
+                       
+	}
+                     
+        
+                        
+                    
+                    
+                    DefaultTableModel val = (DefaultTableModel) jTable3.getModel();
+                        val.addRow(new String[]{array[3], array[1], array[2], array[0]} );
+                    
+                    }
+                    
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+calcular2();
+jLabel2.setText(""+jTable3.getRowCount());
+
+
+//---------------------------------CLIENTES CADDASTRADOS NO DIA------------------------
+      try {
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/texto.txt");
+        File file = new File(filePath);
+            
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String firstLine = br.readLine().trim();
+           String[] columnsName = firstLine.split(",");
+         //   DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+          //  model.setColumnIdentifiers(columnsName);
+
+            Object[] tableLines = br.lines().toArray();
+            //model.addRow(tableLines);
+            
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataMax = line.split(";");
+                //String[] dataRow = line.split(";");
+           //     model.addRow(dataRow);
+                
+   
+               
+        //metodo para percorrer o array
+        Date dataSistema = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+        
+        String DataHoje =formato.format(jDateChooser1.getDate());
+      //  jLabel8.setText(formato.format(dataSistema));
+      //  String DataHoje = jLabel8.getText();
+        String quebrador ="";
+        int contador = 0;
+        int posisao = 0;
+                for (int j = 0; j < dataMax.length; j++) {
+                    String  linha = dataMax[posisao];
+                    //Metodo para aparecer so o valor
+                    if(linha.toLowerCase().contains(DataHoje.toLowerCase()) == true){
+                        System.out.println(linha+"Contem a data de hoje");
+                        
+                       contador++; 
+                    } 
+                    jLabel4.setText(""+contador);
+                    }
+                          }
+        } catch (Exception ex) {
+            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+            
+            
+            
+       }
+        
+        */
+    }//GEN-LAST:event_jDateChooser2KeyPressed
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+      jLabel3.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),0).toString()); // Nome
+      jLabel5.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),1).toString()); //Pedido
+      jLabel6.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),2).toString()); //valor total
+      jLabel7.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),3).toString()); //rua  
+       
+        
+    }//GEN-LAST:event_jTable3MouseClicked
+
+    private void jTable3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable3KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_DELETE){
+        
+        
+         
+        if(jTable3.getSelectedRow() != -1){
+        
+        System.out.print("Linha selecionada: "+jTable3.getSelectedColumn());
+            
+        DefaultTableModel dmz = (DefaultTableModel)jTable3.getModel();
+        dmz.removeRow(jTable3.getSelectedRow());
+ 
+        File file = new File("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt");
+       
+        try {
+        FileReader fr = new FileReader(file); 
+        BufferedReader br = new BufferedReader(fr);
+       
+        
+        String linha = br.readLine();
+        ArrayList<String> salvar = new ArrayList();
+        while(linha != null){
+            
+
+                    
+        String DATA  = jLabel3.getText();
+        String HORA = jLabel5.getText();
+        String Nome = jLabel6.getText();
+        String Valorgasto = jLabel7.getText();
+            
+            
+ 
+            if(linha.equals(Valorgasto+" "+HORA+" "+Nome+" "+DATA+";") == false){
+                salvar.add(linha);
+                JOptionPane.showInputDialog(Valorgasto+" "+HORA+" "+Nome+" "+DATA+";");
+            }
+            linha = br.readLine();
+        }
+
+        br.close();
+        fr.close();
+        FileWriter fw2 = new FileWriter(file, true);
+        fw2.close();
+        
+        FileWriter fw = new FileWriter(file);
+        BufferedWriter bw = new BufferedWriter(fw);
+        
+            for (int i = 0; i < salvar.size(); i++) {
+            bw.write( salvar.get(i) );
+            bw.newLine();
+            
+            }
+            bw.close();
+            fw.close();
+        } catch (IOException e) {
+        }
+        
+        
+         }else{
+            JOptionPane.showMessageDialog(null, "Favor selecionar uma linha");
+        } 
+        
+               
+       }
+        
+       
+        
+    }//GEN-LAST:event_jTable3KeyPressed
+
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        //Faturamento dia
+        while (jTable3.getModel().getRowCount() > 0) {
+            ((DefaultTableModel) jTable3.getModel()).removeRow(0);
+        }
+
+        jLabel9.setText("Faturamento especifico");
+        try {
+            String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt");
+            File file = new File(filePath);
+
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String firstLine = br.readLine().trim();
+            String[] columnsName = firstLine.split(",");
+            //   DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+            //  model.setColumnIdentifiers(columnsName);
+
+            Object[] tableLines = br.lines().toArray();
+            //model.addRow(tableLines);
+
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataMax = line.split(";");
+                //String[] dataRow = line.split(";");
+                //     model.addRow(dataRow);
+
+                //metodo para percorrer o array
+                Date dataSistema = new Date();
+                SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+                String DataHoje = jFormattedTextField1.getText();
+                //jLabel8.setText(formato.format(dataSistema));
+                // String DataHoje = jLabel8.getText();
+                String quebrador ="";
+                int posisao = 0;
+                for (int j = 0; j < dataMax.length; j++) {
+                    String  linha = dataMax[posisao];
+                    //Metodo para aparecer so o valor
+                    if(linha.toLowerCase().contains(DataHoje.toLowerCase()) == true){
+                        System.out.println(linha+"Contem a data de hoje");
+
+                        linha.trim();
+                        System.out.println(linha);
+                        //Metodo de formataçao de String
+                        String space = " ";
+                        if(linha.toLowerCase().contains(space.toLowerCase()) == true){
+                            //Metodo quebra Strig
+                            String a = linha;
+                            String[] array = a.split(" ");
+                            for (int ij = 0; ij < array.length; ij++){
+                                System.out.println(array[0]);//Valor
+                                System.out.println(array[1]);//Hora
+                                System.out.println(array[2]);//Nome
+                                System.out.println(array[3]);//Data
+
+                            }
+
+                            DefaultTableModel val = (DefaultTableModel) jTable3.getModel();
+                            val.addRow(new String[]{array[3], array[1], array[2], array[0]} );
+
+                        }
+
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        calcular2();
+        jLabel2.setText(""+jTable3.getRowCount());
+
+        //---------------------------------CLIENTES CADDASTRADOS NO DIA------------------------
+        try {
+            String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/texto.txt");
+            File file = new File(filePath);
+
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String firstLine = br.readLine().trim();
+            String[] columnsName = firstLine.split(",");
+            //   DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+            //  model.setColumnIdentifiers(columnsName);
+
+            Object[] tableLines = br.lines().toArray();
+            //model.addRow(tableLines);
+
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataMax = line.split(";");
+                //String[] dataRow = line.split(";");
+                //     model.addRow(dataRow);
+
+                //metodo para percorrer o array
+                Date dataSistema = new Date();
+                SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+
+                String DataHoje = jFormattedTextField1.getText();
+                //  jLabel8.setText(formato.format(dataSistema));
+                //  String DataHoje = jLabel8.getText();
+                String quebrador ="";
+                int contador = 0;
+                int posisao = 0;
+                for (int j = 0; j < dataMax.length; j++) {
+                    String  linha = dataMax[posisao];
+                    //Metodo para aparecer so o valor
+                    if(linha.toLowerCase().contains(DataHoje.toLowerCase()) == true){
+                        System.out.println(linha+"Contem a data de hoje");
+
+                        contador++;
+                    }
+                    jLabel4.setText(""+contador);
+                }
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-dispose();
-TelaPrincipal tela = new TelaPrincipal();
-                       tela.setVisible(true);         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1255,35 +1829,24 @@ TelaPrincipal tela = new TelaPrincipal();
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6676;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;

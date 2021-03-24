@@ -24,7 +24,7 @@ public class MetodosVIP {
   
     public void guardarArchivo(AlumnoVIP alumno) {
     try {
-            FileWriter fw = new FileWriter("C:\\Arquivos do programa/vip.txt", true);
+            FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/vip.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
             pw.print(alumno.getNome());

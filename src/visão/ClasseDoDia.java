@@ -27,7 +27,7 @@ public class ClasseDoDia {
     }
      public String sauvado() throws IOException{
         try {
-          FileWriter fw = new FileWriter("C:\\Arquivos do programa/DadosObitidosDia.txt", true);
+          FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/DadosObitidosDia.txt", true);
             PrintWriter pw = new PrintWriter(fw);
             pw.println(this.valorDia+";");
             

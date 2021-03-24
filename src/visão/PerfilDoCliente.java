@@ -114,9 +114,9 @@ public class PerfilDoCliente extends javax.swing.JFrame {
     
     private void sauvarModificaçao()
     {
-File file = new File("C:\\Arquivos do programa/Texto.txt");
+File file = new File("C:\\Arquivos de Programas/Gestão de Clientes/Texto.txt");
        
-        try {
+       try {
         FileReader fr = new FileReader(file); 
         BufferedReader br = new BufferedReader(fr);
        
@@ -124,30 +124,31 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         String linha = br.readLine();
         ArrayList<String> salvar = new ArrayList();
         while(linha != null){
+            String codigo = txt_dataNew.getText();
+            String nome =txt_Nome.getText();//nome
+            String data = txt_data.getText();//Data
+            String pedidos = txt_pedidos.getText();//total de pedidos
+            String valor = txt_valorTotal.getText();//valor total
+            String rua =txt_Rua.getText();//RUA
             
-           String nome =txt_Nome.getText()+"/";//Valor
-            String data = txt_Numero.getText()+"/";//Data
-            String total = txt_pedidos.getText()+"/";//total de pedidos
-            String valor = txt_valorTotal.getText()+"/";//valor total
-            String rua =txt_Rua.getText()+"/";//Rua
-            
-            String numero = txt_Endereco.getText()+"/";//numero
-            String bairro = txt_Bairro.getText()+"/";//bairro
-            String aniversario = txt_data.getText()+"/";//aniversario
-            String email = Txt_Aniversario.getText()+"/";//email
-            String zap = txt_email.getText()+"/";//zap
-            String celular = txt_whats.getText()+"/";//celular
-            String obiservacoes = txt_celular.getText()+"/";//obiservaçaoes
+            String numero = txt_Endereco.getText();//NUMERO
+            String bairro = txt_Bairro.getText();//BAIRRO
+            String aniversario = Txt_Aniversario.getText();//aniversario
+            String email = txt_email.getText();//email
+            String zap = txt_whats.getText();//WHATS
+            String celular = txt_celular.getText();//celular
+            String obiservacoes = txt_obiservasoes.getText();//OBISERVAÇOES
 
-            String controle = txt_obiservasoes.getText()+"/1";//controle da tabela
-
+            String controle = txt_obiservasoes.getText();//controle da tabela
+            String cidade = txt_Cidade.getText();//cidade
+            String foto = txt_cidade.getText();
             
 
             
             
-            if(linha.equals(nome+data+total+valor+rua+numero+bairro+aniversario+email+zap+celular+obiservacoes+controle) == false){
+            if(linha.equals(codigo+"/"+nome+"/"+data+"/"+pedidos+"/"+valor+"/"+rua+"/"+numero+"/"+bairro+"/"+aniversario+"/"+email+"/"+zap+"/"+celular+"/"+obiservacoes+"/"+cidade+"/"+foto) == false){
                 salvar.add(linha);
-           // JOptionPane.showMessageDialog(null, "1/"+nome+"/"+data+"/0/0/"+endereco+"/"+bairro+"/"+numero+"/"+aniversario+"/"+email+"/"+whats+"/"+celular+"/"+obiserva+"/"+cidade);
+         //   JOptionPane.showMessageDialog(null, codigo+"/"+nome+"/"+data+"/"+pedidos+"/"+valor+"/"+rua+"/"+numero+"/"+bairro+"/"+aniversario+"/"+email+"/"+zap+"/"+celular+"/"+obiservacoes+"/"+cidade+"/"+foto);
             }
             linha = br.readLine();
         }
@@ -171,37 +172,63 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         }
         
         
-         RegistroDeCompra registroDeCompra = new RegistroDeCompra();
-
-    
-        registroDeCompra.setNome(txT_NomeUSUARIO.getText()); 
-        registroDeCompra.setEndereço(txT_EnderecoUSUARIO.getText());
-        registroDeCompra.setNumero(txT_NumeroUSUARIO.getText());
-        registroDeCompra.setBairro(txT_BairroUSUARIO.getText());
-        registroDeCompra.setDataNacimento(txT_AniversarioUSUARIO1.getText());
-        registroDeCompra.setEmail(txT_EmailUSUARIO.getText());
-        registroDeCompra.setWhatsApp(txT_whatsUSUARIO1.getText());
-        registroDeCompra.setCelular(txT_CelularUSUARIO2.getText());
-        registroDeCompra.setObiservaçoes(txT_ObiservacoesUSUARIO1.getText());
-     //   registroDeCompra.setValores(jTextField30.getText()); */
-       // registroDeCompra.setData(dataString);
-      //  registroDeCompra.setHora(horarioString);
-
+        
      
         
+            String codigo = txt_CodigoUSUARIO.getText();
+            String nome =txT_NomeUSUARIO.getText();//nome
+            String data = txt_data.getText();//Data
+            String pedidos = txt_pedidos.getText();//total de pedidos
+            String valor = txt_valorTotal.getText();//valor total
+            String rua =txT_EnderecoUSUARIO.getText();//RUA
+            
+            String numero = txT_BairroUSUARIO.getText();//NUMERO
+            String bairro = txT_NumeroUSUARIO.getText();//BAIRRO
+            String aniversario = txT_AniversarioUSUARIO.getText();//aniversario
+            String email = txT_EmailUSUARIO.getText();//email
+            String zap = txT_whatsUSUARIO1.getText();//WHATS
+            String celular = txT_CelularUSUARIO2.getText();//celular
+            String obiservacoes = txT_ObiservacoesUSUARIO1.getText();//OBISERVAÇOES
+
+            String controle = txt_obiservasoes.getText();//controle da tabela
+            String cidade = txt_CidadeUSUARIO.getText();
+            String foto = txt_cidade.getText();
+            
+            
         
-        try {
-            JOptionPane.showMessageDialog(null, registroDeCompra.sauvado());  //Atençao
-            // jTextField1.setText("");
-            // texREs.setText("");
+        
+        
+        
+        
+        
+        
+         try {
+        
+            FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/Texto.txt", true);
+            PrintWriter pw = new PrintWriter(fw);
+            pw.print(codigo+"/");
+            pw.print(nome+"/");
+            pw.print(data+"/");//Data
+            pw.print(pedidos+"/");
+            pw.print(valor+"/");
+            pw.print(rua+"/");
+            pw.print(numero+"/");
+            pw.print(bairro+"/");
+            pw.print(aniversario+"/");
+            pw.print(email+"/");
+            pw.print(zap+"/");
+            pw.print(celular+"/");
+            pw.print(obiservacoes+"/");
+            pw.print(cidade+"/");
+            pw.println(foto);
             
+            //pw.println("0;0;0;0;4;1;0;0;56;0;0;0;0;0;4;0;0;0;0;0;");
+            pw.flush();
+            pw.close();
+            fw.close();
             
-            /*   t.start();
-            prgs.setValue(prgs.getValue()+10);
-            
-            t.stop(); */
-        } catch (IOException ex) {
-            Logger.getLogger(PerfilDoCliente.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(RegistroDeCompra.class.getName()).log(Level.SEVERE, null, ex);
         }
         
 }
@@ -212,7 +239,7 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         
         String item = jTextField86.getText();
         
-    File classes = new File("C:\\Arquivos do programa/"+item+".txt");  
+    File classes = new File("C:\\Arquivos de Programas/Gestão de Clientes/"+item+".txt");  
 
       try {
           FileReader fr = new FileReader(classes);   
@@ -274,7 +301,7 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         jTextField6.setBackground(new java.awt.Color(0,0,0,0));
         jTextField5.setBackground(new java.awt.Color(0,0,0,0));
         jTestfildbig.setBackground(new java.awt.Color(0,0,0,0));
-        jToggleButton1.setBackground(new java.awt.Color(0,0,0,0));
+  //      jToggleButton1.setBackground(new java.awt.Color(0,0,0,0));
         jButton6.setBackground(new java.awt.Color(0,0,0,0));
         jButton3.setBackground(new java.awt.Color(0,0,0,0));
         jTextField82.setBackground(new java.awt.Color(0,0,0,0));
@@ -357,9 +384,14 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         jTextField30.setBackground(new java.awt.Color(0,0,0,0));
         cbo_ItemDaClasse.setBackground(new java.awt.Color(0,0,0,0));
         jLabel55.setVisible(false);
-        
+        jButton1.setBackground(new java.awt.Color(0,0,0,0));
+        jButton13.setBackground(new java.awt.Color(0,0,0,0));
+        //jApagar.setBackground(new java.awt.Color(0,0,0,0));
        // t=new Timer(100,al);
-        
+       jTextField90.setBackground(new java.awt.Color(0,0,0,0));
+       jButton4.setBackground(new java.awt.Color(0,0,0,0));
+       txt_CidadeUSUARIO.setBackground(new java.awt.Color(0,0,0,0));
+        txt_CodigoUSUARIO.setBackground(new java.awt.Color(0,0,0,0));
         
         
        }
@@ -459,7 +491,6 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         jButton1 = new javax.swing.JButton();
         cbo_quat = new javax.swing.JComboBox<>();
         jButton777 = new javax.swing.JButton();
-        javax.swing.JButton jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jTextField3 = new javax.swing.JTextField();
@@ -474,7 +505,6 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         jTextField9 = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
         jTextField11 = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
         jTextField13not = new javax.swing.JTextField();
         jTextField14 = new javax.swing.JTextField();
         jTextField15 = new javax.swing.JTextField();
@@ -499,6 +529,7 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         jButton7 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
+        jLabel57 = new javax.swing.JLabel();
         jTextField13 = new javax.swing.JTextField();
         jTextField31 = new javax.swing.JTextField();
         jTextField32 = new javax.swing.JTextField();
@@ -513,6 +544,7 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         jTextField41 = new javax.swing.JTextField();
         jTextField42 = new javax.swing.JTextField();
         jTextField43 = new javax.swing.JTextField();
+        txt_CidadeUSUARIO = new javax.swing.JTextField();
         jTextField44 = new javax.swing.JTextField();
         jTextField45 = new javax.swing.JTextField();
         jTextField46 = new javax.swing.JTextField();
@@ -555,6 +587,8 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         jTextField80 = new javax.swing.JTextField();
         jTextField81 = new javax.swing.JTextField();
         jTextField82 = new javax.swing.JTextField();
+        jLabel56 = new javax.swing.JLabel();
+        txt_CodigoUSUARIO = new javax.swing.JTextField();
         jTextField83 = new javax.swing.JTextField();
         jTextField84 = new javax.swing.JTextField();
         jTextField85 = new javax.swing.JTextField();
@@ -564,6 +598,7 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
+        txt_Cidade = new javax.swing.JTextField();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
@@ -573,9 +608,7 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         jButton8 = new javax.swing.JButton();
         jTextField86 = new javax.swing.JTextField();
         jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
         jLabel51 = new javax.swing.JLabel();
-        jButton12 = new javax.swing.JButton();
         txt_Nome = new javax.swing.JTextField();
         txt_Endereco = new javax.swing.JTextField();
         txt_Numero = new javax.swing.JTextField();
@@ -595,20 +628,23 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         txt_pedidos = new javax.swing.JTextField();
         txt_valorTotal = new javax.swing.JTextField();
         jTextField87 = new javax.swing.JTextField();
+        txt_dataNew = new javax.swing.JTextField();
         jLabel53 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jTextField89 = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         txT_NomeUSUARIO1 = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
+        jTextField91 = new javax.swing.JTextField();
+        jLabel37 = new javax.swing.JLabel();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -1061,7 +1097,7 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
             }
         });
         getContentPane().add(txT_BairroUSUARIO);
-        txT_BairroUSUARIO.setBounds(90, 360, 150, 20);
+        txT_BairroUSUARIO.setBounds(520, 290, 90, 20);
 
         jTextField1.setBorder(null);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -1090,7 +1126,7 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
             }
         });
         getContentPane().add(txT_CelularUSUARIO2);
-        txT_CelularUSUARIO2.setBounds(360, 490, 260, 30);
+        txT_CelularUSUARIO2.setBounds(360, 490, 230, 20);
 
         cbo_select.setToolTipText("xtudo");
         cbo_select.addItemListener(new java.awt.event.ItemListener() {
@@ -1135,7 +1171,7 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
             }
         });
         getContentPane().add(txT_AniversarioUSUARIO);
-        txT_AniversarioUSUARIO.setBounds(460, 360, 160, 20);
+        txT_AniversarioUSUARIO.setBounds(460, 350, 150, 30);
 
         jLabel55.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Design sem nome.png"))); // NOI18N
         jLabel55.setText("jLabel55");
@@ -1161,7 +1197,7 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
             }
         });
         getContentPane().add(txT_ObiservacoesUSUARIO1);
-        txT_ObiservacoesUSUARIO1.setBounds(100, 560, 520, 90);
+        txT_ObiservacoesUSUARIO1.setBounds(90, 560, 520, 90);
 
         txT_NumeroUSUARIO.setForeground(java.awt.Color.white);
         txT_NumeroUSUARIO.setBorder(null);
@@ -1176,7 +1212,7 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
             }
         });
         getContentPane().add(txT_NumeroUSUARIO);
-        txT_NumeroUSUARIO.setBounds(280, 360, 150, 20);
+        txT_NumeroUSUARIO.setBounds(90, 290, 190, 20);
 
         txT_NomeUSUARIO.setBackground(new java.awt.Color(82, 94, 108));
         txT_NomeUSUARIO.setForeground(java.awt.Color.white);
@@ -1192,7 +1228,7 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
             }
         });
         getContentPane().add(txT_NomeUSUARIO);
-        txT_NomeUSUARIO.setBounds(90, 210, 520, 40);
+        txT_NomeUSUARIO.setBounds(90, 220, 520, 20);
 
         txT_EnderecoUSUARIO.setForeground(java.awt.Color.white);
         txT_EnderecoUSUARIO.setBorder(null);
@@ -1207,7 +1243,7 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
             }
         });
         getContentPane().add(txT_EnderecoUSUARIO);
-        txT_EnderecoUSUARIO.setBounds(100, 280, 510, 30);
+        txT_EnderecoUSUARIO.setBounds(290, 290, 220, 20);
 
         txT_whatsUSUARIO1.setForeground(java.awt.Color.white);
         txT_whatsUSUARIO1.setBorder(null);
@@ -1222,7 +1258,7 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
             }
         });
         getContentPane().add(txT_whatsUSUARIO1);
-        txT_whatsUSUARIO1.setBounds(100, 490, 240, 30);
+        txT_whatsUSUARIO1.setBounds(100, 490, 220, 20);
 
         txT_EmailUSUARIO.setBackground(new java.awt.Color(82, 94, 108));
         txT_EmailUSUARIO.setForeground(java.awt.Color.white);
@@ -1242,14 +1278,16 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         getContentPane().add(jTextField2);
         jTextField2.setBounds(760, 30, 0, 20);
 
-        jButton1.setText("finlisar pedido");
+        jButton1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Finalizar Pedido");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(1030, 550, 140, 70);
+        jButton1.setBounds(1050, 550, 150, 70);
 
         cbo_quat.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1267,7 +1305,7 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
             }
         });
         getContentPane().add(cbo_quat);
-        cbo_quat.setBounds(1130, 70, 50, 50);
+        cbo_quat.setBounds(1140, 80, 50, 30);
 
         jButton777.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Design sem nome.png"))); // NOI18N
         jButton777.setRequestFocusEnabled(false);
@@ -1278,14 +1316,6 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         });
         getContentPane().add(jButton777);
         jButton777.setBounds(630, 50, 50, 50);
-
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton4);
-        jButton4.setBounds(1190, 280, 40, 40);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1307,7 +1337,7 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         }
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(730, 180, 440, 350);
+        jScrollPane1.setBounds(720, 130, 480, 400);
 
         jTextField3.setBorder(null);
         getContentPane().add(jTextField3);
@@ -1366,15 +1396,6 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         jTextField11.setBorder(null);
         getContentPane().add(jTextField11);
         jTextField11.setBounds(0, 160, 0, 14);
-
-        jToggleButton1.setBorder(null);
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(10, 630, 50, 30);
 
         jTextField13not.setBorder(null);
         getContentPane().add(jTextField13not);
@@ -1468,7 +1489,7 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
             }
         });
         getContentPane().add(jTextField30);
-        jTextField30.setBounds(760, 630, 150, 30);
+        jTextField30.setBounds(760, 630, 150, 20);
 
         jButton5.setText("jButton5");
         jButton5.setBorder(null);
@@ -1515,6 +1536,12 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
 
         getContentPane().add(jScrollPane3);
         jScrollPane3.setBounds(1330, 640, 10, 10);
+
+        jLabel57.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel57.setForeground(java.awt.Color.white);
+        jLabel57.setText("Cidade");
+        getContentPane().add(jLabel57);
+        jLabel57.setBounds(270, 330, 90, 20);
 
         jTextField13.setBorder(null);
         getContentPane().add(jTextField13);
@@ -1581,6 +1608,11 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         jTextField43.setBorder(null);
         getContentPane().add(jTextField43);
         jTextField43.setBounds(510, 640, 0, 14);
+
+        txt_CidadeUSUARIO.setForeground(java.awt.Color.white);
+        txt_CidadeUSUARIO.setBorder(null);
+        getContentPane().add(txt_CidadeUSUARIO);
+        txt_CidadeUSUARIO.setBounds(270, 350, 150, 30);
 
         jTextField44.setBorder(null);
         jTextField44.addActionListener(new java.awt.event.ActionListener() {
@@ -1791,6 +1823,17 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         jTextField82.setBorder(null);
         getContentPane().add(jTextField82);
         jTextField82.setBounds(940, 0, 0, 14);
+
+        jLabel56.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel56.setForeground(java.awt.Color.white);
+        jLabel56.setText("Codigo");
+        getContentPane().add(jLabel56);
+        jLabel56.setBounds(90, 330, 70, 20);
+
+        txt_CodigoUSUARIO.setForeground(java.awt.Color.white);
+        txt_CodigoUSUARIO.setBorder(null);
+        getContentPane().add(txt_CodigoUSUARIO);
+        txt_CodigoUSUARIO.setBounds(90, 350, 140, 30);
         getContentPane().add(jTextField83);
         jTextField83.setBounds(0, 590, 0, 20);
 
@@ -1806,7 +1849,7 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         jLabel40.setForeground(java.awt.Color.white);
         jLabel40.setText("Rua");
         getContentPane().add(jLabel40);
-        jLabel40.setBounds(100, 250, 60, 30);
+        jLabel40.setBounds(290, 250, 60, 30);
 
         jLabel35.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel35.setForeground(java.awt.Color.white);
@@ -1823,19 +1866,23 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         jLabel43.setForeground(java.awt.Color.white);
         jLabel43.setText("Número");
         getContentPane().add(jLabel43);
-        jLabel43.setBounds(90, 330, 70, 20);
+        jLabel43.setBounds(520, 250, 70, 30);
 
         jLabel44.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel44.setForeground(java.awt.Color.white);
         jLabel44.setText("Bairro ");
         getContentPane().add(jLabel44);
-        jLabel44.setBounds(280, 330, 50, 20);
+        jLabel44.setBounds(90, 250, 50, 20);
 
         jLabel45.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel45.setForeground(java.awt.Color.white);
         jLabel45.setText("Data de aniversário");
         getContentPane().add(jLabel45);
         jLabel45.setBounds(460, 330, 140, 20);
+
+        txt_Cidade.setBorder(null);
+        getContentPane().add(txt_Cidade);
+        txt_Cidade.setBounds(0, 200, 0, 0);
 
         jLabel46.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel46.setForeground(java.awt.Color.white);
@@ -1861,14 +1908,13 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         getContentPane().add(jLabel49);
         jLabel49.setBounds(90, 530, 100, 30);
 
-        cbo_Clases.setEditable(true);
         cbo_Clases.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbo_ClasesActionPerformed(evt);
             }
         });
         getContentPane().add(cbo_Clases);
-        cbo_Clases.setBounds(730, 70, 380, 50);
+        cbo_Clases.setBounds(740, 30, 460, 40);
 
         cbo_ItemDaClasse.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         cbo_ItemDaClasse.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -1886,104 +1932,95 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
             }
         });
         getContentPane().add(cbo_ItemDaClasse);
-        cbo_ItemDaClasse.setBounds(730, 130, 380, 30);
+        cbo_ItemDaClasse.setBounds(750, 80, 370, 30);
 
         jButton8.setText("jButton8");
+        jButton8.setBorder(null);
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton8);
-        jButton8.setBounds(700, 0, 73, 23);
+        jButton8.setBounds(700, 0, 0, 15);
 
+        jTextField86.setBorder(null);
         jTextField86.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField86ActionPerformed(evt);
             }
         });
         getContentPane().add(jTextField86);
-        jTextField86.setBounds(1050, 10, 20, 10);
+        jTextField86.setBounds(1050, 10, 0, 10);
 
         jButton9.setText("jButton9");
+        jButton9.setBorder(null);
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton9);
-        jButton9.setBounds(690, 30, 73, 23);
-
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton10);
-        jButton10.setBounds(630, 340, 60, 40);
+        jButton9.setBounds(690, 30, 0, 15);
         getContentPane().add(jLabel51);
         jLabel51.setBounds(80, 640, 710, 0);
 
-        jButton12.setText("jButton12");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton12);
-        jButton12.setBounds(540, 80, 50, 40);
-
         txt_Nome.setBorder(null);
         getContentPane().add(txt_Nome);
-        txt_Nome.setBounds(0, 0, 80, 20);
+        txt_Nome.setBounds(0, 0, 0, 20);
 
         txt_Endereco.setBorder(null);
         getContentPane().add(txt_Endereco);
-        txt_Endereco.setBounds(0, 20, 80, 14);
+        txt_Endereco.setBounds(0, 20, 0, 14);
 
         txt_Numero.setBorder(null);
         getContentPane().add(txt_Numero);
-        txt_Numero.setBounds(0, 40, 80, 14);
+        txt_Numero.setBounds(0, 40, 0, 20);
 
         txt_Bairro.setBorder(null);
         getContentPane().add(txt_Bairro);
-        txt_Bairro.setBounds(0, 60, 80, 14);
+        txt_Bairro.setBounds(0, 60, 0, 14);
 
         txt_data.setBorder(null);
         getContentPane().add(txt_data);
-        txt_data.setBounds(0, 80, 70, 14);
+        txt_data.setBounds(0, 80, 0, 14);
 
         Txt_Aniversario.setBorder(null);
+        Txt_Aniversario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Txt_AniversarioActionPerformed(evt);
+            }
+        });
         getContentPane().add(Txt_Aniversario);
-        Txt_Aniversario.setBounds(0, 100, 70, 14);
+        Txt_Aniversario.setBounds(0, 100, 0, 14);
 
         txt_email.setBorder(null);
         getContentPane().add(txt_email);
-        txt_email.setBounds(0, 120, 70, 14);
+        txt_email.setBounds(0, 120, 0, 14);
 
         txt_whats.setBorder(null);
         getContentPane().add(txt_whats);
-        txt_whats.setBounds(0, 140, 70, 14);
+        txt_whats.setBounds(0, 140, 0, 14);
 
         txt_celular.setBorder(null);
         getContentPane().add(txt_celular);
-        txt_celular.setBounds(0, 160, 70, 14);
+        txt_celular.setBounds(0, 160, 0, 14);
 
-        jLabel52.setText("jLabel52");
+        jLabel52.setForeground(java.awt.Color.white);
         getContentPane().add(jLabel52);
-        jLabel52.setBounds(120, 10, 40, 14);
+        jLabel52.setBounds(230, 210, 0, 0);
 
         txt_obiservasoes.setBorder(null);
         getContentPane().add(txt_obiservasoes);
-        txt_obiservasoes.setBounds(0, 180, 70, 14);
+        txt_obiservasoes.setBounds(0, 180, 0, 14);
 
-        jTextField90.setText("jTextField90");
+        jTextField90.setBorder(null);
         getContentPane().add(jTextField90);
-        jTextField90.setBounds(250, 110, 65, 20);
+        jTextField90.setBounds(250, 110, 0, 14);
 
         txt_Rua.setBorder(null);
         getContentPane().add(txt_Rua);
-        txt_Rua.setBounds(0, 230, 70, 14);
+        txt_Rua.setBounds(0, 230, 0, 14);
 
         txt_cidade.setBorder(null);
         txt_cidade.addActionListener(new java.awt.event.ActionListener() {
@@ -1992,28 +2029,35 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
             }
         });
         getContentPane().add(txt_cidade);
-        txt_cidade.setBounds(0, 200, 70, 14);
+        txt_cidade.setBounds(0, 200, 0, 30);
 
-        jLabel54.setText("jLabel54");
         jLabel54.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel54MouseClicked(evt);
             }
         });
         getContentPane().add(jLabel54);
-        jLabel54.setBounds(80, 30, 130, 130);
+        jLabel54.setBounds(90, 50, 130, 140);
 
         jTextField88.setBorder(null);
         getContentPane().add(jTextField88);
         jTextField88.setBounds(360, 150, 0, 14);
+
+        txt_pedidos.setBorder(null);
         getContentPane().add(txt_pedidos);
-        txt_pedidos.setBounds(0, 250, 70, 20);
+        txt_pedidos.setBounds(0, 250, 0, 14);
+
+        txt_valorTotal.setBorder(null);
         getContentPane().add(txt_valorTotal);
-        txt_valorTotal.setBounds(0, 280, 70, 20);
+        txt_valorTotal.setBounds(0, 280, 0, 14);
 
         jTextField87.setBorder(null);
         getContentPane().add(jTextField87);
         jTextField87.setBounds(0, 160, 0, 14);
+
+        txt_dataNew.setBorder(null);
+        getContentPane().add(txt_dataNew);
+        txt_dataNew.setBounds(0, 310, 0, 14);
 
         jLabel53.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel53.setForeground(java.awt.Color.white);
@@ -2035,41 +2079,31 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         jLabel32.setText("jLabel32");
         getContentPane().add(jLabel32);
         jLabel32.setBounds(1300, 500, 437, 160);
+        getContentPane().add(jLabel41);
+        jLabel41.setBounds(250, 180, 0, 20);
 
         jLabel36.setForeground(java.awt.Color.white);
-        jLabel36.setText("jLabel36");
         getContentPane().add(jLabel36);
-        jLabel36.setBounds(500, 34, 40, 30);
-
-        jLabel41.setText("jLabel41");
-        getContentPane().add(jLabel41);
-        jLabel41.setBounds(100, 304, 70, 20);
-
-        jLabel37.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel37.setForeground(java.awt.Color.white);
-        jLabel37.setText("Pontos :");
-        getContentPane().add(jLabel37);
-        jLabel37.setBounds(500, 40, 90, 30);
+        jLabel36.setBounds(410, 30, 0, 0);
 
         jLabel38.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel38.setForeground(java.awt.Color.white);
-        jLabel38.setText("Pontos :");
         getContentPane().add(jLabel38);
-        jLabel38.setBounds(500, 40, 90, 30);
+        jLabel38.setBounds(590, 40, 0, 30);
 
         jLabel42.setForeground(java.awt.Color.white);
-        jLabel42.setText("jLabel42");
         getContentPane().add(jLabel42);
-        jLabel42.setBounds(100, 304, 60, 20);
+        jLabel42.setBounds(320, 170, 0, 20);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setBorder(null);
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
         getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(680, 510, 140, 20);
+        jComboBox1.setBounds(680, 530, 10, 0);
 
         txT_NomeUSUARIO1.setBackground(new java.awt.Color(82, 94, 108));
         txT_NomeUSUARIO1.setBorder(null);
@@ -2081,16 +2115,25 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         getContentPane().add(txT_NomeUSUARIO1);
         txT_NomeUSUARIO1.setBounds(90, 200, 0, 30);
 
+        jButton13.setToolTipText("Sair Dessa Aba");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton13);
-        jButton13.setBounds(1259, 0, 50, 50);
+        jButton13.setBounds(1270, 0, 40, 40);
+
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4);
+        jButton4.setBounds(1210, 270, 50, 50);
 
         jLabel30.setForeground(java.awt.Color.white);
-        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/---Perfil.png"))); // NOI18N
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/PERFIL DO USUARIOOO.png"))); // NOI18N
         jLabel30.setText("jLabel30");
         jLabel30.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -2105,46 +2148,36 @@ File file = new File("C:\\Arquivos do programa/Texto.txt");
         getContentPane().add(jLabel30);
         jLabel30.setBounds(0, 0, 1360, 700);
 
-        setSize(new java.awt.Dimension(1312, 701));
+        jTextField91.setText("jTextField91");
+        getContentPane().add(jTextField91);
+        jTextField91.setBounds(0, 330, 80, 20);
+
+        jLabel37.setText("jLabel37");
+        getContentPane().add(jLabel37);
+        jLabel37.setBounds(90, 330, 40, 14);
+
+        setSize(new java.awt.Dimension(1313, 701));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
-String vip = txT_AniversarioUSUARIO.getText();
-Date dataSistema = new Date();
-SimpleDateFormat formato = new SimpleDateFormat("MM-yyyy");
-        
-jLabel52.setText(formato.format(dataSistema));
-String dataHoje = jLabel52.getText();
-
-
-         if(vip.toLowerCase().contains(dataHoje.toLowerCase()) == true){
-      //   JOptionPane.showMessageDialog(this, "hoje é aniversario da pesssoa");
-         
-         jLabel53.setText("Hoje é aniversario desse cliente ");
-         }
-        
-        
-        
-        String vips = txt_cidade.getText();
+    String vips = txt_cidade.getText();
 String verifica = ":VIP";
 
          if(vips.toLowerCase().contains(verifica.toLowerCase()) == true){
-        // JOptionPane.showInputDialog("é vip ");
+         //JOptionPane.showInputDialog("é vip ");
+        
              
          }else{
-         //JOptionPane.showInputDialog("Nao é vip ");
+        // JOptionPane.showInputDialog("Nao é vip ");
       //   jButton777.setBackground(new java.awt.Color(0,0,0,0));
          jButton777.setIcon(new javax.swing.ImageIcon(getClass().getResource("")));
         // Icon icone = new ImageIcon(getClass().getResource("/bomba.ico"));
          
          }
-        
-        
-        
-        
-         File classes = new File("C:\\Arquivos do programa/clase.txt");  
+         
+         
+     File classes = new File("C:\\Arquivos de Programas/Gestão de Clientes/clase.txt");  
 
       try {
           FileReader fr = new FileReader(classes);   
@@ -2163,17 +2196,55 @@ String verifica = ":VIP";
                 } 
                 } catch (Exception ex) {
         Logger.getLogger(PerfilDoCliente.class.getName()).log(Level.SEVERE, null, ex);
-    }
+    }   
+
+
+
+
+//Verificar se tem foto
+        String foto = txt_cidade.getText();
+
+
+String[] splitted= foto.split("<");
+
+String cidade= splitted[0]; //cidade
+
+String caminho = splitted[1]; //caminho
+        
+ImageIcon imagem = new ImageIcon(caminho);
+            jLabel54.setIcon(new ImageIcon(imagem.getImage().getScaledInstance(jLabel54.getWidth(), jLabel54.getHeight(), Image.SCALE_DEFAULT)));
+
+     //Aniversario    
+String vip = txT_AniversarioUSUARIO.getText();
+Date dataSistema = new Date();
+SimpleDateFormat formato = new SimpleDateFormat("dd-MM");
+        
+jLabel52.setText(formato.format(dataSistema));
+String dataHoje = jLabel52.getText();
+
+
+         if(vip.toLowerCase().contains(dataHoje.toLowerCase()) == true){
+      //   JOptionPane.showMessageDialog(this, "hoje é aniversario da pesssoa");
+         
+         jLabel53.setText("Hoje é aniversario desse cliente ");
+         }
+        
+        
+        
+       
         
         
         
         
-        File file = new File("C:\\Arquivos do programa/ControleDaTabela.txt");
+       
+        
+        
+        File file = new File("C:\\Arquivos de Programas/Gestão de Clientes/ControleDaTabela.txt");
         
         if(file.exists()) {
         file.delete();
             try {
-                FileWriter fw = new FileWriter("C:\\Arquivos do programa/ControleDaTabela.txt");
+                FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/ControleDaTabela.txt");
                  
             PrintWriter pw = new PrintWriter(fw);
             pw.println("Valor1,Valor2,Valor3,Valor4,Valor,5,Valor6"); 
@@ -2186,7 +2257,7 @@ String verifica = ":VIP";
         }
 
         
-        File arquivo = new File("C:\\Arquivos do programa/Alumnos.txt");  
+        File arquivo = new File("C:\\Arquivos de Programas/Gestão de Clientes/Alumnos.txt");  
 
       try {
           FileReader fr = new FileReader(arquivo);   
@@ -2210,7 +2281,7 @@ String verifica = ":VIP";
    } catch (Exception ex) {
         Logger.getLogger(PerfilDoCliente.class.getName()).log(Level.SEVERE, null, ex);
     }
-              File Arquivo = new File("C:\\Arquivos do programa/Complementos.txt");  
+              File Arquivo = new File("C:\\Arquivos de Programas/Gestão de Clientes/Complementos.txt");  
 
       try {
           FileReader fr = new FileReader(Arquivo);   
@@ -2461,7 +2532,7 @@ String verifica = ":VIP";
 			
 		}		*/		
 		 try {
-             String filePath = ("C:\\Arquivos do programa/ControleDaTabela.txt");
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/ControleDaTabela.txt");
         File file = new File(filePath);
             
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -2710,7 +2781,9 @@ String verifica = ":VIP";
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-jTextField90.setText(jTable1.getRowCount()+"");
+JOptionPane.showMessageDialog(null, "Pedidosalvo com sucesso" );
+        
+        jTextField90.setText(jTable1.getRowCount()+"");
 int pedido = Integer.parseInt(txt_pedidos.getText());
 int NewPedido = Integer.parseInt(jTextField90.getText());
 int RES1 = pedido + NewPedido;
@@ -2720,7 +2793,7 @@ float newPedido = Float.parseFloat(jTextField30.getText());
 float RES2 = valorP + newPedido;
 
         try {
-          FileWriter fw = new FileWriter("C:\\Arquivos do programa/texto.txt", true);
+          FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/texto.txt", true);
             PrintWriter pw = new PrintWriter(fw);
             
             pw.print(txt_Nome.getText()+"/");//Valor
@@ -2754,7 +2827,7 @@ float RES2 = valorP + newPedido;
             Logger.getLogger(RegistroDeCompra.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-         File file = new File("C:\\Arquivos do programa/texto.txt");
+         File file = new File("C:\\Arquivos de Programas/Gestão de Clientes/texto.txt");
        
         try {
         FileReader fr = new FileReader(file); 
@@ -2829,7 +2902,8 @@ float RES2 = valorP + newPedido;
         
         
         try {
-            JOptionPane.showMessageDialog(null, classeDoDia.sauvado());  //Atençao
+           // JOptionPane.showMessageDialog(null, classeDoDia.sauvado());  //Atençao
+            System.out.print(classeDoDia.sauvado());
             // jTextField1.setText("");
             // texREs.setText("");
             
@@ -2874,7 +2948,8 @@ float RES2 = valorP + newPedido;
         
         
         try {
-            JOptionPane.showMessageDialog(null, registroDeCompra.sauvado());  //Atençao
+            //JOptionPane.showMessageDialog(null, registroDeCompra.sauvado());  //Atençao
+            System.out.print(registroDeCompra.sauvado());
             // jTextField1.setText("");
             // texREs.setText("");
             
@@ -2975,12 +3050,127 @@ float RES2 = valorP + newPedido;
         
         
         String vips = txt_cidade.getText();
-String verifica = ":VIP";
+        String verifica = ":VIP";
 
          if(vips.toLowerCase().contains(verifica.toLowerCase()) == true){
          //JOptionPane.showInputDialog("é vip ");
-         jButton777.setVisible(true);
+         jButton777.setIcon(new javax.swing.ImageIcon(getClass().getResource("")));
+        // jButton777.setVisible(true);
          
+        
+         
+            String codigo = txt_CodigoUSUARIO.getText();
+            String nome =txT_NomeUSUARIO.getText();//nome
+            String data = txt_data.getText();//Data
+            String pedidos = txt_pedidos.getText();//total de pedidos
+            String valor = txt_valorTotal.getText();//valor total
+            String rua =txT_EnderecoUSUARIO.getText();//RUA
+            
+            String numero = txT_BairroUSUARIO.getText();//NUMERO
+            String bairro = txT_NumeroUSUARIO.getText();//BAIRRO
+            String aniversario = txT_AniversarioUSUARIO.getText();//aniversario
+            String email = txT_EmailUSUARIO.getText();//email
+            String zap = txT_whatsUSUARIO1.getText();//WHATS
+            String celular = txT_CelularUSUARIO2.getText();//celular
+            String obiservacoes = txT_ObiservacoesUSUARIO1.getText();//OBISERVAÇOES
+
+            String controle = txt_obiservasoes.getText();//controle da tabela
+            String cidade = txt_CidadeUSUARIO.getText();
+           // String foto = txt_cidade.getText();
+            
+            
+            //Quebra de String 
+            
+            String foto = txt_cidade.getText();
+ 
+            String[] splitted= foto.split(":");
+ 
+            String FOTO= splitted[0]; //foto
+ 
+            String splitted2 = splitted[1]; //:Vip
+            
+            //Atençao Henrque fazer metoo de sepavip de foto aqui!!!!!!!!!!!!!!!!
+        
+        
+        
+        
+        
+        
+        
+         try {
+        
+            FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/Texto.txt", true);
+            PrintWriter pw = new PrintWriter(fw);
+            pw.print(codigo+"/");
+            pw.print(nome+"/");
+            pw.print(data+"/");//Data
+            pw.print(pedidos+"/");
+            pw.print(valor+"/");
+            pw.print(rua+"/");
+            pw.print(numero+"/");
+            pw.print(bairro+"/");
+            pw.print(aniversario+"/");
+            pw.print(email+"/");
+            pw.print(zap+"/");
+            pw.print(celular+"/");
+            pw.print(obiservacoes+"/");
+            pw.print(cidade+"/");
+            pw.println(FOTO);
+            
+            //pw.println("0;0;0;0;4;1;0;0;56;0;0;0;0;0;4;0;0;0;0;0;");
+            pw.flush();
+            pw.close();
+            fw.close();
+            
+        } catch (Exception ex) {
+            Logger.getLogger(RegistroDeCompra.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          
+        File file = new File("C:\\Arquivos de Programas/Gestão de Clientes/Texto.txt");
+         
+          try {
+        FileReader fr = new FileReader(file); 
+        BufferedReader br = new BufferedReader(fr);
+       
+        
+        String linha = br.readLine();
+        ArrayList<String> salvar = new ArrayList();
+        while(linha != null){
+            
+             
+         //   String cidade = txt_cidade.getText();//cidade
+            
+
+            
+            
+            if(linha.equals(codigo+"/"+nome+"/"+data+"/"+pedidos+"/"+valor+"/"+rua+"/"+numero+"/"+bairro+"/"+aniversario+"/"+email+"/"+zap+"/"+celular+"/"+obiservacoes+"/"+cidade+"/"+foto) == false){
+                salvar.add(linha);
+          //  JOptionPane.showMessageDialog(null, codigo+"/"+nome+"/"+data+"/"+pedidos+"/"+valor+"/"+rua+"/"+numero+"/"+bairro+"/"+aniversario+"/"+email+"/"+zap+"/"+celular+"/"+obiservacoes+"/"+cidade+"/"+foto);
+            }
+            linha = br.readLine();
+        }
+
+        br.close();
+        fr.close();
+        FileWriter fw2 = new FileWriter(file, true);
+        fw2.close();
+        
+        FileWriter fw = new FileWriter(file);
+        BufferedWriter bw = new BufferedWriter(fw);
+        
+            for (int i = 0; i < salvar.size(); i++) {
+            bw.write( salvar.get(i) );
+            bw.newLine();
+            
+            }
+            bw.close();
+            fw.close();
+        } catch (IOException e) {
+        }
+         
+          
+          
+         /*
         File file = new File("C:\\Arquivos do programa/Texto.txt");
        
         try {
@@ -2992,29 +3182,29 @@ String verifica = ":VIP";
         ArrayList<String> salvar = new ArrayList();
         while(linha != null){
             
-           String nome =txt_Nome.getText()+"/";//Valor
-            String data = txt_Numero.getText()+"/";//Data
-            String total = txt_pedidos.getText()+"/";//total de pedidos
-            String valor = txt_valorTotal.getText()+"/";//valor total
-            String rua =txt_Rua.getText()+"/";//Rua
+             String nome =txT_NomeUSUARIO.getText();//nome
+            String data = txt_Numero.getText();//Data
+            String pedidos = txt_pedidos.getText();//total de pedidos
+            String valor = txt_valorTotal.getText();//valor total
+            String rua =txT_EnderecoUSUARIO.getText();//RUA
             
-            String numero = txt_Endereco.getText()+"/";//numero
-            String bairro = txt_Bairro.getText()+"/";//bairro
-            String aniversario = txt_data.getText()+"/";//aniversario
-            String email = Txt_Aniversario.getText()+"/";//email
-            String zap = txt_email.getText()+"/";//zap
-            String celular = txt_whats.getText()+"/";//celular
-            String obiservacoes = txt_celular.getText()+"/";//obiservaçaoes
+            String numero = txT_BairroUSUARIO.getText();//NUMERO
+            String bairro = txT_NumeroUSUARIO.getText();//BAIRRO
+            String aniversario = txT_AniversarioUSUARIO.getText();//aniversario
+            String email = txT_EmailUSUARIO.getText();//email
+            String zap = txT_whatsUSUARIO1.getText();//WHATS
+            String celular = txT_CelularUSUARIO2.getText();//celular
+            String obiservacoes = txT_ObiservacoesUSUARIO1.getText();//OBISERVAÇOES
 
-            String controle = txt_obiservasoes.getText()+"/1";//controle da tabela
-
+            String controle = txt_obiservasoes.getText();//controle da tabela
+            String cidade = txt_cidade.getText();//cidade
             
 
             
             
-            if(linha.equals(nome+data+total+valor+rua+numero+bairro+aniversario+email+zap+celular+obiservacoes+controle) == false){
+            if(linha.equals(nome+"/"+data+"/"+pedidos+"/"+valor+"/"+rua+"/"+numero+"/"+bairro+"/"+aniversario+"/"+email+"/"+zap+"/"+celular+"/"+obiservacoes+"/"+controle+"/"+Cidade) == false){
                 salvar.add(linha);
-           // JOptionPane.showMessageDialog(null, "1/"+nome+"/"+data+"/0/0/"+endereco+"/"+bairro+"/"+numero+"/"+aniversario+"/"+email+"/"+whats+"/"+celular+"/"+obiserva+"/"+cidade);
+            JOptionPane.showMessageDialog(null, nome+"/"+data+"/"+pedidos+"/"+valor+"/"+rua+"/"+numero+"/"+bairro+"/"+aniversario+"/"+email+"/"+zap+"/"+celular+"/"+obiservacoes+"/"+controle+"/"+Cidade);
             }
             linha = br.readLine();
         }
@@ -3038,85 +3228,229 @@ String verifica = ":VIP";
         }
         
         
-         ArmazenmentoVIP armazenmentoVIP = new ArmazenmentoVIP();
+            String nome =txT_NomeUSUARIO.getText();//nome
+            String data = txt_Numero.getText();//Data
+            String pedidos = txt_pedidos.getText();//total de pedidos
+            String valor = txt_valorTotal.getText();//valor total
+            String rua =txT_EnderecoUSUARIO.getText();//RUA
+            
+            String numero = txT_BairroUSUARIO.getText();//NUMERO
+            String bairro = txT_NumeroUSUARIO.getText();//BAIRRO
+            String aniversario = txT_AniversarioUSUARIO.getText();//aniversario
+            String email = txT_EmailUSUARIO.getText();//email
+            String zap = txT_whatsUSUARIO1.getText();//WHATS
+            String celular = txT_CelularUSUARIO2.getText();//celular
+            String obiservacoes = txT_ObiservacoesUSUARIO1.getText();//OBISERVAÇOES
 
-    
-        armazenmentoVIP.setNome(txT_NomeUSUARIO.getText()); 
-        armazenmentoVIP.setEndereço(txT_EnderecoUSUARIO.getText());
-        armazenmentoVIP.setNumero(txT_NumeroUSUARIO.getText());
-        armazenmentoVIP.setBairro(txT_BairroUSUARIO.getText());
-        armazenmentoVIP.setDataNacimento(txT_AniversarioUSUARIO1.getText());
-        armazenmentoVIP.setEmail(txT_EmailUSUARIO.getText());
-        armazenmentoVIP.setWhatsApp(txT_whatsUSUARIO1.getText());
-        armazenmentoVIP.setCelular(txT_CelularUSUARIO2.getText());
-        armazenmentoVIP.setObiservaçoes(txT_ObiservacoesUSUARIO1.getText());
-        armazenmentoVIP.setCidade(txt_cidade.getText());
+            String controle = txt_obiservasoes.getText();//controle da tabela
+        //    String cidade = txt_cidade.getText();//cidade
+        
+        
+        
+        
+        
+        
+        
          try {
-            JOptionPane.showMessageDialog(null, armazenmentoVIP.sauvado());  //Atençao
-            // jTextField1.setText("");
-            // texREs.setText("");
+        
+            FileWriter fw = new FileWriter("C:\\Arquivos do programa/Texto.txt", true);
+            PrintWriter pw = new PrintWriter(fw);
+            pw.print(nome+"/");
+            pw.print(data+"/");//Data
+            pw.print(pedidos+"/");
+            pw.print(valor+"/");
+            pw.print(rua+"/");
+            pw.print(numero+"/");
+            pw.print(bairro+"/");
+            pw.print(aniversario+"/");
+            pw.print(email+"/");
+            pw.print(zap+"/");
+            pw.print(celular+"/");
+            pw.print(obiservacoes+"/");
+            pw.print(controle+"/");
+            pw.println(Cidade);
+            //pw.println("0;0;0;0;4;1;0;0;56;0;0;0;0;0;4;0;0;0;0;0;");
+            pw.flush();
+            pw.close();
+            fw.close();
             
-            
-            /*   t.start();
-            prgs.setValue(prgs.getValue()+10);
-            
-            t.stop(); */
-        } catch (IOException ex) {
-           Logger.getLogger(PerfilDoCliente.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(RegistroDeCompra.class.getName()).log(Level.SEVERE, null, ex);
         }
-     //   registroDeCompra.setValores(jTextField30.getText()); */
-       // registroDeCompra.setData(dataString);
-      //  registroDeCompra.setHora(horarioString);
-/*
-        } catch (IOException ex) {
-            Logger.getLogger(PerfilDoCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         
-         */
+        
+        
+       */
          }else{
              jLabel55.setVisible(true);
       //   JOptionPane.showInputDialog("Nao é vip ");
-         
-          ArmazenmentoVIP armazenmentoVIP = new ArmazenmentoVIP();
-        
-          String nome = txt_Nome.getText();
-           String endereco = txt_Endereco.getText();
-           String numero = txt_Numero.getText();
-           String bairro = txt_Bairro.getText();
-           String data = txt_data.getText();
-           String aniversario = Txt_Aniversario.getText();
-           String email = txt_email.getText();
-           String whats = txt_whats.getText();
-           String celular = txt_celular.getText();
-           String obiserva = txt_obiservasoes.getText();
-           String cidade = txt_cidade.getText();
-        
-        armazenmentoVIP.setNome(txT_NomeUSUARIO.getText()); 
-        armazenmentoVIP.setEndereço(txT_EnderecoUSUARIO.getText());
-        armazenmentoVIP.setNumero(txT_NumeroUSUARIO.getText());
-        armazenmentoVIP.setBairro(txT_BairroUSUARIO.getText());
-        armazenmentoVIP.setDataNacimento(txT_AniversarioUSUARIO1.getText());
-        armazenmentoVIP.setEmail(txT_EmailUSUARIO.getText());
-        armazenmentoVIP.setWhatsApp(txT_whatsUSUARIO1.getText());
-        armazenmentoVIP.setCelular(txT_CelularUSUARIO2.getText());
-        armazenmentoVIP.setObiservaçoes(txT_ObiservacoesUSUARIO1.getText());
-        armazenmentoVIP.setCidade(txt_cidade.getText());
-        
-        try {
-            JOptionPane.showMessageDialog(null, armazenmentoVIP.sauvado());  //Atençao
-            // jTextField1.setText("");
-            // texREs.setText("");
+      //--------------------------------------------------------NÂO È VIP------------------------------------------
+         String codigo = txt_CodigoUSUARIO.getText();
+            String nome =txT_NomeUSUARIO.getText();//nome
+            String data = txt_data.getText();//Data
+            String pedidos = txt_pedidos.getText();//total de pedidos
+            String valor = txt_valorTotal.getText();//valor total
+            String rua =txT_EnderecoUSUARIO.getText();//RUA
+            
+            String numero = txT_BairroUSUARIO.getText();//NUMERO
+            String bairro = txT_NumeroUSUARIO.getText();//BAIRRO
+            String aniversario = txT_AniversarioUSUARIO.getText();//aniversario
+            String email = txT_EmailUSUARIO.getText();//email
+            String zap = txT_whatsUSUARIO1.getText();//WHATS
+            String celular = txT_CelularUSUARIO2.getText();//celular
+            String obiservacoes = txT_ObiservacoesUSUARIO1.getText();//OBISERVAÇOES
+
+            String controle = txt_obiservasoes.getText();//controle da tabela
+            String cidade = txt_CidadeUSUARIO.getText();
+            String foto = txt_cidade.getText();
             
             
-            /*   t.start();
-            prgs.setValue(prgs.getValue()+10);
+        
+        
+        
+        
+        
+        
+        
+         try {
+        
+            FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/Texto.txt", true);
+            PrintWriter pw = new PrintWriter(fw);
+            pw.print(codigo+"/");
+            pw.print(nome+"/");
+            pw.print(data+"/");//Data
+            pw.print(pedidos+"/");
+            pw.print(valor+"/");
+            pw.print(rua+"/");
+            pw.print(numero+"/");
+            pw.print(bairro+"/");
+            pw.print(aniversario+"/");
+            pw.print(email+"/");
+            pw.print(zap+"/");
+            pw.print(celular+"/");
+            pw.print(obiservacoes+"/");
+            pw.print(cidade+"/");
+            pw.println(foto+":VIP");
             
-            t.stop(); */
-        } catch (IOException ex) {
-           Logger.getLogger(PerfilDoCliente.class.getName()).log(Level.SEVERE, null, ex);
+            //pw.println("0;0;0;0;4;1;0;0;56;0;0;0;0;0;4;0;0;0;0;0;");
+            pw.flush();
+            pw.close();
+            fw.close();
+            
+        } catch (Exception ex) {
+            Logger.getLogger(RegistroDeCompra.class.getName()).log(Level.SEVERE, null, ex);
         }
+      
+      
+      
+      /*
+            String nome =txT_NomeUSUARIO.getText();//nome
+            String data = txt_Numero.getText();//Data
+            String pedidos = txt_pedidos.getText();//total de pedidos
+            String valor = txt_valorTotal.getText();//valor total
+            String rua =txT_EnderecoUSUARIO.getText();//RUA
+            
+            String numero = txT_BairroUSUARIO.getText();//NUMERO
+            String bairro = txT_NumeroUSUARIO.getText();//BAIRRO
+            String aniversario = txT_AniversarioUSUARIO.getText();//aniversario
+            String email = txT_EmailUSUARIO.getText();//email
+            String zap = txT_whatsUSUARIO1.getText();//WHATS
+            String celular = txT_CelularUSUARIO2.getText();//celular
+            String obiservacoes = txT_ObiservacoesUSUARIO1.getText();//OBISERVAÇOES
+
+            String controle = txt_obiservasoes.getText();//controle da tabela
+            String cidade = txt_cidade.getText();//cidade
+        
+        
+        
+        
+        
+        
+        
+         try {
+        
+            FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/Texto.txt", true);
+            PrintWriter pw = new PrintWriter(fw);
+            pw.print(nome+"/");
+            pw.print(data+"/");//Data
+            pw.print(pedidos+"/");
+            pw.print(valor+"/");
+            pw.print(rua+"/");
+            pw.print(numero+"/");
+            pw.print(bairro+"/");
+            pw.print(aniversario+"/");
+            pw.print(email+"/");
+            pw.print(zap+"/");
+            pw.print(celular+"/");
+            pw.print(obiservacoes+"/");
+            pw.print(controle+"/");
+            pw.println(cidade+":VIP");
+            //pw.println("0;0;0;0;4;1;0;0;56;0;0;0;0;0;4;0;0;0;0;0;");
+            pw.flush();
+            pw.close();
+            fw.close();
+            
+        } catch (Exception ex) {
+            Logger.getLogger(RegistroDeCompra.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
          
          }
+         
+         File file = new File("C:\\Arquivos de Programas/Gestão de Clientes/Texto.txt");
+         
+          try {
+        FileReader fr = new FileReader(file); 
+        BufferedReader br = new BufferedReader(fr);
+       
+        
+        String linha = br.readLine();
+        ArrayList<String> salvar = new ArrayList();
+        while(linha != null){
+            String codigo = txt_CodigoUSUARIO.getText();
+             String nome =txT_NomeUSUARIO.getText();//nome
+            String data = txt_data.getText();//Data
+            String pedidos = txt_pedidos.getText();//total de pedidos
+            String valor = txt_valorTotal.getText();//valor total
+            String rua =txT_EnderecoUSUARIO.getText();//RUA
+            
+            String numero = txT_BairroUSUARIO.getText();//NUMERO
+            String bairro = txT_NumeroUSUARIO.getText();//BAIRRO
+            String aniversario = Txt_Aniversario.getText();//aniversario
+            String email = txT_EmailUSUARIO.getText();//email
+            String zap = txT_whatsUSUARIO1.getText();//WHATS
+            String celular = txT_CelularUSUARIO2.getText();//celular
+            String obiservacoes = txT_ObiservacoesUSUARIO1.getText();//OBISERVAÇOES
+
+            String controle = txt_obiservasoes.getText();//controle da tabela
+            String cidade = txt_CidadeUSUARIO.getText();//cidade
+            String foto = txt_cidade.getText();
+            
+
+            
+            
+            if(linha.equals(codigo+"/"+nome+"/"+data+"/"+pedidos+"/"+valor+"/"+rua+"/"+numero+"/"+bairro+"/"+aniversario+"/"+email+"/"+zap+"/"+celular+"/"+obiservacoes+"/"+cidade+"/"+foto) == false){
+                salvar.add(linha);
+           // JOptionPane.showMessageDialog(null, codigo+"/"+nome+"/"+data+"/"+pedidos+"/"+valor+"/"+rua+"/"+numero+"/"+bairro+"/"+aniversario+"/"+email+"/"+zap+"/"+celular+"/"+obiservacoes+"/"+cidade+"/"+foto);
+            }
+            linha = br.readLine();
+        }
+
+        br.close();
+        fr.close();
+        FileWriter fw2 = new FileWriter(file, true);
+        fw2.close();
+        
+        FileWriter fw = new FileWriter(file);
+        BufferedWriter bw = new BufferedWriter(fw);
+        
+            for (int i = 0; i < salvar.size(); i++) {
+            bw.write( salvar.get(i) );
+            bw.newLine();
+            
+            }
+            bw.close();
+            fw.close();
+        } catch (IOException e) {
+        }
         
         
         
@@ -3229,66 +3563,6 @@ String verifica = ":VIP";
         /*/
      
     }//GEN-LAST:event_jButton777ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if(jTable1.getSelectedRow() != -1){
-        
-        System.out.print("Linha selecionada: "+jTable1.getSelectedColumn());
-            
-        DefaultTableModel dmz = (DefaultTableModel)jTable1.getModel();
-        dmz.removeRow(jTable1.getSelectedRow());
- 
-        
-         File file = new File("C:\\Arquivos do programa/ControleDaTabela.txt");
-       
-        try {
-        FileReader fr = new FileReader(file); 
-        BufferedReader br = new BufferedReader(fr);
-       
-        
-        String linha = br.readLine();
-        ArrayList<String> salvar = new ArrayList();
-        while(linha != null){
-            
-            String lanche = jTextField6.getText();
-
-            
-            
-            if(linha.equals(lanche) == false){
-                salvar.add(linha);
-            
-            }
-            linha = br.readLine();
-        }
-
-        br.close();
-        fr.close();
-        FileWriter fw2 = new FileWriter(file, true);
-        fw2.close();
-        
-        FileWriter fw = new FileWriter(file);
-        BufferedWriter bw = new BufferedWriter(fw);
-        
-            for (int i = 0; i < salvar.size(); i++) {
-            bw.write( salvar.get(i) );
-            bw.newLine();
-            
-            }
-            bw.close();
-            fw.close();
-        } catch (IOException e) {
-        }
-        
-        
-         }else{
-            JOptionPane.showMessageDialog(null, "Favor selecionar uma linha");
-        }  
-        
-        //calcular tatais
-        calcular();
-        
-        
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
  /////////////clicado
@@ -3746,7 +4020,7 @@ String box = cbo_Conplementos.getSelectedItem().toString();
 			
 		}		*/		
 		 try {
-             String filePath = ("C:\\Arquivos do programa/ControleDaTabela.txt");
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/ControleDaTabela.txt");
         File file = new File(filePath);
             
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -3934,7 +4208,22 @@ String box = cbo_Conplementos.getSelectedItem().toString();
     }//GEN-LAST:event_jTextField76ActionPerformed
 
     private void jLabel30MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel30MouseMoved
-       // JOptionPane.showMessageDialog(null, "oiiiii");
+//Aniversario    
+String vip = txT_AniversarioUSUARIO.getText();
+Date dataSistema = new Date();
+SimpleDateFormat formato = new SimpleDateFormat("dd-MM");
+        
+jLabel52.setText(formato.format(dataSistema));
+String dataHoje = jLabel52.getText();
+
+
+         if(vip.toLowerCase().contains(dataHoje.toLowerCase()) == true){
+      //   JOptionPane.showMessageDialog(this, "hoje é aniversario da pesssoa");
+         
+         jLabel53.setText("Hoje é aniversario desse cliente ");
+         }
+        
+// JOptionPane.showMessageDialog(null, "oiiiii");
       
         int UM = Integer.valueOf(jTextField8.getText());
         
@@ -4035,7 +4324,9 @@ String box = cbo_Conplementos.getSelectedItem().toString();
     }//GEN-LAST:event_jTextField86ActionPerformed
 
     private void cbo_ItemDaClasseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbo_ItemDaClasseMouseClicked
-       if (evt.getClickCount() == 1 ) { 
+
+        
+        
         
         String box = cbo_ItemDaClasse.getSelectedItem().toString();
         String boxy = cbo_quat.getSelectedItem().toString();
@@ -4133,11 +4424,13 @@ String box = cbo_Conplementos.getSelectedItem().toString();
                         
                      
                             
-                       
+                       removeAll();
 			
-		}		*/		
+		}		*/	
+        cbo_ItemDaClasse.setSelectedItem(null); 
+        
 		 try {
-             String filePath = ("C:\\Arquivos do programa/ControleDaTabela.txt");
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/ControleDaTabela.txt");
         File file = new File(filePath);
             
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -4221,7 +4514,9 @@ String box = cbo_Conplementos.getSelectedItem().toString();
          //calcular totai
          calcular();  
       
-       }           
+                  
+        
+        
     }//GEN-LAST:event_cbo_ItemDaClasseMouseClicked
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -4248,7 +4543,7 @@ String box = cbo_Conplementos.getSelectedItem().toString();
                                                
     jTextField86.setText(box);
     String verifica = jTextField86.getText();
-    if(verifica.equals("Selecione a clase")){
+    if(verifica.equals("Selecione a Categoria")){
     System.out.print("È igual");
     }else{
     System.out.print("Não é igual");
@@ -4262,14 +4557,10 @@ String box = cbo_Conplementos.getSelectedItem().toString();
     
     }//GEN-LAST:event_cbo_ClasesActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
- jFrame2.setVisible(rootPaneCheckingEnabled);   
-    }//GEN-LAST:event_jButton10ActionPerformed
-
     private void jFrame2WindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jFrame2WindowOpened
   //carrega tabela aqui
    try {
-             String filePath = ("C:\\Arquivos do programa/faturamentoDia.txt");
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/faturamentoDia.txt");
         File file = new File(filePath);
             
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -4303,7 +4594,7 @@ String box = cbo_Conplementos.getSelectedItem().toString();
         dmz.removeRow(jTable4.getSelectedRow());
  
         
-         File file = new File("C:\\Arquivos do programa/faturamentoDia.txt");
+         File file = new File("C:\\Arquivos de Programas/Gestão de Clientes/faturamentoDia.txt");
        
         try {
         FileReader fr = new FileReader(file); 
@@ -4370,12 +4661,6 @@ TableModel model = jTable4.getModel();
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField30ActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-
-       
-        
-    }//GEN-LAST:event_jButton12ActionPerformed
-
     private void txT_NomeUSUARIO1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txT_NomeUSUARIO1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txT_NomeUSUARIO1ActionPerformed
@@ -4383,10 +4668,6 @@ TableModel model = jTable4.getModel();
     private void txt_cidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cidadeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_cidadeActionPerformed
-
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jLabel54MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel54MouseClicked
        
@@ -4408,7 +4689,7 @@ TableModel model = jTable4.getModel();
         }
         //faz o novo registro com a foto
         try{
-        Writer fw = new FileWriter("C:\\Arquivos do programa/texto.txt", true);
+        Writer fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/texto.txt", true);
         PrintWriter pw = new PrintWriter(fw);
         
            String nome = txt_Nome.getText();
@@ -4447,7 +4728,7 @@ TableModel model = jTable4.getModel();
         
         
         //apaga o antigo registro 
-        File file = new File("C:\\Arquivos do programa/Texto.txt");
+        File file = new File("C:\\Arquivos de Programas/Gestão de Clientes/Texto.txt");
        
         try {
         FileReader fr = new FileReader(file); 
@@ -4513,7 +4794,7 @@ String verifica = ":VIP";
          //JOptionPane.showInputDialog("é vip ");
          jButton777.setVisible(true);
          
-        File file = new File("C:\\Arquivos do programa/Texto.txt");
+        File file = new File("C:\\Arquivos de Programas/Gestão de Clientes/Texto.txt");
        
         try {
         FileReader fr = new FileReader(file); 
@@ -4762,9 +5043,7 @@ String verifica = ":VIP";
     }//GEN-LAST:event_jLabel55MouseClicked
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-dispose();
-TelaPrincipal tela = new TelaPrincipal();
-                       tela.setVisible(true);        // TODO add your handling code here:
+dispose();       // TODO add your handling code here:
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void txT_NomeUSUARIOKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txT_NomeUSUARIOKeyPressed
@@ -4845,6 +5124,68 @@ TelaPrincipal tela = new TelaPrincipal();
    
        }
     }//GEN-LAST:event_txT_ObiservacoesUSUARIO1KeyPressed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+ if(jTable1.getSelectedRow() != -1){
+        
+        System.out.print("Linha selecionada: "+jTable1.getSelectedColumn());
+            
+        DefaultTableModel dmz = (DefaultTableModel)jTable1.getModel();
+        dmz.removeRow(jTable1.getSelectedRow());
+ 
+        
+         File file = new File("C:\\Arquivos de Programas/Gestão de Clientes/ControleDaTabela.txt");
+       
+        try {
+        FileReader fr = new FileReader(file); 
+        BufferedReader br = new BufferedReader(fr);
+       
+        
+        String linha = br.readLine();
+        ArrayList<String> salvar = new ArrayList();
+        while(linha != null){
+            
+            String lanche = jTextField6.getText();
+
+            
+            
+            if(linha.equals(lanche) == false){
+                salvar.add(linha);
+            
+            }
+            linha = br.readLine();
+        }
+
+        br.close();
+        fr.close();
+        FileWriter fw2 = new FileWriter(file, true);
+        fw2.close();
+        
+        FileWriter fw = new FileWriter(file);
+        BufferedWriter bw = new BufferedWriter(fw);
+        
+            for (int i = 0; i < salvar.size(); i++) {
+            bw.write( salvar.get(i) );
+            bw.newLine();
+            
+            }
+            bw.close();
+            fw.close();
+        } catch (IOException e) {
+        }
+        
+        
+         }else{
+            JOptionPane.showMessageDialog(null, "Favor selecionar uma linha");
+        }  
+        
+        //calcular tatais
+        calcular();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void Txt_AniversarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_AniversarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Txt_AniversarioActionPerformed
     private static final Logger LOG = Logger.getLogger(PerfilDoCliente.class.getName());
 
     public PerfilDoCliente(JTable jTable1, JTextField jTextField1, String string) throws HeadlessException {
@@ -4894,12 +5235,11 @@ TelaPrincipal tela = new TelaPrincipal();
     private javax.swing.JComboBox<String> cbo_quat;
     public javax.swing.JComboBox<String> cbo_select;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -4962,6 +5302,8 @@ TelaPrincipal tela = new TelaPrincipal();
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -5069,9 +5411,9 @@ TelaPrincipal tela = new TelaPrincipal();
     public javax.swing.JTextField jTextField89;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField jTextField90;
+    private javax.swing.JTextField jTextField91;
     private javax.swing.JTextField jTextFieldPath;
     private javax.swing.JTextField jTextFieldPath1;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTextField texREs;
     public javax.swing.JTextField txT_AniversarioUSUARIO;
     public javax.swing.JTextField txT_AniversarioUSUARIO1;
@@ -5099,6 +5441,9 @@ TelaPrincipal tela = new TelaPrincipal();
     public javax.swing.JTextField txT_whatsUSUARIO1;
     public javax.swing.JTextField txT_whatsUSUARIO2;
     public javax.swing.JTextField txt_Bairro;
+    public javax.swing.JTextField txt_Cidade;
+    public javax.swing.JTextField txt_CidadeUSUARIO;
+    public javax.swing.JTextField txt_CodigoUSUARIO;
     public javax.swing.JTextField txt_Endereco;
     public javax.swing.JTextField txt_Nome;
     public javax.swing.JTextField txt_Numero;
@@ -5106,6 +5451,7 @@ TelaPrincipal tela = new TelaPrincipal();
     public javax.swing.JTextField txt_celular;
     public javax.swing.JTextField txt_cidade;
     public javax.swing.JTextField txt_data;
+    public javax.swing.JTextField txt_dataNew;
     public javax.swing.JTextField txt_email;
     public javax.swing.JTextField txt_obiservasoes;
     public javax.swing.JTextField txt_pedidos;

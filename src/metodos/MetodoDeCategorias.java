@@ -28,7 +28,7 @@ public class MetodoDeCategorias {
     }
      public String sauvado() throws IOException{
         try {
-          FileWriter fw = new FileWriter("C:\\Arquivos do programa/clase.txt", true);
+          FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/clase.txt", true);
             PrintWriter pw = new PrintWriter(fw);
             pw.println(this.categoria+";");
 

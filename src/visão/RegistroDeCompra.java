@@ -204,14 +204,13 @@ public class RegistroDeCompra {
    
     public String sauvado() throws IOException{
         try {
-          FileWriter fw = new FileWriter("C:\\Arquivos do programa/textando.txt", true);
+          FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt", true);
             PrintWriter pw = new PrintWriter(fw);
             
-            pw.print(this.TTotal+" ");//Valor
-            pw.print(this.Horario+" ");//hora
-            
+            pw.print(this.TTotal+" ");//Valor 
+            pw.print(this.DATA+" ");//Hora    
             pw.print(this.Nomef+" ");//Nome
-            pw.println(this.DATA+";");//Hora
+            pw.println(this.Horario+";");//Data
            // pw.print(";"+this.endereço);
            // pw.print(";"+this.numero);
          //   pw.print(";"+this.bairro);
@@ -238,7 +237,7 @@ public class RegistroDeCompra {
         
         try {
         
-            FileWriter fw = new FileWriter("C:\\Arquivos do programa/ValorTotal.txt", true);
+            FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/ValorTotal.txt", true);
             PrintWriter pw = new PrintWriter(fw);
         //    pw.print(this.resutado+";");
         //    pw.print("0;");
@@ -250,7 +249,7 @@ public class RegistroDeCompra {
         //Valor total 
         try {
         
-            FileWriter fw = new FileWriter("C:\\Arquivos do programa/ValorTotal.txt", true);
+            FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/ValorTotal.txt", true);
             PrintWriter pw = new PrintWriter(fw);
             pw.print(this.resutado+";");
             pw.println(this.data+";");
@@ -263,7 +262,7 @@ public class RegistroDeCompra {
         //Valor do dia
         try {
         
-            FileWriter fw = new FileWriter("C:\\Arquivos do programa/faturamentoDia.txt", true);
+            FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/faturamentoDia.txt", true);
             PrintWriter pw = new PrintWriter(fw);
             pw.print(this.resutado+" ");
             pw.print(this.hora+";");
@@ -275,7 +274,7 @@ public class RegistroDeCompra {
         
         try {
         
-            FileWriter fw = new FileWriter("C:\\Arquivos do programa/analise.txt", true);
+            FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/analise.txt", true);
             PrintWriter pw = new PrintWriter(fw);
             pw.println(this.analise+" ");
             
@@ -287,7 +286,7 @@ public class RegistroDeCompra {
         
         try {
         
-            FileWriter fw = new FileWriter("C:\\Arquivos do programa/Texto.txt", true);
+                FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/Texto.txt", true);
             PrintWriter pw = new PrintWriter(fw);
             pw.print(this.nome+"/");
             pw.print(this.hora+"/0/0/");//Data

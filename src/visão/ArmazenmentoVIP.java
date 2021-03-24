@@ -151,7 +151,7 @@ public class ArmazenmentoVIP {
     }
      public String sauvado() throws IOException{
         try {
-          FileWriter fw = new FileWriter("C:\\Arquivos do programa/Texto.txt", true);
+          FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/Texto.txt", true);
             PrintWriter pw = new PrintWriter(fw);
             
            

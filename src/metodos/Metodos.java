@@ -28,7 +28,7 @@ public class Metodos {
     //Proceminto para guardar en arquivo txt
     public void guardarArchivo(Alumno alumno) {
         try {
-            FileWriter fw = new FileWriter("C:\\Arquivos do programa/Alumnos.txt", true);
+            FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/Alumnos.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
             pw.print(alumno.getNombre());

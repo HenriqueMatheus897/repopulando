@@ -72,7 +72,7 @@ public class RegistroDaTabela {
     
        public String sauvado(){
         try {
-          FileWriter fw = new FileWriter("C:\\Arquivos do programa/ControleDaTabela.txt", true);
+          FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/ControleDaTabela.txt", true);
             PrintWriter pw = new PrintWriter(fw);
            // pw.print("Valor1,Valor2,Valor3,Valor4,Valor,5,Valor6");
            // pw.print(this.valorTotal+".");
@@ -87,7 +87,7 @@ public class RegistroDaTabela {
         }
         
         try {
-          FileWriter fw = new FileWriter("C:\\Arquivos do programa/DadosLoguin.txt", true);
+          FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/DadosLoguin.txt", true);
             PrintWriter pw = new PrintWriter(fw);
             pw.print(this.user+";");
             pw.print(this.senha+";");

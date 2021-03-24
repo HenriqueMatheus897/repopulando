@@ -26,11 +26,16 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MeuNegocio extends javax.swing.JFrame {
 
+     
     /**
      * Creates new form MeuNegocio
      */
     public MeuNegocio() {
         initComponents();
+        //MeuNegocio.setSize(300,200);
+        jButton2.setBackground(new java.awt.Color(0,0,0,0));
+        jButton1.setBackground(new java.awt.Color(0,0,0,0));
+        jButton3.setBackground(new java.awt.Color(0,0,0,0));
     }
 
     /**
@@ -45,7 +50,6 @@ public class MeuNegocio extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButtonPedidos = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -55,6 +59,7 @@ public class MeuNegocio extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
         jLabel4.setText("jLabel4");
@@ -75,8 +80,10 @@ public class MeuNegocio extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonPedidos);
-        jButtonPedidos.setBounds(820, 220, 60, 50);
+        jButtonPedidos.setBounds(70, 40, 0, 0);
 
+        jButton2.setFont(new java.awt.Font("Open Sans", 1, 11)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Salvar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,21 +91,17 @@ public class MeuNegocio extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(440, 336, 63, 30);
-
-        jLabel1.setText("resetarbanco de dados");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 20, 130, 14);
+        jButton2.setBounds(420, 340, 80, 20);
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Usuario");
+        jLabel2.setText("Usuário");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(370, 150, 36, 20);
+        jLabel2.setBounds(360, 150, 50, 20);
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Senha");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(370, 200, 40, 20);
+        jLabel3.setBounds(360, 200, 40, 20);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,44 +109,51 @@ public class MeuNegocio extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(370, 170, 210, 20);
+        jTextField1.setBounds(360, 170, 210, 20);
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(370, 220, 210, 20);
+        jTextField2.setBounds(360, 220, 210, 20);
         getContentPane().add(jTextField3);
-        jTextField3.setBounds(370, 290, 210, 20);
+        jTextField3.setBounds(360, 290, 210, 20);
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Palavra Chave");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(370, 270, 80, 20);
+        jLabel5.setBounds(360, 270, 80, 20);
 
-        jButton3.setText("jButton3");
+        jButton3.setToolTipText("");
+        jButton3.setBorder(null);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(30, 160, 73, 23);
-
-        jLabel6.setText("jLabel6");
+        jButton3.setBounds(810, 210, 60, 60);
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(60, 230, 100, 14);
+        jLabel6.setBounds(60, 230, 0, 0);
 
+        jButton1.setToolTipText("Sair Dessa Aba");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(1263, 3, 50, 50);
+        jButton1.setBounds(1250, 0, 50, 50);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Caso encontre algum erro ou queira dar alguma sugestão, entre em contato conosco.");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(380, 570, 530, 20);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/--- configurações.png"))); // NOI18N
         jLabel7.setText("jLabel7");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(0, 0, 1320, 700);
+        jLabel7.setBounds(-10, 0, 1320, 700);
 
-        pack();
+        setSize(new java.awt.Dimension(1300, 700));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -170,7 +180,8 @@ public class MeuNegocio extends javax.swing.JFrame {
         registroDaTabela.setSenha(jTextField2.getText());
         registroDaTabela.setPalavra(jTextField2.getText());
         try {
-            JOptionPane.showMessageDialog(null, registroDaTabela.sauvado());  //Atençao
+            //JOptionPane.showMessageDialog(null, registroDaTabela.sauvado());  //Atençao
+            System.out.print(registroDaTabela.sauvado());
            
         } catch (Exception ex) {
             Logger.getLogger(PerfilDoCliente.class.getName()).log(Level.SEVERE, null, ex);
@@ -183,7 +194,7 @@ public class MeuNegocio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonPedidosActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-try{
+/*try{
         Writer out = new FileWriter("C:\\Arquivos do programa/apagando.txt");
 
     //limpa
@@ -197,27 +208,124 @@ try{
         
 }catch(IOException e) {
 
-}
+}*/
 
 String senha = jLabel6.getText();
  String sexo = JOptionPane.showInputDialog(null, "Digite sua senha para proseguir..." , "digite aqui", JOptionPane.PLAIN_MESSAGE);
          if (sexo.equalsIgnoreCase(senha)){
-          JOptionPane.showMessageDialog(null, "Tabea foi apagada com sucesso"); 
+          JOptionPane.showMessageDialog(null, "Todos os dados foram apagados  com sucesso"); 
           try{
-        Writer out = new FileWriter("C:\\Arquivos do programa/apagando.txt");
+        Writer out = new FileWriter("C:\\Arquivos do programa/Texto.txt");
 
     //limpa
     out.write("");
     out.flush();
     
     //escreve
-    out.write("Codigo , Nome       , Data de Cadrastro    , Quantidade de Pedidos  , valor Pago , Endereço , Numero , Bairro , Aniversrio , Email, WhatsApp , celuar , Obiservações, Foto,oi,oi");
+    out.write("Codigo , Nome       , Data de Cadrastro    , Quantidade de Pedidos  , valor Pago , Endere�o , Numero , Bairro , Aniversrio , Email, WhatsApp , celuar , Obiserva��es, Foto,oi,oi");
     out.flush();
     out.close();
         
 }catch(IOException e) {
 
 }
+          
+            try{
+        Writer out = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt");
+
+    //limpa
+    out.write("");
+    out.flush();
+    
+    //escreve
+    out.write("Valor,Hora,Data,Nome");
+    out.flush();
+    out.close();
+        
+}catch(IOException e) {
+
+}
+            
+             try{
+        Writer out = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/Bloco.txt");
+
+    //limpa
+    out.write("");
+    out.flush();
+    
+    //escreve
+    out.write("");
+    out.flush();
+    out.close();
+        
+}catch(IOException e) {
+
+}
+             
+             try{
+        Writer out = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/analise.txt");
+
+    //limpa
+    out.write("");
+    out.flush();
+    
+    //escreve
+    out.write("Valor,Hora,Data,Nome");
+    out.flush();
+    out.close();
+        
+}catch(IOException e) {
+
+}
+             
+              try{
+        Writer out = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/faturamentoDia.txt");
+
+    //limpa
+    out.write("");
+    out.flush();
+    
+    //escreve
+    out.write("f,f");
+    out.flush();
+    out.close();
+        
+}catch(IOException e) {
+
+}
+         
+               try{
+        Writer out = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/ValorTotal.txt");
+
+    //limpa
+    out.write("");
+    out.flush();
+    
+    //escreve
+    out.write("Valor,");
+    out.flush();
+    out.close();
+        
+}catch(IOException e) {
+
+}
+               
+               try{
+        Writer out = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/clase.txt");
+
+    //limpa
+    out.write("");
+    out.flush();
+    
+    //escreve
+    out.write("");
+    out.flush();
+    out.close();
+        
+}catch(IOException e) {
+
+}
+              
           
          }else{
          JOptionPane.showMessageDialog(null, "Senha invalida");
@@ -226,7 +334,7 @@ String senha = jLabel6.getText();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
- String filePath = ("C:\\Arquivos do programa/DadosLoguin.txt");
+ String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/DadosLoguin.txt");
         File file = new File(filePath);
         //tabela 1
         try {
@@ -264,9 +372,7 @@ String senha = jLabel6.getText();
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-dispose();
-TelaPrincipal tela = new TelaPrincipal();
-                       tela.setVisible(true);        // TODO add your handling code here:
+dispose();       // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -309,13 +415,13 @@ TelaPrincipal tela = new TelaPrincipal();
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonPedidos;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

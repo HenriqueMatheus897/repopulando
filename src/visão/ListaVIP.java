@@ -42,6 +42,7 @@ public class ListaVIP extends javax.swing.JFrame {
         jTextField1.setBackground(new java.awt.Color(0,0,0,0));
         jToggleButton1.setBackground(new java.awt.Color(0,0,0,0));
         jTable1.setBackground(new java.awt.Color(0,0,0,0));
+        jButton5.setBackground(new java.awt.Color(0,0,0,0));
         
         
         
@@ -140,7 +141,7 @@ public class ListaVIP extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(180, 180, 90, 80);
+        jButton1.setBounds(190, 259, 0, 1);
 
         jButton2.setBorder(null);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -149,7 +150,7 @@ public class ListaVIP extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(180, 280, 90, 80);
+        jButton2.setBounds(150, 640, 10, 0);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -162,15 +163,15 @@ public class ListaVIP extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(0, 690, 10, 10);
+        jScrollPane2.setBounds(0, 690, 0, 10);
 
         jButton3.setBorder(null);
         getContentPane().add(jButton3);
-        jButton3.setBounds(180, 460, 90, 80);
+        jButton3.setBounds(130, 640, 1, 1);
 
         jButton4.setBorder(null);
         getContentPane().add(jButton4);
-        jButton4.setBounds(180, 560, 90, 80);
+        jButton4.setBounds(180, 639, 1, 1);
 
         jTextField2.setBorder(null);
         getContentPane().add(jTextField2);
@@ -213,9 +214,17 @@ public class ListaVIP extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Título 2", "Pedidos", "Valor", "Numero", "Data", "Bairro", ".", "WhatsApp", "celular", "obiservaçâoes", "Cidade", "."
+                "Codigo", "Nome Do Cliente", "QTD Produtos Comprados", "Valor Gasto Pelo Cliente", "Numero", "Data", "Bairro", ".", "WhatsApp", "celular", "obiservaçâoes", "Cidade", ".", "Título 14", "Título 15", "Título 16"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true, true, true, true, true, true, true, true, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable3MouseClicked(evt);
@@ -223,18 +232,18 @@ public class ListaVIP extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTable3);
         if (jTable3.getColumnModel().getColumnCount() > 0) {
-            jTable3.getColumnModel().getColumn(0).setMinWidth(300);
-            jTable3.getColumnModel().getColumn(0).setPreferredWidth(300);
-            jTable3.getColumnModel().getColumn(0).setMaxWidth(300);
-            jTable3.getColumnModel().getColumn(1).setMinWidth(0);
-            jTable3.getColumnModel().getColumn(1).setPreferredWidth(0);
-            jTable3.getColumnModel().getColumn(1).setMaxWidth(0);
-            jTable3.getColumnModel().getColumn(2).setMinWidth(260);
-            jTable3.getColumnModel().getColumn(2).setPreferredWidth(260);
-            jTable3.getColumnModel().getColumn(2).setMaxWidth(260);
-            jTable3.getColumnModel().getColumn(3).setMinWidth(260);
-            jTable3.getColumnModel().getColumn(3).setPreferredWidth(260);
-            jTable3.getColumnModel().getColumn(3).setMaxWidth(260);
+            jTable3.getColumnModel().getColumn(0).setMinWidth(100);
+            jTable3.getColumnModel().getColumn(0).setPreferredWidth(100);
+            jTable3.getColumnModel().getColumn(0).setMaxWidth(100);
+            jTable3.getColumnModel().getColumn(1).setMinWidth(400);
+            jTable3.getColumnModel().getColumn(1).setPreferredWidth(400);
+            jTable3.getColumnModel().getColumn(1).setMaxWidth(400);
+            jTable3.getColumnModel().getColumn(2).setMinWidth(170);
+            jTable3.getColumnModel().getColumn(2).setPreferredWidth(170);
+            jTable3.getColumnModel().getColumn(2).setMaxWidth(170);
+            jTable3.getColumnModel().getColumn(3).setMinWidth(170);
+            jTable3.getColumnModel().getColumn(3).setPreferredWidth(170);
+            jTable3.getColumnModel().getColumn(3).setMaxWidth(170);
             jTable3.getColumnModel().getColumn(4).setMinWidth(0);
             jTable3.getColumnModel().getColumn(4).setPreferredWidth(0);
             jTable3.getColumnModel().getColumn(4).setMaxWidth(0);
@@ -266,18 +275,26 @@ public class ListaVIP extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane3);
         jScrollPane3.setBounds(350, 130, 800, 520);
-        getContentPane().add(jTextField11);
-        jTextField11.setBounds(50, 80, 110, 20);
 
+        jTextField11.setBorder(null);
+        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField11ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField11);
+        jTextField11.setBounds(100, 90, 0, 10);
+
+        jButton5.setToolTipText("Sair Dessa Aba");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(1263, 3, 50, 50);
+        jButton5.setBounds(1273, 3, 40, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/---Vip.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Versão1.0.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.setToolTipText("");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -288,12 +305,12 @@ public class ListaVIP extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1320, 703);
 
-        setSize(new java.awt.Dimension(1314, 704));
+        setSize(new java.awt.Dimension(1311, 701));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-           String filePath = ("C:\\Arquivos do programa/Texto.txt");
+           String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/Texto.txt");
         File file = new File(filePath);
         try {
              
@@ -333,9 +350,10 @@ public class ListaVIP extends javax.swing.JFrame {
                          String linha10 = dataMax[posisao -4];
                          String linha11 = dataMax[posisao -3];
                          String linha12 = dataMax[posisao -2];
+                         String linha13 = dataMax[posisao -1];
                          
                          DefaultTableModel val = (DefaultTableModel) jTable3.getModel();
-                         val.addRow(new String[]{linha1, linha2, linha3, linha4, linha5, linha6, linha7, linha8, linha9, linha10, linha11, linha12, linha});
+                         val.addRow(new String[]{linha1, linha2, linha3, linha4, linha5, linha6, linha7, linha8, linha9, linha10, linha11, linha12, linha13, linha});
                          
                     }else{
                     System.out.println("Nao é vip");
@@ -406,7 +424,7 @@ public class ListaVIP extends javax.swing.JFrame {
         DefaultTableModel dmz = (DefaultTableModel)jTable2.getModel();
         dmz.removeRow(jTable2.getSelectedRow());
  
-         File file = new File("C:\\Arquivos do programa/vip.txt");
+         File file = new File("C:\\Arquivos de Programas/Gestão de Clientes/vip.txt");
        
         try {
         FileReader fr = new FileReader(file); 
@@ -527,11 +545,15 @@ public class ListaVIP extends javax.swing.JFrame {
       
       
       
-      Chamar_Fornecedor.txt_Nome.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),0).toString()); //Nome
-      Chamar_Fornecedor.txt_Endereco.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),4).toString()); //Endereço
+      Chamar_Fornecedor.txt_Nome.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),1).toString()); //Nome
+      Chamar_Fornecedor.txt_Endereco.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),5).toString()); //Endereço
       Chamar_Fornecedor.txt_Numero.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),6).toString()); //Numero
       Chamar_Fornecedor.txt_Bairro.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),5).toString()); //Bairro
       Chamar_Fornecedor.txt_data.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),2).toString()); //Data
+      Chamar_Fornecedor.txt_CodigoUSUARIO.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),0).toString()); //codigo
+      Chamar_Fornecedor.txt_CidadeUSUARIO.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),13).toString()); //cidade
+      
+      
      // Chamar_Fornecedor.txT_AniversarioUSUARIO.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),9).toString()); //Aniversario
       Chamar_Fornecedor.txt_email.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),8).toString()); //Email
       Chamar_Fornecedor.txt_whats.setText(jTable3.getModel().getValueAt(jTable3.getSelectedRow(),10).toString()); //WhatsApp
@@ -558,8 +580,8 @@ public class ListaVIP extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 dispose();
-PaginaUsuario tela = new PaginaUsuario();
-                       tela.setVisible(true);        // TODO add your handling code here:
+PaginaUsuario Tela = new PaginaUsuario();
+        Tela.setVisible(rootPaneCheckingEnabled);// TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -574,6 +596,10 @@ PaginaUsuario tela = new PaginaUsuario();
       tr.setRowFilter(RowFilter.regexFilter(jTextField1.getText().trim()));
         }
     }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField11ActionPerformed
 
     /**
      * @param args the command line arguments

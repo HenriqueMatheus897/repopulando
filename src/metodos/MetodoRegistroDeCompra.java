@@ -169,7 +169,7 @@ public class MetodoRegistroDeCompra {
    
     public String sauvado() throws IOException{
         try {
-          FileWriter fw = new FileWriter("C:\\Arquivos do programa/textando.txt", true);
+          FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt", true);
             PrintWriter pw = new PrintWriter(fw);
             
             pw.print(this.resutado+" ");//Valor

@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
  * @author henrique matheus
  */
 public class Clientes {
+    private String codigo;
     private String Nome;
     private String Cpf;
     private String Email;
@@ -35,6 +36,14 @@ public class Clientes {
     private String inportacao;
     private String pedidos;
     private String cidade;
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
 
     public String getCidade() {
         return cidade;
@@ -164,9 +173,10 @@ public class Clientes {
 
     public String sauvar(){
         try{
-            FileWriter fw = new FileWriter("C:\\Arquivos do programa/Texto.txt", true);
+            FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/Texto.txt", true);
             PrintWriter pw = new PrintWriter(fw);
-            pw.print(this.Nome);
+            pw.print(this.codigo);
+            pw.print("/"+this.Nome);
             pw.print("/"+this.Hora +"/0/0");
             pw.print("/"+this.Endereço);
             pw.print("/"+this.Cpf);
@@ -176,7 +186,8 @@ public class Clientes {
             pw.print("/"+this.Telefone);
             pw.print("/"+this.Celular);
             pw.print("/"+this.Obiservaçoes);
-            pw.println("/"+this.cidade+"/1");
+            pw.println("/"+this.cidade);
+            
            // pw.println("/"+this.foto);
             //pw.print("/"+this.inportacao);
             
@@ -190,7 +201,7 @@ public class Clientes {
         }
         
         try {   
-            FileWriter fw = new FileWriter("C:\\Arquivos do programa/Bloco.txt",true); //o true seve para as infomações não apague ao adicionar outras 
+            FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/Bloco.txt",true); //o true seve para as infomações não apague ao adicionar outras 
             PrintWriter pw = new PrintWriter(fw);
             pw.print(this.Nome +","); //Nome
             pw.print(this.Email+","); //email

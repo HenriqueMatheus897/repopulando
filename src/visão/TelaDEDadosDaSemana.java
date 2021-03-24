@@ -200,7 +200,7 @@ private void calcular()
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
  try {
-             String filePath = ("C:\\Arquivos do programa/textando.txt");
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt");
         File file = new File(filePath);
             
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -264,7 +264,7 @@ private void calcular()
                                                  
                                                  
                                                  try {
-             String ffilePath = ("C:\\Arquivos do programa/analise.txt");
+             String ffilePath = ("C:\\Arquivos de Programas/Gestão de Clientes/analise.txt");
         File ffile = new File(ffilePath);
             
             BufferedReader fbr = new BufferedReader(new FileReader(ffile));
@@ -312,7 +312,7 @@ private void calcular()
   // TODO add your handling code here:
         
 	try {
-             String filePath = ("C:\\Arquivos do programa/Texto.txt");
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/Texto.txt");
         File file = new File(filePath);
             
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -388,7 +388,7 @@ private void calcular()
         dmz.removeRow(jTable1.getSelectedRow());
  
         
-         File file = new File("C:\\Arquivos do programa/faturamentoDia.txt");
+         File file = new File("C:\\Arquivos de Programas/Gestão de Clientes/faturamentoDia.txt");
        
         try {
         FileReader fr = new FileReader(file); 

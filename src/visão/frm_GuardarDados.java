@@ -48,6 +48,10 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableModel;
 import metodos.MetodoDeCategorias;
+import visão.PaginaUsuario;
+import visão.PerfilDoCliente;
+import visão.RegistroDeCompra;
+import visão.telaDEDadosDoMes;
 
 public class frm_GuardarDados extends javax.swing.JFrame {
     telaDEDadosDoMes TelaDEDadosDoMes;
@@ -70,7 +74,7 @@ public class frm_GuardarDados extends javax.swing.JFrame {
     
     public frm_GuardarDados() {
         initComponents();
-        this.TelaDEDadosDoMes = new telaDEDadosDoMes(jDesktopPane1);
+       // this.TelaDEDadosDoMes = new telaDEDadosDoMes(jDesktopPane1);
         
         
         btn_MostarLista.setBackground(new java.awt.Color(0,0,0,0));
@@ -86,11 +90,12 @@ public class frm_GuardarDados extends javax.swing.JFrame {
         jTextField4.setBackground(new java.awt.Color(0,0,0,0));
         jButton2.setBackground(new java.awt.Color(0,0,0,0));
         jButton3.setBackground(new java.awt.Color(0,0,0,0));
-        jDesktopPane1.setBackground(new java.awt.Color(0,0,0,0));
+        //jDesktopPane1.setBackground(new java.awt.Color(0,0,0,0));
        // jScrollPane2.setBackground(new java.awt.Color(0,0,0,0));
-        //jTable2.setBackground(new java.awt.Color(0,0,0,0));
+        //jTable2.setBackground(new java.awt.Color(0,0,0,0
+        jButton5.setBackground(new java.awt.Color(0,0,0,0));
         
-      //  jButton3.setBackground(new java.awt.Color(0,0,0,0));
+        jButton3.setBackground(new java.awt.Color(0,0,0,0));
         
         
        
@@ -153,9 +158,14 @@ public class frm_GuardarDados extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
-        jLabel12 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
 
         jLabel3.setText("jLabel3");
 
@@ -195,6 +205,7 @@ public class frm_GuardarDados extends javax.swing.JFrame {
 
         jLabel10.setText("jLabel10");
 
+        setUndecorated(true);
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -250,7 +261,7 @@ public class frm_GuardarDados extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_MostarLista);
-        btn_MostarLista.setBounds(250, 200, 70, 60);
+        btn_MostarLista.setBounds(250, 330, 1, 30);
 
         jTextField1.setBorder(null);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -278,7 +289,7 @@ public class frm_GuardarDados extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(240, 290, 80, 60);
+        jButton2.setBounds(240, 430, 0, 10);
 
         jTextField2.setBorder(null);
         getContentPane().add(jTextField2);
@@ -309,18 +320,55 @@ public class frm_GuardarDados extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3);
         jButton3.setBounds(460, 130, 570, 40);
-        getContentPane().add(jDesktopPane1);
-        jDesktopPane1.setBounds(459, 169, 570, 460);
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/AMeus Produtos.png"))); // NOI18N
-        getContentPane().add(jLabel12);
-        jLabel12.setBounds(0, 0, 1310, 700);
+        jTextField6.setBorder(null);
+        getContentPane().add(jTextField6);
+        jTextField6.setBounds(130, 240, 0, 14);
 
-        jButton4.setText("jButton4");
+        jTextField7.setBorder(null);
+        getContentPane().add(jTextField7);
+        jTextField7.setBounds(130, 270, 0, 14);
+
+        jTextField8.setBorder(null);
+        getContentPane().add(jTextField8);
+        jTextField8.setBounds(130, 310, 0, 14);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTable2);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(460, 180, 0, 0);
+
+        jButton4.setBorder(null);
         getContentPane().add(jButton4);
-        jButton4.setBounds(250, 320, 73, 23);
+        jButton4.setBounds(250, 320, 1, 1);
 
-        setSize(new java.awt.Dimension(1316, 739));
+        jButton5.setToolTipText("Sair Dessa Aba");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5);
+        jButton5.setBounds(1273, 0, 40, 40);
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/produtossssssss.png"))); // NOI18N
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(0, 0, 1313, 700);
+
+        setSize(new java.awt.Dimension(1313, 700));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -352,7 +400,7 @@ public class frm_GuardarDados extends javax.swing.JFrame {
         
          try {
 			//abre o arquivo
-			FileReader fr = new FileReader("C:\\Arquivos do programa/clase.txt");
+			FileReader fr = new FileReader("C:\\Arquivos de Programas/Gestão de Clientes/clase.txt");
 			BufferedReader br = new BufferedReader(fr);
 			String temp;
 			//A cada interação, é uma linha do arquivo e atribui-a a temp
@@ -533,7 +581,7 @@ public class frm_GuardarDados extends javax.swing.JFrame {
 		e.printStackTrace();
 	}
         try {
-          FileWriter fw = new FileWriter("C:\\Arquivos do programa/"+entrada+";.txt", true);
+          FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/"+entrada+";.txt", true);
             PrintWriter pw = new PrintWriter(fw);
             pw.println("Lanche,obersarvação,valor");
 
@@ -547,7 +595,7 @@ public class frm_GuardarDados extends javax.swing.JFrame {
         }
         //Recarrega um Cobo box ao ser criado nova clase
          // jTable1.setModel(metodos.listaAlunos() );
-        File arquivo = new File("C:\\Arquivos do programa/clase.txt");
+        File arquivo = new File("C:\\Arquivos de Programas/Gestão de Clientes/clase.txt");
         
         try {
             FileReader fr = new FileReader(arquivo);
@@ -570,7 +618,7 @@ public class frm_GuardarDados extends javax.swing.JFrame {
     }else{
      try {
 			//abre o arquivo
-			FileReader fr = new FileReader("C:\\Arquivos do programa/clase.txt");
+			FileReader fr = new FileReader("C:\\Arquivos de Programas/Gestão de Clientes/clase.txt");
 			BufferedReader br = new BufferedReader(fr);
 			String temp;
 			//A cada interação, é uma linha do arquivo e atribui-a a temp
@@ -638,7 +686,10 @@ public class frm_GuardarDados extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
+//jTable1.setSize(1, 1);
+       // jTable1.setVisible(false);
+       // jScrollPane1.setSize(1, 1);
+       // jTable1.setVisible(false);
     	
     	
 
@@ -676,7 +727,7 @@ public class frm_GuardarDados extends javax.swing.JFrame {
      
         
        // jTable1.setModel(metodos.listaAlunos() );
-        File arquivo = new File("C:\\Arquivos do programa/clase.txt");
+        File arquivo = new File("C:\\Arquivos de Programas/Gestão de Clientes/clase.txt");
         
         try {
             FileReader fr = new FileReader(arquivo);
@@ -684,8 +735,8 @@ public class frm_GuardarDados extends javax.swing.JFrame {
             
             String linha = br.readLine();
             
-           cbo_Tipo.addItem("Selecione sua Cateogoria");
-           cbo_Tipo.addItem("+Adicionar Categoia");
+           cbo_Tipo.addItem("Selecione uma Categoria");
+           cbo_Tipo.addItem("                                                                    +Adicionar Categoia");
             while (linha != null) {
                cbo_Tipo.addItem(linha);
                 
@@ -749,6 +800,55 @@ public class frm_GuardarDados extends javax.swing.JFrame {
     private void cbo_TipoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbo_TipoMouseClicked
 
         
+        jTable2.setSize(570, 460);
+jScrollPane2.setSize(570, 460);
+        
+        
+   String categoria = jTextField5.getText();
+   while (jTable2.getModel().getRowCount() > 0) {
+((DefaultTableModel) jTable2.getModel()).removeRow(0);
+}
+   
+        try{
+
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/"+categoria+";.txt");
+        File file = new File(filePath);
+            
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String firstLine = br.readLine().trim();
+            String[] columnsName = firstLine.split(",");
+            DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+            
+            
+            model.setColumnIdentifiers(columnsName);
+            
+              
+            Object[] tableLines = br.lines().toArray();
+            //model.addRow(tableLines);
+            
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataRow = line.split(";");
+            //    integer[] valoresint = new integer(dataRow.length);
+                model.addRow(dataRow);
+             }
+            
+        }catch (Exception ex) {
+            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+      //  TabelaInterna tela = new TabelaInterna();
+    //    jDesktopPane1.add(tela);
+        
+        
+        
+        jButton3.setText("Adicionar Produto");
+        jButton3.setBackground(new java.awt.Color(240,240,240));
+   
+    
+    
+        
       
         
         
@@ -758,7 +858,68 @@ public class frm_GuardarDados extends javax.swing.JFrame {
         String box1 = cbo_Tipo.getSelectedItem().toString();
         jLabel9.setText(box1);
         
- 
+  if (evt.getButton() == MouseEvent.BUTTON3) {
+                        int dialogButton = JOptionPane.YES_NO_OPTION;
+            JOptionPane.showConfirmDialog (null, "voce tem certeza qu que apagar?","WARNING", dialogButton);
+            if(dialogButton == JOptionPane.YES_OPTION) {
+                File file = new File("C:\\Arquivos de Programas/Gestão de Clientes/clase.txt");
+       
+        try {
+        FileReader fr = new FileReader(file); 
+        BufferedReader br = new BufferedReader(fr);
+       
+        
+        String linha = br.readLine();
+        ArrayList<String> salvar = new ArrayList();
+        while(linha != null){
+            
+           
+
+            
+            String lanche = jTextField5.getText();
+            
+            
+            if(linha.equals(lanche+";") == false){
+                salvar.add(linha);
+            
+            }
+            linha = br.readLine();
+        }
+
+        br.close();
+        fr.close();
+        FileWriter fw2 = new FileWriter(file, true);
+        fw2.close();
+        
+        FileWriter fw = new FileWriter(file);
+        BufferedWriter bw = new BufferedWriter(fw);
+        
+            for (int i = 0; i < salvar.size(); i++) {
+            bw.write( salvar.get(i) );
+            bw.newLine();
+            
+            }
+            bw.close();
+            fw.close();
+        } catch (IOException e) {
+        }
+        
+        String lanche = jTextField5.getText();
+        
+        
+
+
+        
+        ((DefaultComboBoxModel) cbo_Tipo.getModel()).removeElementAt(cbo_Tipo.getSelectedIndex());
+        
+            if(dialogButton == JOptionPane.NO_OPTION) {
+                  
+                }
+              }     
+      
+      
+      
+                    }
       
       
       
@@ -851,24 +1012,29 @@ public class frm_GuardarDados extends javax.swing.JFrame {
         
           String boxy = cbo_Tipo.getSelectedItem().toString();
     
-    String procurarPorr ="Selecione sua Cateogoria";
+    String procurarPorr ="Selecione uma Categoria";
     
     if(boxy.toLowerCase().contains(procurarPorr.toLowerCase()) == true){}
     else{
-      JTable jTable = new JTable();
+        
+      
+      
         
    String categoria = jTextField5.getText();
+   while (jTable2.getModel().getRowCount() > 0) {
+((DefaultTableModel) jTable2.getModel()).removeRow(0);
+}
         try{
-             String filePath = ("C:\\Arquivos do programa/"+categoria+";.txt");
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/"+categoria+";.txt");
         File file = new File(filePath);
             
             BufferedReader br = new BufferedReader(new FileReader(file));
             String firstLine = br.readLine().trim();
             String[] columnsName = firstLine.split(",");
-            DefaultTableModel model = (DefaultTableModel)jTable.getModel();
+         //   DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
             
             
-            model.setColumnIdentifiers(columnsName);
+          //  model.setColumnIdentifiers(columnsName);
             
               
             Object[] tableLines = br.lines().toArray();
@@ -879,7 +1045,7 @@ public class frm_GuardarDados extends javax.swing.JFrame {
                 String line = tableLines[i].toString().trim();
                 String[] dataRow = line.split(";");
             //    integer[] valoresint = new integer(dataRow.length);
-                model.addRow(dataRow);
+             //   model.addRow(dataRow);
              }
             
         }catch (Exception ex) {
@@ -891,20 +1057,12 @@ public class frm_GuardarDados extends javax.swing.JFrame {
         
         
         
-        
-   JInternalFrame tela = new JInternalFrame();
- //TabelaInterna tela = new TabelaInterna();
- tela.setSize(570,460);
-       // tela.setUndecorated(true);
-        tela.add(new JScrollPane(jTable));
-     //   jFrame.setVisible(true);
-     //   jFrame.setVisible(true);
-       // jFrame.setLocationRelativeTo(null);
-jDesktopPane1.add(tela);
-tela.show();
-
+        jButton3.setText("Adicionar Produto");
+        jButton3.setBackground(new java.awt.Color(240,240,240));
+   
+    
     }
-         
+       
          
       
         
@@ -912,12 +1070,12 @@ tela.show();
         
         String box = cbo_Tipo.getSelectedItem().toString();
     
-    String procurarPor ="+Adicionar Categoia";
+    String procurarPor ="                                                                    +Adicionar Categoia";
     
     if(box.toLowerCase().contains(procurarPor.toLowerCase()) == true){
         
         
-   String entrada  = JOptionPane.showInputDialog("Digite seu nome", "Digite aqui");
+   String entrada  = JOptionPane.showInputDialog("Digite o nome da nova Categoria", "Digite aqui");
    
    MetodoDeCategorias metodoDeCategorias = new MetodoDeCategorias();
         
@@ -947,7 +1105,7 @@ tela.show();
 		e.printStackTrace();
 	}
         try {
-          FileWriter fw = new FileWriter("C:\\Arquivos do programa/"+entrada+";.txt", true);
+          FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/"+entrada+";.txt", true);
             PrintWriter pw = new PrintWriter(fw);
             pw.println("Lanche,obersarvação,valor");
 
@@ -961,7 +1119,9 @@ tela.show();
         }
         //Recarrega um Cobo box ao ser criado nova clase
          // jTable1.setModel(metodos.listaAlunos() );
-        File arquivo = new File("C:\\Arquivos do programa/clase.txt");
+         cbo_Tipo.removeAll();
+         cbo_Tipo.setSelectedItem(null); 
+        File arquivo = new File("C:\\Arquivos de Programas/Gestão de Clientes/clase.txt");
         
         try {
             FileReader fr = new FileReader(arquivo);
@@ -985,7 +1145,7 @@ tela.show();
       //jButton3.setBackground(new java.awt.Color(0,0,0));
      try {
 			//abre o arquivo
-			FileReader fr = new FileReader("C:\\Arquivos do programa/clase.txt");
+			FileReader fr = new FileReader("C:\\Arquivos de Programas/Gestão de Clientes/clase.txt");
 			BufferedReader br = new BufferedReader(fr);
 			String temp;
 			//A cada interação, é uma linha do arquivo e atribui-a a temp
@@ -1026,22 +1186,22 @@ tela.show();
                                                           //prencher tabela 
                                                           // PrencherTabela();
                                                            //CriarTabela();
-                                                           JTable jTable = new JTable();
+                                                           
         
-                                                           jButton3.setBackground(new java.awt.Color(240,240,240));
-                                                           jButton3.setText("Adicionar Produto");
+                                                          // jButton3.setBackground(new java.awt.Color(240,240,240));
+                                                          // jButton3.setText("Adicionar Produto");
    String categoria = jTextField5.getText();
         try{
-             String filePath = ("C:\\Arquivos do programa/"+categoria+";.txt");
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/"+categoria+";.txt");
         File file = new File(filePath);
             
             BufferedReader brr = new BufferedReader(new FileReader(file));
             String firstLine = brr.readLine().trim();
             String[] columnsName = firstLine.split(",");
-            DefaultTableModel model = (DefaultTableModel)jTable.getModel();
+            //DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
             
             
-            model.setColumnIdentifiers(columnsName);
+          //  model.setColumnIdentifiers(columnsName);
             
               
             Object[] tableLines = brr.lines().toArray();
@@ -1052,7 +1212,7 @@ tela.show();
                 String line = tableLines[ri].toString().trim();
                 String[] dataRow = line.split(";");
             //    integer[] valoresint = new integer(dataRow.length);
-                model.addRow(dataRow);
+            ///    model.addRow(dataRow);
              }
             
         }catch (Exception ex) {
@@ -1064,8 +1224,8 @@ tela.show();
         
         
         
-        
-   JInternalFrame tela = new JInternalFrame();
+  //------------------------------------------------------verificar-------------------------------      
+ /*  JInternalFrame tela = new JInternalFrame();
  //TabelaInterna tela = new TabelaInterna();
  tela.setSize(570,460);
        // tela.setUndecorated(true);
@@ -1075,7 +1235,7 @@ tela.show();
        // jFrame.setLocationRelativeTo(null);
 jDesktopPane1.add(tela);
 tela.show();
-                                                           
+               */                                           
                                                            
                                                            
                                                        }
@@ -1100,8 +1260,8 @@ tela.show();
     }//GEN-LAST:event_cbo_TipoActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-   String lanche  = JOptionPane.showInputDialog("nome do lanche", "Digite aqui");
-   String obiservasoes  = JOptionPane.showInputDialog("Obiservações sobre o lanche", "Digite aqui");
+   String lanche  = JOptionPane.showInputDialog("Nome do lanche", "Digite aqui");
+   String obiservasoes  = JOptionPane.showInputDialog("Tamanho do lanche", "Digite aqui");
    String valor  = JOptionPane.showInputDialog("Digite o valor", "Digite aqui");
    
    String clase =jTextField5.getText();
@@ -1109,7 +1269,7 @@ tela.show();
   
    
    try {
-          FileWriter fw = new FileWriter("C:\\Arquivos do programa/"+clase+";.txt", true);
+          FileWriter fw = new FileWriter("C:\\Arquivos de Programas/Gestão de Clientes/"+clase+";.txt", true);
             PrintWriter pw = new PrintWriter(fw);
             
             pw.print(lanche+";");
@@ -1130,7 +1290,7 @@ tela.show();
         
          try {
 			//abre o arquivo
-			FileReader fr = new FileReader("C:\\Arquivos do programa/clase.txt");
+			FileReader fr = new FileReader("C:\\Arquivos de Programas/Gestão de Clientes/clase.txt");
 			BufferedReader br = new BufferedReader(fr);
 			String temp;
 			//A cada interação, é uma linha do arquivo e atribui-a a temp
@@ -1188,17 +1348,20 @@ tela.show();
 		{
 			e.printStackTrace();
 		}  
-    JTable jTable = new JTable();
-        
+    
+       
    String categoria = jTextField5.getText();
+   while (jTable2.getModel().getRowCount() > 0) {
+((DefaultTableModel) jTable2.getModel()).removeRow(0);
+}
         try{
-             String filePath = ("C:\\Arquivos do programa/"+categoria+";.txt");
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/"+categoria+";.txt");
         File file = new File(filePath);
             
             BufferedReader br = new BufferedReader(new FileReader(file));
             String firstLine = br.readLine().trim();
             String[] columnsName = firstLine.split(",");
-            DefaultTableModel model = (DefaultTableModel)jTable.getModel();
+            DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
             
             
             model.setColumnIdentifiers(columnsName);
@@ -1223,27 +1386,18 @@ tela.show();
     //    jDesktopPane1.add(tela);
         
         
-        JFrame jFrame = new JFrame();
+      //  JFrame jFrame = new JFrame();
         
         
        // if (!jFrame.isVisible()) { jFrame.setVisible(true); }
-        jFrame.setSize(570,460);
-        jFrame.setUndecorated(true);
-        jFrame.add(new JScrollPane(jTable));
-        jFrame.setVisible(true);
-        jFrame.setVisible(true);
-        jFrame.setLocationRelativeTo(null);
+       // jFrame.setSize(570,460);
+     //   jFrame.setUndecorated(true);
+     //   jFrame.add(new JScrollPane(jTable));
+     //   jFrame.setVisible(true);
+     //   jFrame.setVisible(true);
+     //   jFrame.setLocationRelativeTo(null);
         
-   JInternalFrame tela = new JInternalFrame();
- //TabelaInterna tela = new TabelaInterna();
- tela.setSize(570,460);
-       // tela.setUndecorated(true);
-        tela.add(new JScrollPane(jTable));
-     //   jFrame.setVisible(true);
-     //   jFrame.setVisible(true);
-       // jFrame.setLocationRelativeTo(null);
-jDesktopPane1.add(tela);
-tela.show();
+  
 
             
        /* mdlTabla = new DefaultTableModel();
@@ -1283,6 +1437,80 @@ tela.show();
         
     
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        jTextField6.setText(jTable2.getModel().getValueAt(jTable2.getSelectedRow(),0).toString()); // Nome
+        jTextField7.setText(jTable2.getModel().getValueAt(jTable2.getSelectedRow(),1).toString()); // Nome
+        jTextField8.setText(jTable2.getModel().getValueAt(jTable2.getSelectedRow(),2).toString()); // Nome
+        
+        if (evt.getButton() == MouseEvent.BUTTON3) {
+           if(jTable2.getSelectedRow() != -1){
+        
+        System.out.print("Linha selecionada: "+jTable2.getSelectedColumn());
+            
+        DefaultTableModel dmz = (DefaultTableModel)jTable2.getModel();
+        dmz.removeRow(jTable2.getSelectedRow());
+ String clase = jTextField5.getText();
+        File file = new File("C:\\Arquivos de Programas/Gestão de Clientes/"+clase+";.txt");
+       
+        try {
+        FileReader fr = new FileReader(file); 
+        BufferedReader br = new BufferedReader(fr);
+       
+        
+        String linha = br.readLine();
+        ArrayList<String> salvar = new ArrayList();
+        while(linha != null){
+            
+
+                    
+            String nome = jTextField6.getText();//1
+            String data = jTextField7.getText();//2
+            String valor =jTextField8.getText();//6
+            
+           
+            
+            
+ 
+            if(linha.equals(nome+";"+data+";"+valor) == false){
+                salvar.add(linha);
+                JOptionPane.showInputDialog(null, nome+";"+data+";"+valor);
+            }
+            linha = br.readLine();
+        }
+
+        br.close();
+        fr.close();
+        FileWriter fw2 = new FileWriter(file, true);
+        fw2.close();
+        
+        FileWriter fw = new FileWriter(file);
+        BufferedWriter bw = new BufferedWriter(fw);
+        
+            for (int i = 0; i < salvar.size(); i++) {
+            bw.write( salvar.get(i) );
+            bw.newLine();
+            
+            }
+            bw.close();
+            fw.close();
+        } catch (IOException e) {
+        }
+        
+        
+         }else{
+            JOptionPane.showMessageDialog(null, "Favor selecionar uma linha");
+        } 
+        
+        }
+        
+        
+        
+    }//GEN-LAST:event_jTable2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1329,7 +1557,7 @@ tela.show();
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1342,11 +1570,16 @@ tela.show();
     private javax.swing.JLabel jLabel7;
     public javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField txt_Descriçao;
     // End of variables declaration//GEN-END:variables
 

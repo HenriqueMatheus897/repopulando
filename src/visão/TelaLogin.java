@@ -5,6 +5,7 @@
  */
 package visão;
 
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -30,6 +31,8 @@ public class TelaLogin extends javax.swing.JFrame {
         
         jButtonAcessar.setBackground(new java.awt.Color(0,0,0,0));
         jButton2.setBackground(new java.awt.Color(0,0,0,0));
+        jButton3.setBackground(new java.awt.Color(0,0,0,0));
+       
     }
     
 
@@ -53,10 +56,8 @@ public class TelaLogin extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabelUsuario = new javax.swing.JLabel();
-        jLabelSenha = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -88,8 +89,13 @@ public class TelaLogin extends javax.swing.JFrame {
                 jButtonAcessarActionPerformed(evt);
             }
         });
+        jButtonAcessar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButtonAcessarKeyPressed(evt);
+            }
+        });
         getContentPane().add(jButtonAcessar);
-        jButtonAcessar.setBounds(340, 380, 120, 27);
+        jButtonAcessar.setBounds(340, 360, 120, 27);
 
         jTextFieldUsuario.setBackground(new java.awt.Color(84, 93, 106));
         jTextFieldUsuario.setForeground(java.awt.Color.white);
@@ -99,8 +105,13 @@ public class TelaLogin extends javax.swing.JFrame {
                 jTextFieldUsuarioActionPerformed(evt);
             }
         });
+        jTextFieldUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldUsuarioKeyPressed(evt);
+            }
+        });
         getContentPane().add(jTextFieldUsuario);
-        jTextFieldUsuario.setBounds(290, 260, 240, 20);
+        jTextFieldUsuario.setBounds(260, 210, 290, 30);
 
         jPasswordFieldSenha.setBackground(new java.awt.Color(84, 93, 106));
         jPasswordFieldSenha.setForeground(java.awt.Color.white);
@@ -110,8 +121,13 @@ public class TelaLogin extends javax.swing.JFrame {
                 jPasswordFieldSenhaActionPerformed(evt);
             }
         });
+        jPasswordFieldSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordFieldSenhaKeyPressed(evt);
+            }
+        });
         getContentPane().add(jPasswordFieldSenha);
-        jPasswordFieldSenha.setBounds(280, 320, 240, 20);
+        jPasswordFieldSenha.setBounds(260, 290, 290, 30);
 
         jTextField1.setAutoscrolls(false);
         jTextField1.setBorder(null);
@@ -122,14 +138,10 @@ public class TelaLogin extends javax.swing.JFrame {
         jTextField2.setBorder(null);
         getContentPane().add(jTextField2);
         jTextField2.setBounds(630, 190, 0, 14);
-
-        jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(120, 110, 90, 14);
-
-        jLabel3.setText("jLabel3");
+        jLabel2.setBounds(120, 110, 0, 0);
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(120, 140, 60, 14);
+        jLabel3.setBounds(120, 140, 0, 0);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -151,25 +163,21 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(320, 430, 180, 7);
+        jButton2.setBounds(320, 430, 170, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Aqui login.png"))); // NOI18N
+        jButton3.setToolTipText("Sair Do Programa");
+        jButton3.setBorder(null);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(740, 0, 50, 40);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/LOGION AQUIUIOIII.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(-250, -20, 1060, 600);
-
-        jButton1.setText("Sair");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(310, 310, 80, 30);
-
-        jLabelUsuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelUsuario.setText("Usuario:");
-        getContentPane().add(jLabelUsuario);
-        jLabelUsuario.setBounds(90, 210, 70, 22);
-
-        jLabelSenha.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelSenha.setText("Senha:");
-        getContentPane().add(jLabelSenha);
-        jLabelSenha.setBounds(90, 250, 60, 22);
 
         setSize(new java.awt.Dimension(791, 560));
         setLocationRelativeTo(null);
@@ -199,9 +207,11 @@ public class TelaLogin extends javax.swing.JFrame {
                              dispose();
                          
                         
-                         }
                          }else{
-                        JOptionPane.showMessageDialog(null,"senha e usuario incorreto");
+                        JOptionPane.showMessageDialog(null,"Senha ou Usuário Inválidos");
+                    }
+                         }else{
+                        JOptionPane.showMessageDialog(null,"Senha ou Usuário Inválidos");
                     }
     
     
@@ -230,7 +240,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
  
-  String filePath = ("C:\\Arquivos do programa/DadosLoguin.txt");
+  String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/DadosLoguin.txt");
         File file = new File(filePath);
         //tabela 1
         try {
@@ -261,9 +271,9 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-  String palavra  = JOptionPane.showInputDialog("digite  a palavra passe", "Digite aqui");
+  String palavra  = JOptionPane.showInputDialog("Digite a Palavra Chave:", "Digite aqui");
   
-  String filePath = ("C:\\Arquivos do programa/DadosLoguin.txt");
+  String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/DadosLoguin.txt");
         File file = new File(filePath);
   try {
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -292,7 +302,7 @@ public class TelaLogin extends javax.swing.JFrame {
                          tela.setVisible(true);
                          
                          }else{
-                        JOptionPane.showMessageDialog(null,"palavra passe incorreta");
+                        JOptionPane.showMessageDialog(null,"Palavra Chave incorreta");
                     }
     
                 
@@ -303,6 +313,65 @@ public class TelaLogin extends javax.swing.JFrame {
         }
   
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jPasswordFieldSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaKeyPressed
+if(evt.getKeyCode() == KeyEvent.VK_ENTER)  {  
+ String User = jLabel2.getText();
+        String senha = jLabel3.getText();
+     //digitados
+    String text1 =  jTextFieldUsuario.getText();
+    String text2 = jPasswordFieldSenha.getText();
+    
+    
+    //Date dataSistema = new Date();
+       /// SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+        
+       
+                    //metodo para aparecer so o valor
+                    if(text1.toLowerCase().contains(User.toLowerCase()) == true){
+                        
+                         
+                         if(text2.toLowerCase().contains(senha.toLowerCase()) == true){
+                             
+                         TelaPrincipal tela = new TelaPrincipal();
+                         tela.setVisible(true);
+                             dispose();
+                         
+                        
+                         }else{
+                        JOptionPane.showMessageDialog(null,"senha e usuario incorreto");
+                    }
+                         }else{
+                        JOptionPane.showMessageDialog(null,"senha e usuario incorreto");
+                    }
+    
+    
+    
+    
+    
+    
+    if(text2.equals(User)){
+    System.out.println("é igual");
+    }else{
+    System.out.println("não é igual");
+    }}
+    // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordFieldSenhaKeyPressed
+
+    private void jButtonAcessarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonAcessarKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButtonAcessarKeyPressed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextFieldUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioKeyPressed
+         if(evt.getKeyCode() == KeyEvent.VK_ENTER)  {
+        jPasswordFieldSenha.requestFocus();
+        }
+    }//GEN-LAST:event_jTextFieldUsuarioKeyPressed
 
     /**
      * @param args the command line arguments
@@ -340,14 +409,12 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonAcessar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabelSenha;
-    private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPasswordField jPasswordFieldSenha;
     private javax.swing.JScrollPane jScrollPane1;

@@ -54,10 +54,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jToggleButton1.setBackground(new java.awt.Color(0,0,0,0));
        jButton5.setBackground(new java.awt.Color(0,0,0,0));
        jButton8.setBackground(new java.awt.Color(0,0,0,0));
-       jButton1.setBackground(new java.awt.Color(0,0,0,0));
+      // jButton1.setBackground(new java.awt.Color(0,0,0,0));
        //jButton6.setBackground(new java.awt.Color(0,0,0,0));
 
     }
+    private void faturamentoDia()
+    {
+     // fuçao para caucular o subtotal 
+        float suma = 0;
+        for( int i = 0; i < jTable1.getRowCount(); i++)
+        {
+            float renglon;
+            renglon = Float.parseFloat(jTable1.getValueAt(i, 0).toString());
+            
+            suma = suma + renglon;
+            
+        }
+
+         txT_Faturamento.setText(String.valueOf("R$"+suma));
+    }
+    
     
     private void calcular()
     {
@@ -73,7 +89,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             
         }
 
-         txT_Faturamento.setText(String.valueOf("R$"+suma));
+         //txT_Faturamento.setText(String.valueOf("R$"+suma));
         // jTextField2.setText(String.valueOf(suma));
   
     }
@@ -103,6 +119,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private frm_GuardarDados Chamar_Fornecedor4 = new frm_GuardarDados();
     private ListaVIP Chamar_Fornecedor5 = new ListaVIP();
     private PerfilDoCliente Chamar_Fornecedor6 = new PerfilDoCliente();
+    private TelaRelatorioDePedidos Chamar_Fornecedor7 = new TelaRelatorioDePedidos();
     //private jFrame1 Chamar_Fornecedor6 = new jFrame1();
     
 
@@ -152,7 +169,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jToggleButton1 = new javax.swing.JToggleButton();
-        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable5 = new javax.swing.JTable();
@@ -166,6 +182,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTable6 = new javax.swing.JTable();
         jTextField3 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -280,22 +298,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
+        jButton8.setToolTipText("Relatórios");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton8);
-        jButton8.setBounds(130, 380, 80, 80);
+        jButton8.setBounds(110, 380, 90, 80);
 
         jtTabelaP.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nome", "2", "3", "4", "5", "6", "7"
+                "Codigo", "Nome", "3", "4", "5", "6", "7", "Título 8", "Título 9", "Título 10", "Título 11", "Título 12", "Título 13", "codigo"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, true, true, true, true, true, true, true, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jtTabelaP.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtTabelaPMouseClicked(evt);
@@ -303,9 +330,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jtTabelaP);
         if (jtTabelaP.getColumnModel().getColumnCount() > 0) {
-            jtTabelaP.getColumnModel().getColumn(1).setMinWidth(0);
-            jtTabelaP.getColumnModel().getColumn(1).setPreferredWidth(0);
-            jtTabelaP.getColumnModel().getColumn(1).setMaxWidth(0);
+            jtTabelaP.getColumnModel().getColumn(0).setMinWidth(100);
+            jtTabelaP.getColumnModel().getColumn(0).setPreferredWidth(100);
+            jtTabelaP.getColumnModel().getColumn(0).setMaxWidth(100);
             jtTabelaP.getColumnModel().getColumn(2).setMinWidth(0);
             jtTabelaP.getColumnModel().getColumn(2).setPreferredWidth(0);
             jtTabelaP.getColumnModel().getColumn(2).setMaxWidth(0);
@@ -321,10 +348,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
             jtTabelaP.getColumnModel().getColumn(6).setMinWidth(0);
             jtTabelaP.getColumnModel().getColumn(6).setPreferredWidth(0);
             jtTabelaP.getColumnModel().getColumn(6).setMaxWidth(0);
+            jtTabelaP.getColumnModel().getColumn(7).setMinWidth(0);
+            jtTabelaP.getColumnModel().getColumn(7).setPreferredWidth(0);
+            jtTabelaP.getColumnModel().getColumn(7).setMaxWidth(0);
+            jtTabelaP.getColumnModel().getColumn(8).setMinWidth(0);
+            jtTabelaP.getColumnModel().getColumn(8).setPreferredWidth(0);
+            jtTabelaP.getColumnModel().getColumn(8).setMaxWidth(0);
+            jtTabelaP.getColumnModel().getColumn(9).setMinWidth(0);
+            jtTabelaP.getColumnModel().getColumn(9).setPreferredWidth(0);
+            jtTabelaP.getColumnModel().getColumn(9).setMaxWidth(0);
+            jtTabelaP.getColumnModel().getColumn(10).setMinWidth(0);
+            jtTabelaP.getColumnModel().getColumn(10).setPreferredWidth(0);
+            jtTabelaP.getColumnModel().getColumn(10).setMaxWidth(0);
+            jtTabelaP.getColumnModel().getColumn(11).setMinWidth(0);
+            jtTabelaP.getColumnModel().getColumn(11).setPreferredWidth(0);
+            jtTabelaP.getColumnModel().getColumn(11).setMaxWidth(0);
+            jtTabelaP.getColumnModel().getColumn(12).setMinWidth(0);
+            jtTabelaP.getColumnModel().getColumn(12).setPreferredWidth(0);
+            jtTabelaP.getColumnModel().getColumn(12).setMaxWidth(0);
+            jtTabelaP.getColumnModel().getColumn(13).setMinWidth(0);
+            jtTabelaP.getColumnModel().getColumn(13).setPreferredWidth(0);
+            jtTabelaP.getColumnModel().getColumn(13).setMaxWidth(0);
         }
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(470, 350, 570, 280);
+        jScrollPane1.setBounds(460, 350, 570, 280);
 
         txT_Total.setText("0");
         getContentPane().add(txT_Total);
@@ -335,13 +383,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         txT_Faturamento.setBounds(790, 120, 90, 14);
 
         jButton5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton5.setToolTipText("");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(960, 260, 70, 70);
+        jButton5.setBounds(960, 270, 60, 60);
 
         jTextpro.setBackground(new java.awt.Color(83, 93, 106));
         jTextpro.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -358,16 +407,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextpro);
-        jTextpro.setBounds(480, 280, 460, 40);
+        jTextpro.setBounds(480, 280, 450, 30);
 
+        jButtonNegocio.setToolTipText("Configurações");
         jButtonNegocio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonNegocioActionPerformed(evt);
             }
         });
         getContentPane().add(jButtonNegocio);
-        jButtonNegocio.setBounds(1240, 600, 80, 70);
+        jButtonNegocio.setBounds(1230, 600, 90, 70);
 
+        jButton4.setToolTipText("Lista De Clientes");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton4MouseClicked(evt);
@@ -379,32 +430,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(130, 280, 80, 80);
+        jButton4.setBounds(120, 280, 80, 80);
 
         jButton3.setForeground(new java.awt.Color(153, 255, 255));
+        jButton3.setToolTipText("Adicionar Novo Cliente");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(130, 170, 80, 80);
+        jButton3.setBounds(120, 180, 80, 80);
 
+        jToggleButton1.setToolTipText("Meus Produtos");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(130, 480, 80, 80);
-
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(130, 580, 80, 80);
+        jToggleButton1.setBounds(110, 480, 90, 80);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/fundinho.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -477,6 +522,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jTextField4);
         jTextField4.setBounds(1100, 140, 0, 0);
 
+        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1"
+            }
+        ));
+        jScrollPane7.setViewportView(jTable6);
+
+        getContentPane().add(jScrollPane7);
+        jScrollPane7.setBounds(932, 210, 0, 0);
+
         jTextField3.setBorder(null);
         getContentPane().add(jTextField3);
         jTextField3.setBounds(1100, 146, 0, 14);
@@ -511,7 +569,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jScrollPane5);
         jScrollPane5.setBounds(210, 562, 10, 0);
 
-        jButton12.setText("mostrar");
+        jButton12.setText("Atualizar");
         jButton12.setBorder(null);
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -519,10 +577,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton12);
-        jButton12.setBounds(780, 160, 37, 15);
+        jButton12.setBounds(780, 145, 50, 30);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/2_1.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/__TELA PRINCIPAL.png"))); // NOI18N
         jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jLabel1MouseMoved(evt);
@@ -534,7 +592,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(-190, 0, 1730, 680);
+        jLabel1.setBounds(-200, 0, 1730, 680);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/fundinho.jpg"))); // NOI18N
         getContentPane().add(jLabel3);
@@ -565,14 +623,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
         if (!Chamar_Fornecedor.isVisible()) { Chamar_Fornecedor.setVisible(true); }
-        dispose();
       //  JFCadrastro Tela = new JFCadrastro();
       //  Tela.setVisible(rootPaneCheckingEnabled);  
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if (!Chamar_Fornecedor2.isVisible()) { Chamar_Fornecedor2.setVisible(true); } 
-        dispose();
       //  PaginaUsuario Tela = new PaginaUsuario();
       //  Tela.setVisible(rootPaneCheckingEnabled);   
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -587,7 +643,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 //Notificaçao de aniversario
           try {
-             String filePath = ("C:\\Arquivos do programa/texto.txt");
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/texto.txt");
         File file = new File(filePath);
             
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -683,12 +739,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
 //Apga as o arquivo txt
                                                
-                                               File filee = new File("C:\\Arquivos do programa/DadosObitidosDia.txt");
+                                               File filee = new File("C:\\Arquivos de Programas/Gestão de Clientes/DadosObitidosDia.txt");
 
                                                 if ( filee.exists()) {
                                                        filee.delete();
                                                    try {
-                                                       FileWriter fw = new FileWriter( "C:\\Arquivos do programa/DadosObitidosDia.txt" );
+                                                       FileWriter fw = new FileWriter( "C:\\Arquivos de Programas/Gestão de Clientes/DadosObitidosDia.txt" );
                                                    } catch (IOException ex) {
                                                        Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
                                                    }
@@ -709,7 +765,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTextField2.setText(formato.format(dataSistema));
         
         try{
-             String filePath = ("C:\\Arquivos do programa/ValorTotal.txt");
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/ValorTotal.txt");
         File file = new File(filePath);
             
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -738,7 +794,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         
         try {
-             String filePath = ("C:\\Arquivos do programa/ValorTotal.txt");
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/ValorTotal.txt");
         File file = new File(filePath);
             
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -901,7 +957,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         
         try {
-             String filePath = ("C:\\Arquivos do programa/ValorTotal.txt");
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/ValorTotal.txt");
         File file = new File(filePath);
             
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -999,7 +1055,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
          //TOTAL DE pedidos
        LineNumberReader lnr = null;
         try {
-            String filePath = ("C:\\Arquivos do programa/textando.txt");
+            String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt");
             File file = new File(filePath);
             lnr = new LineNumberReader(new FileReader(file));
             try {
@@ -1025,7 +1081,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         //VALOR ARRECADADO
         try {
 			//abre o arquivo
-			FileReader fr = new FileReader("C:\\Arquivos do programa/textando.txt");
+			FileReader fr = new FileReader("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt");
 			BufferedReader br = new BufferedReader(fr);
 			String temp;
 			//A cada interação, é uma linha do arquivo e atribui-a a temp
@@ -1082,7 +1138,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         //PEDIDOS FEITOS
         LineNumberReader lnrR = null;
         try {
-            String filePath = ("C:\\Arquivos do programa/texto.txt");
+            String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/texto.txt");
             File file = new File(filePath);
             lnrR = new LineNumberReader(new FileReader(file));
             try {
@@ -1149,7 +1205,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 //if (!Chamar_Fornecedor6.isVisible()) { Chamar_Fornecedor6.setVisible(true); }
         MeuNegocio Tela = new MeuNegocio();
         Tela.setVisible(rootPaneCheckingEnabled); 
-        dispose();
+       // dispose();
   //   jFrame1.setVisible(rootPaneCheckingEnabled); 
      
      
@@ -1222,26 +1278,28 @@ public class TelaPrincipal extends javax.swing.JFrame {
       
       
      // frm2.txT_Nome.setText();
-                                                           
-      frm2.txT_NomeUSUARIO.setText(jtTabelaP.getModel().getValueAt(jtTabelaP.getSelectedRow(),0).toString()); //Nome
-      frm2.txT_EnderecoUSUARIO.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),4).toString()); //Endereço
-      frm2.txT_NumeroUSUARIO.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),6).toString()); //Numero
-      frm2.txT_BairroUSUARIO.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),5).toString()); //Bairro
+       
+      frm2.txt_CodigoUSUARIO.setText(jtTabelaP.getModel().getValueAt(jtTabelaP.getSelectedRow(),0).toString()); //codigo
+      frm2.txT_NomeUSUARIO.setText(jtTabelaP.getModel().getValueAt(jtTabelaP.getSelectedRow(),1).toString()); //Nome
+      frm2.txT_EnderecoUSUARIO.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),5).toString()); //Endereço
+      frm2.txT_NumeroUSUARIO.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),7).toString()); //Numero
+      frm2.txT_BairroUSUARIO.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),6).toString()); //Bairro
       frm2.txT_dataUSUARIO.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),2).toString()); //Data
-      frm2.txT_AniversarioUSUARIO.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),7).toString()); //Aniversario
-      frm2.txT_EmailUSUARIO.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),8).toString()); //Email
-      frm2.txT_whatsUSUARIO1.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),9).toString()); //WhatsApp
-      frm2.txT_CelularUSUARIO2.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),10).toString()); //Celular
-      frm2.txT_ObiservacoesUSUARIO1.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),11).toString()); // Obiservaçoes
+      frm2.txT_AniversarioUSUARIO.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),8).toString()); //Aniversario
+      frm2.txT_EmailUSUARIO.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),9).toString()); //Email
+      frm2.txT_whatsUSUARIO1.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),10).toString()); //WhatsApp
+      frm2.txT_CelularUSUARIO2.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),11).toString()); //Celular
+      frm2.txT_ObiservacoesUSUARIO1.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),12).toString()); // Obiservaçoes
+      frm2.txt_CidadeUSUARIO.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),13).toString()); // cidade
       
      //string que vai ser apgada ao aperta o botão de sauvar alteraçoes
-      frm2.txt_Nome.setText(jtTabelaP.getModel().getValueAt(jtTabelaP.getSelectedRow(),0).toString()); //Nome
-      frm2.txt_pedidos.setText(jtTabelaP.getModel().getValueAt(jtTabelaP.getSelectedRow(),2).toString()); //pedido
-      frm2.txt_valorTotal.setText(jtTabelaP.getModel().getValueAt(jtTabelaP.getSelectedRow(),3).toString()); //valor total
-      frm2.txt_Rua.setText(jtTabelaP.getModel().getValueAt(jtTabelaP.getSelectedRow(),4).toString()); //Rua
-      frm2.txt_Endereco.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),5).toString()); //Endereço
-      frm2.txt_Numero.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),7).toString()); //Numero
-      frm2.txt_Bairro.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),6).toString()); //Bairro
+      frm2.txt_Nome.setText(jtTabelaP.getModel().getValueAt(jtTabelaP.getSelectedRow(),1).toString()); //Nome
+      frm2.txt_pedidos.setText(jtTabelaP.getModel().getValueAt(jtTabelaP.getSelectedRow(),3).toString()); //pedido
+      frm2.txt_valorTotal.setText(jtTabelaP.getModel().getValueAt(jtTabelaP.getSelectedRow(),4).toString()); //valor total
+      frm2.txt_Rua.setText(jtTabelaP.getModel().getValueAt(jtTabelaP.getSelectedRow(),5).toString()); //Rua
+      frm2.txt_Endereco.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),6).toString()); //Endereço
+      frm2.txt_Numero.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),2).toString()); //Numero
+      frm2.txt_Bairro.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),7).toString()); //Bairro
       frm2.txt_data.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),7).toString()); //Data
       frm2.Txt_Aniversario.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),8).toString()); //Aniversario
       frm2.txt_email.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),9).toString()); //Email
@@ -1249,6 +1307,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
       frm2.txt_celular.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),11).toString()); //Celular
       frm2.txt_obiservasoes.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),12).toString()); // Obiservaçoes
       frm2.txt_cidade.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),13).toString()); //controle cidade
+      frm2.txt_cidade.setText(jTable5.getModel().getValueAt(jtTabelaP.getSelectedRow(),14).toString()); //foto
      
       
       
@@ -1362,24 +1421,15 @@ if (!Chamar_Fornecedor3.isVisible()) { Chamar_Fornecedor3.setVisible(true); }
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
 if (!Chamar_Fornecedor4.isVisible()) { Chamar_Fornecedor4.setVisible(true); }
-dispose();
 
        // frm_GuardarDados Tela = new frm_GuardarDados();
     //    Tela.setVisible(rootPaneCheckingEnabled);
         
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//      if (!Chamar_Fornecedor5.isVisible()) { Chamar_Fornecedor5.setVisible(true); }
-        
-       // ListaVIP Tela = new ListaVIP();
-     //  Tela.setVisible(rootPaneCheckingEnabled);
-     
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
 try {
-             String filePath = ("C:\\Arquivos do programa/ValorTotal.txt");
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/ValorTotal.txt");
         File file = new File(filePath);
             
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -1408,7 +1458,7 @@ try {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jLabel1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseMoved
-  String filePathr = ("C:\\Arquivos do programa/faturamentoDia.txt");
+  String filePathr = ("C:\\Arquivos de Programas/Gestão de Clientes/faturamentoDia.txt");
         File fillle = new File(filePathr);
         
         LineNumberReader lnr = null;
@@ -1443,7 +1493,7 @@ try {
     ((DefaultTableModel) jtTabelaP.getModel()).removeRow(0);
     }
         
-      String filePath = ("C:\\Arquivos do programa/Texto.txt");
+      String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/Texto.txt");
         File fille = new File(filePath);
         //tabela 1
         try {
@@ -1542,12 +1592,12 @@ JFCadrastro Tela = new JFCadrastro();
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         //Apga as o arquivo txt
 
-        File filee = new File("C:\\Arquivos do programa/DadosObitidosDia.txt");
+        File filee = new File("C:\\Arquivos de Programas/Gestão de Clientes/DadosObitidosDia.txt");
 
         if ( filee.exists()) {
             filee.delete();
             try {
-                FileWriter fw = new FileWriter( "C:\\Arquivos do programa/DadosObitidosDia.txt" );
+                FileWriter fw = new FileWriter( "C:\\Arquivos de Programas/Gestão de Clientes/DadosObitidosDia.txt" );
             } catch (IOException ex) {
                 Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1568,10 +1618,99 @@ JFCadrastro Tela = new JFCadrastro();
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+while (jTable1.getModel().getRowCount() > 0) {
+    ((DefaultTableModel) jTable1.getModel()).removeRow(0);
+    }
+
+//Faturamento dia 
+//jLabel9.setText("Faturamento total");
+        try {
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/textando.txt");
+        File file = new File(filePath);
+            
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String firstLine = br.readLine().trim();
+           String[] columnsName = firstLine.split(",");
+         //   DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+          //  model.setColumnIdentifiers(columnsName);
+
+            Object[] tableLines = br.lines().toArray();
+            //model.addRow(tableLines);
+            
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataMax = line.split(";");
+                //String[] dataRow = line.split(";");
+           //     model.addRow(dataRow);
+                
+   
+               
+        //metodo para percorrer o array
+        Date dataSistema = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+        
+        jLabel8.setText(formato.format(dataSistema));
+        String DataHoje = jLabel8.getText();
+        String quebrador ="";
+        int posisao = 0;
+                for (int j = 0; j < dataMax.length; j++) {
+                    String  linha = dataMax[posisao];
+                    //Metodo para aparecer so o valor
+                    if(linha.toLowerCase().contains(DataHoje.toLowerCase()) == true){
+                        System.out.println(linha+"Contem a data de hoje"); 
+                    
+                       
+                                               
+                    linha.trim();
+                    System.out.println(linha);
+                    //Metodo de formataçao de String
+                    String space = " ";
+                    if(linha.toLowerCase().contains(space.toLowerCase()) == true){
+                        //Metodo quebra Strig
+                    String a = linha;
+	            String[] array = a.split(" ");
+	            for (int ij = 0; ij < array.length; ij++){
+		    System.out.println(array[0]);//Valor
+                    
+                       
+                        
+                       
+	}
+                     
+        
+                        
+                    
+                    
+                    DefaultTableModel val = (DefaultTableModel) jTable1.getModel();
+                        val.addRow(new String[]{array[0]} );
+                    
+                    }
+                    
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(PaginaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        faturamentoDia();
+
+
+
+
+
+
+
+
+
+
+
+
         // TODO add your handling code here:
         
 	try {
-             String filePath = ("C:\\Arquivos do programa/faturamentoDia.txt");
+             String filePath = ("C:\\Arquivos de Programas/Gestão de Clientes/faturamentoDia.txt");
         File file = new File(filePath);
             
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -1659,11 +1798,15 @@ JFCadrastro Tela = new JFCadrastro();
     }//GEN-LAST:event_jTextproKeyPressed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        int  opisao = JOptionPane.showConfirmDialog(null, "Você realmente quer sair do programa?", "Atenção", JOptionPane.YES_OPTION);
+    /*    int  opisao = JOptionPane.showConfirmDialog(null, "Você realmente quer sair do programa?", "Atenção", JOptionPane.YES_OPTION);
       
         if(opisao == JOptionPane.YES_OPTION){
     System.exit(0);
-    }
+    }else{
+        repaint();
+        
+        }
+*/
 
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
@@ -1705,7 +1848,6 @@ JFCadrastro Tela = new JFCadrastro();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TxT_Pedididos;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
@@ -1751,11 +1893,13 @@ JFCadrastro Tela = new JFCadrastro();
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
+    private javax.swing.JTable jTable6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
